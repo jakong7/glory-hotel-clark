@@ -619,14 +619,14 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
         <h3>About Page Image</h3>
         <div class="adm-field"><label>Image URL</label><input id="img-about" placeholder="https://... or local path" oninput="previewImg('img-about','prev-about')"></div>
         <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-about','prev-about')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
-        <img id="prev-about" class="adm-img-preview" src="https://thegloryhotelpampanga.com/img/6cf41723a79f0051.webp" onerror="this.style.display='none'">
+        <img id="prev-about" class="adm-img-preview" src="img/6cf41723a79f0051.webp" onerror="this.style.display='none'">
         <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAboutImg()">Apply</button></div>
       </div>
       <div class="adm-card">
         <h3>South Building Banner</h3>
         <div class="adm-field"><label>Image URL</label><input id="img-south" placeholder="https://..." oninput="previewImg('img-south','prev-south')"></div>
         <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-south','prev-south')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
-        <img id="prev-south" class="adm-img-preview" src="https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp" onerror="this.style.display='none'">
+        <img id="prev-south" class="adm-img-preview" src="img/f278ded787d43df2.webp" onerror="this.style.display='none'">
         <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveSouthImg()">Apply</button></div>
       </div>
     </div>
@@ -773,7 +773,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
     <div class="rooms-grid" id="homeRoomsGrid"></div>
   </section>
   <div class="featured reveal">
-    <img id="southBannerImg" src="https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp" alt="South Building">
+    <img id="southBannerImg" src="img/f278ded787d43df2.webp" alt="South Building">
     <div class="feat-ov">
       <div class="feat-cnt">
         <div class="section-label">Highlight</div>
@@ -1041,26 +1041,26 @@ const ADM_PW = 'glory2026';
 
 let siteData = {
   heroImgs: [
-    'https://thegloryhotelpampanga.com/img/0631869523298a26.webp',
-    'https://thegloryhotelpampanga.com/img/bbccdedc73452614.webp',
-    'https://thegloryhotelpampanga.com/img/69640d5dbfa25f22.webp',
-    'https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp',
-    'https://thegloryhotelpampanga.com/img/05bdafd48c0ce146.webp'
+    'img/0631869523298a26.webp',
+    'img/bbccdedc73452614.webp',
+    'img/69640d5dbfa25f22.webp',
+    'img/f278ded787d43df2.webp',
+    'img/05bdafd48c0ce146.webp'
   ],
   rooms: [
-    {id:1,num:'01 · South Building',name:'Deluxe King',desc:'Spacious king-bed suite with premium furnishings and panoramic views from the South Building.',img:'https://thegloryhotelpampanga.com/img/9c97b6d000fbd128.webp',thumbs:['https://thegloryhotelpampanga.com/img/9413af066aad77ca.webp','https://thegloryhotelpampanga.com/img/addf1964031f3857.webp','https://thegloryhotelpampanga.com/img/71bbb01ae8a0b096.webp','https://thegloryhotelpampanga.com/img/cb5d41d0576c83c2.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064709',price:5800,currency:'PHP'},
-    {id:2,num:'02 · South Building',name:'Deluxe Twin',desc:'Elegantly appointed twin room ideal for colleagues or travelling companions.',img:'https://thegloryhotelpampanga.com/img/164bef3920f64219.webp',thumbs:['https://thegloryhotelpampanga.com/img/02616393b56f7747.webp','https://thegloryhotelpampanga.com/img/1cdacbdf164594e5.webp','https://thegloryhotelpampanga.com/img/79cf87063fb9210d.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064708',price:5500,currency:'PHP'},
-    {id:3,num:'03 · Exclusive',name:'Pool Villa',desc:'Signature villa with exclusive pool access — the ultimate luxury retreat.',img:'https://thegloryhotelpampanga.com/img/589df6cd1f122ef7.webp',thumbs:['https://thegloryhotelpampanga.com/img/57c2de427c1ac151.webp','https://thegloryhotelpampanga.com/img/3f6b3ad77beb25a0.webp','https://thegloryhotelpampanga.com/img/bd44621383140bc3.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5066905',price:12000,currency:'PHP'},
-    {id:4,num:'04 · East & West',name:'Executive Room',desc:'Business-ready accommodation with elevated amenities and dedicated workspace.',img:'https://thegloryhotelpampanga.com/img/9b9ef91b665ced5b.webp',thumbs:['https://thegloryhotelpampanga.com/img/b90b22bc98137470.webp','https://thegloryhotelpampanga.com/img/a851f37aa5802dd5.webp','https://thegloryhotelpampanga.com/img/c6b17c8bc11474eb.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064710',price:4500,currency:'PHP'},
-    {id:5,num:'05 · East & West',name:'Standard Room',desc:'Comfortable, well-appointed rooms offering quality rest at exceptional value.',img:'https://thegloryhotelpampanga.com/img/74ca71a5ed764ae1.webp',thumbs:['https://thegloryhotelpampanga.com/img/9413af066aad77ca.webp','https://thegloryhotelpampanga.com/img/7db5a9f5bd599e57.webp','https://thegloryhotelpampanga.com/img/9025d113b877f52a.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064731',price:3200,currency:'PHP'}
+    {id:1,num:'01 · South Building',name:'Deluxe King',desc:'Spacious king-bed suite with premium furnishings and panoramic views from the South Building.',img:'img/9c97b6d000fbd128.webp',thumbs:['img/9413af066aad77ca.webp','img/addf1964031f3857.webp','img/71bbb01ae8a0b096.webp','img/cb5d41d0576c83c2.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064709',price:5800,currency:'PHP'},
+    {id:2,num:'02 · South Building',name:'Deluxe Twin',desc:'Elegantly appointed twin room ideal for colleagues or travelling companions.',img:'img/164bef3920f64219.webp',thumbs:['img/02616393b56f7747.webp','img/1cdacbdf164594e5.webp','img/79cf87063fb9210d.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064708',price:5500,currency:'PHP'},
+    {id:3,num:'03 · Exclusive',name:'Pool Villa',desc:'Signature villa with exclusive pool access — the ultimate luxury retreat.',img:'img/589df6cd1f122ef7.webp',thumbs:['img/57c2de427c1ac151.webp','img/3f6b3ad77beb25a0.webp','img/bd44621383140bc3.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5066905',price:12000,currency:'PHP'},
+    {id:4,num:'04 · East & West',name:'Executive Room',desc:'Business-ready accommodation with elevated amenities and dedicated workspace.',img:'img/9b9ef91b665ced5b.webp',thumbs:['img/b90b22bc98137470.webp','img/a851f37aa5802dd5.webp','img/c6b17c8bc11474eb.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064710',price:4500,currency:'PHP'},
+    {id:5,num:'05 · East & West',name:'Standard Room',desc:'Comfortable, well-appointed rooms offering quality rest at exceptional value.',img:'img/74ca71a5ed764ae1.webp',thumbs:['img/9413af066aad77ca.webp','img/7db5a9f5bd599e57.webp','img/9025d113b877f52a.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064731',price:3200,currency:'PHP'}
   ],
   promos: [
-    {id:1,tag:'Same-Day · Limited',name:'Last Minute Offer',desc:'Book on the same day of check-in and enjoy exclusive savings.',img:'https://thegloryhotelpampanga.com/img/6ad2a215406df470.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141333'},
-    {id:2,tag:'Early Bird',name:'Book Now, Stay Later',desc:'Reserve 7 days in advance for significant savings.',img:'https://thegloryhotelpampanga.com/img/ba3aae73f2c01baa.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141331'},
-    {id:3,tag:'Extended Stay',name:'Stay Longer, Save More',desc:'7+ consecutive nights with progressive savings and complimentary perks.',img:'https://thegloryhotelpampanga.com/img/8c65d0cc89fd3cf9.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141332'},
-    {id:4,tag:'Best Rate · Room Only',name:'Best Available Rate: Room Only',desc:'Our best available rate for room-only bookings.',img:'https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141329'},
-    {id:5,tag:'Best Rate · With Breakfast',name:'Room with Breakfast',desc:'Start every morning at Primo Dining with complimentary breakfast.',img:'https://thegloryhotelpampanga.com/img/a8cbb8089c57a3fb.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141330'},
-    {id:6,tag:'Published Rate',name:'Best Deal: Room with Breakfast',desc:'Published rate with complimentary breakfast each morning.',img:'https://thegloryhotelpampanga.com/img/589df6cd1f122ef7.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10142106'}
+    {id:1,tag:'Same-Day · Limited',name:'Last Minute Offer',desc:'Book on the same day of check-in and enjoy exclusive savings.',img:'img/6ad2a215406df470.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141333'},
+    {id:2,tag:'Early Bird',name:'Book Now, Stay Later',desc:'Reserve 7 days in advance for significant savings.',img:'img/ba3aae73f2c01baa.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141331'},
+    {id:3,tag:'Extended Stay',name:'Stay Longer, Save More',desc:'7+ consecutive nights with progressive savings and complimentary perks.',img:'img/8c65d0cc89fd3cf9.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141332'},
+    {id:4,tag:'Best Rate · Room Only',name:'Best Available Rate: Room Only',desc:'Our best available rate for room-only bookings.',img:'img/f278ded787d43df2.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141329'},
+    {id:5,tag:'Best Rate · With Breakfast',name:'Room with Breakfast',desc:'Start every morning at Primo Dining with complimentary breakfast.',img:'img/a8cbb8089c57a3fb.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141330'},
+    {id:6,tag:'Published Rate',name:'Best Deal: Room with Breakfast',desc:'Published rate with complimentary breakfast each morning.',img:'img/589df6cd1f122ef7.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10142106'}
   ],
   text: {
     hotelName:'The Glory Hotel', hotelSub:'Clark · Pampanga',
@@ -1074,12 +1074,12 @@ let siteData = {
     southDesc:'Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.'
   },
   pageHeroes: {
-    about:'https://thegloryhotelpampanga.com/img/6cf41723a79f0051.webp',
-    rooms:'https://thegloryhotelpampanga.com/img/9c97b6d000fbd128.webp',
-    amenities:'https://thegloryhotelpampanga.com/img/26e85713a0d8912b.webp',
-    promotions:'https://thegloryhotelpampanga.com/img/bbccdedc73452614.webp',
-    contact:'https://thegloryhotelpampanga.com/img/ba3aae73f2c01baa.webp',
-    booking:'https://thegloryhotelpampanga.com/img/0631869523298a26.webp'
+    about:'img/6cf41723a79f0051.webp',
+    rooms:'img/9c97b6d000fbd128.webp',
+    amenities:'img/26e85713a0d8912b.webp',
+    promotions:'img/bbccdedc73452614.webp',
+    contact:'img/ba3aae73f2c01baa.webp',
+    booking:'img/0631869523298a26.webp'
   },
   about: {
     label:'Our Story',
@@ -1097,10 +1097,10 @@ let siteData = {
     {name:'Pets',detail:'No pets allowed (excluding assistance dogs)'}
   ],
   amenitySections: [
-    {tag:'Included with Room Stay',title:'Free Swimming Pool Access',desc:'Unwind and refresh at The Glory Hotel\'s exclusive swimming pool. Open 8:00 AM – 10:00 PM daily.',imgs:['https://thegloryhotelpampanga.com/img/6ad2a215406df470.webp','https://thegloryhotelpampanga.com/img/19e877fec47f179e.webp','https://thegloryhotelpampanga.com/img/381d8ef03868a44b.webp','https://thegloryhotelpampanga.com/img/0457087ef30f8937.webp','https://thegloryhotelpampanga.com/img/b7f8e8189ee69e94.webp'],wide:true},
-    {tag:'',title:'Free Gym Access',desc:'Stay active at Glory\'s Gym, West Building. Open 6:00 AM – 9:00 PM daily.',imgs:['https://thegloryhotelpampanga.com/img/391e1db618643856.webp','https://thegloryhotelpampanga.com/img/f619afc0fac16afc.webp','https://thegloryhotelpampanga.com/img/f67988898a523ccc.webp','https://thegloryhotelpampanga.com/img/d2bf69fc9f2f9da3.webp']},
-    {tag:'Dining & Leisure',title:'Primo Dining',desc:'Dedicated breakfast venue with freshly brewed coffee and local & international breakfast favorites.',imgs:['https://thegloryhotelpampanga.com/img/c155e4f201ce5a85.webp','https://thegloryhotelpampanga.com/img/a8cbb8089c57a3fb.webp','https://thegloryhotelpampanga.com/img/b5030acfa9251635.webp','https://thegloryhotelpampanga.com/img/2637c518f5b61359.webp']},
-    {tag:'',title:'Oasis of Calm — Spa',desc:'Expert therapists, serene atmosphere. Revitalize your body, mind, and soul.',imgs:['https://thegloryhotelpampanga.com/img/8c65d0cc89fd3cf9.webp','https://thegloryhotelpampanga.com/img/5a9d126c463f5c22.webp','https://thegloryhotelpampanga.com/img/f7a1fdfbd8a17efb.webp','https://thegloryhotelpampanga.com/img/8a48d353afe7f17c.webp']}
+    {tag:'Included with Room Stay',title:'Free Swimming Pool Access',desc:'Unwind and refresh at The Glory Hotel\'s exclusive swimming pool. Open 8:00 AM – 10:00 PM daily.',imgs:['img/6ad2a215406df470.webp','img/19e877fec47f179e.webp','img/381d8ef03868a44b.webp','img/0457087ef30f8937.webp','img/b7f8e8189ee69e94.webp'],wide:true},
+    {tag:'',title:'Free Gym Access',desc:'Stay active at Glory\'s Gym, West Building. Open 6:00 AM – 9:00 PM daily.',imgs:['img/391e1db618643856.webp','img/f619afc0fac16afc.webp','img/f67988898a523ccc.webp','img/d2bf69fc9f2f9da3.webp']},
+    {tag:'Dining & Leisure',title:'Primo Dining',desc:'Dedicated breakfast venue with freshly brewed coffee and local & international breakfast favorites.',imgs:['img/c155e4f201ce5a85.webp','img/a8cbb8089c57a3fb.webp','img/b5030acfa9251635.webp','img/2637c518f5b61359.webp']},
+    {tag:'',title:'Oasis of Calm — Spa',desc:'Expert therapists, serene atmosphere. Revitalize your body, mind, and soul.',imgs:['img/8c65d0cc89fd3cf9.webp','img/5a9d126c463f5c22.webp','img/f7a1fdfbd8a17efb.webp','img/8a48d353afe7f17c.webp']}
   ],
   functionHalls: [
     {name:'Grand Lumiere Ballroom',u:75,b:85,c:135,bn:200,t:300,imgs:[]},
