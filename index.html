@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Glory Hotel — Clark, Pampanga</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;--gold-l:#E8D5A3;--gold-d:#8B6914;
+  --black:#0D0D0D;--dark:#1A1A1A;--dark2:#242424;
+  --gray:#888;--light:#F5F2ED;--white:#FDFCFA;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Montserrat',sans-serif;
+  /* Admin */
+  --adm-bg:#0f1117;--adm-surface:#181c24;--adm-border:#2a2e3a;
+  --adm-gold:#C9A84C;--adm-text:#e0e0e0;--adm-muted:#8a8fa8;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--serif);background:var(--white);color:var(--black);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* ══ PAGE SYSTEM ══ */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;transition:all .4s;}
+nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);padding:14px 48px;border-bottom:.5px solid rgba(201,168,76,.2);}
+nav.light-nav{background:rgba(10,10,10,0.95);border-bottom:.5px solid rgba(201,168,76,.2);}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:4px;color:#fff;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:0;}
+.nav-logo-icon{width:84px;height:84px;flex-shrink:0;}
+.nav-logo em{display:block;font-style:normal;font-size:9px;letter-spacing:6px;color:var(--gold);margin-top:3px;font-family:var(--sans);font-weight:400;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-book{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:11px 28px;cursor:pointer;transition:background .2s;}
+.nav-book:hover{background:var(--gold-l);}
+.nav-admin-btn{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;border:1px solid var(--gold);background:rgba(201,168,76,.15);padding:10px 20px;cursor:pointer;transition:all .2s;}
+.nav-admin-btn:hover{background:var(--gold);color:var(--black);}
+.nav-admin-btn::before{content:'⚙ ';font-size:11px;}
+
+/* ══ HAMBURGER ══ */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.nav-hamburger span{display:block;width:24px;height:1.5px;background:#fff;transition:all .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--sans);font-size:12px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;cursor:pointer;transition:color .2s;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--gold);}
+.mobile-menu .mob-book{margin-top:16px;font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:14px 40px;cursor:pointer;}
+
+/* ══ HERO ══ */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:var(--black);}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s;}
+.hero-slide.active{opacity:1;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.65) 100%);}
+.hero-content{position:absolute;bottom:100px;left:0;right:0;text-align:center;color:#fff;animation:fadeUp 1.2s ease .3s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:6px;font-weight:400;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero-title{font-size:clamp(52px,8vw,96px);font-weight:400;letter-spacing:6px;line-height:1.05;margin-bottom:14px;}
+.hero-title em{font-style:italic;color:var(--gold-l);}
+.hero-sub{font-family:var(--sans);font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:40px;}
+.hero-cta{display:inline-block;font-family:var(--sans);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#fff;border:.5px solid rgba(255,255,255,.5);padding:14px 44px;background:transparent;cursor:pointer;transition:all .3s;margin:0 8px;}
+.hero-cta:hover{border-color:var(--gold);color:var(--gold);}
+.hero-cta.filled{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.hero-cta.filled:hover{background:var(--gold-l);}
+.hero-dots{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;gap:10px;}
+.dot{width:24px;height:2px;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:all .3s;}
+.dot.active{background:var(--gold);width:40px;}
+
+/* ══ SECTIONS ══ */
+.ornament{display:flex;align-items:center;gap:18px;padding:0 80px;margin:56px 0;}
+.orn-line{flex:1;height:.5px;background:var(--gold);opacity:.3;}
+.orn-text{font-family:var(--sans);font-size:10px;letter-spacing:5px;font-weight:500;text-transform:uppercase;color:var(--gold);}
+.section-label{font-family:var(--sans);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-d);margin-bottom:16px;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:none;}
+.page-hero{position:relative;height:320px;overflow:hidden;background:var(--black);}
+.page-hero img{width:100%;height:100%;object-fit:cover;opacity:.6;}
+.page-hero-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:48px 64px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);}
+.page-hero-overlay h1{font-size:clamp(36px,5vw,60px);font-weight:400;letter-spacing:4px;color:#fff;}
+.page-hero-overlay h1 em{font-style:italic;color:var(--gold-l);}
+.intro{max-width:760px;margin:0 auto;text-align:center;padding:0 40px 70px;}
+.intro h2{font-size:40px;font-weight:400;letter-spacing:2px;line-height:1.3;margin-bottom:22px;}
+.intro h2 em{font-style:italic;color:var(--gold-d);}
+.intro p{font-family:var(--sans);font-size:14px;line-height:2;color:#444;font-weight:400;}
+.rooms-home{padding:0 48px 80px;}
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;}
+.sec-hdr-txt h2{font-size:34px;font-weight:400;letter-spacing:2px;}
+.sec-hdr-txt p{font-family:var(--sans);font-size:12px;letter-spacing:2px;color:#666;margin-top:6px;text-transform:uppercase;}
+.sec-hdr a{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-d);text-decoration:none;cursor:pointer;border-bottom:.5px solid var(--gold-d);padding-bottom:2px;}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.room-card{position:relative;overflow:hidden;cursor:pointer;}
+.room-card:hover .room-img{transform:scale(1.06);}
+.room-card:hover .room-ov{opacity:1;}
+.room-img-w{height:280px;overflow:hidden;}
+.room-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.room-ov{position:absolute;top:0;left:0;right:0;bottom:84px;background:rgba(0,0,0,.4);opacity:0;transition:opacity .4s;display:flex;align-items:center;justify-content:center;}
+.room-ov span{font-family:var(--sans);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#fff;border:.5px solid rgba(255,255,255,.7);padding:12px 30px;}
+.room-info{padding:18px 4px 10px;}
+.room-num{font-family:var(--sans);font-size:10px;letter-spacing:3px;color:var(--gold-d);font-weight:500;margin-bottom:6px;}
+.room-name{font-size:22px;font-weight:500;letter-spacing:1px;margin-bottom:8px;}
+.room-desc{font-family:var(--sans);font-size:12px;color:#555;line-height:1.7;font-weight:400;}
+.featured{margin:20px 48px 80px;position:relative;height:420px;overflow:hidden;}
+.featured img{width:100%;height:100%;object-fit:cover;display:block;}
+.feat-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%);display:flex;align-items:center;padding:60px;}
+.feat-cnt{color:#fff;max-width:420px;}
+.feat-cnt .section-label{color:var(--gold-l);margin-bottom:16px;}
+.feat-cnt h2{font-size:44px;font-weight:400;letter-spacing:2px;line-height:1.2;margin-bottom:16px;}
+.feat-cnt p{font-family:var(--sans);font-size:14px;line-height:1.9;color:rgba(255,255,255,.8);font-weight:400;margin-bottom:28px;}
+.btn-gold{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:14px 36px;cursor:pointer;transition:background .2s;}
+.btn-gold:hover{background:var(--gold-l);}
+.amenities-home{background:var(--light);padding:70px 48px;}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:44px;}
+.amenity{background:var(--white);padding:36px 24px;text-align:center;border:.5px solid rgba(0,0,0,.06);transition:background .2s;cursor:pointer;}
+.amenity:hover{background:var(--black);}
+.amenity:hover .am-name{color:rgba(255,255,255,.8);}
+.amenity:hover .am-icon{color:var(--gold);}
+.am-icon{font-size:26px;margin-bottom:14px;transition:color .2s;display:block;}
+.am-name{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#444;font-weight:500;line-height:1.6;transition:color .2s;}
+.offers-home{padding:70px 48px;}
+.offers-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px;margin-top:44px;}
+.offer-card{overflow:hidden;cursor:pointer;}
+.offer-card:hover .offer-img{transform:scale(1.05);}
+.offer-img-w{overflow:hidden;height:240px;}
+.offers-grid .offer-card:first-child .offer-img-w{height:360px;}
+.offer-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.offer-info{padding:18px 4px 10px;}
+.offer-tag{font-family:var(--sans);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-d);font-weight:500;margin-bottom:8px;}
+.offer-name{font-size:22px;font-weight:500;margin-bottom:8px;letter-spacing:.5px;}
+.offer-desc{font-family:var(--sans);font-size:12px;color:#555;line-height:1.7;font-weight:400;}
+.contact-sec{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1fr;}
+.contact-left{padding:80px 64px;border-right:.5px solid rgba(201,168,76,.15);}
+.contact-left h2{font-size:36px;font-weight:400;letter-spacing:2px;margin-bottom:36px;}
+.contact-left h2 em{font-style:italic;color:var(--gold);}
+.c-row{margin-bottom:22px;}
+.c-label{font-family:var(--sans);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:6px;}
+.c-val{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.75);font-weight:400;line-height:1.7;}
+.c-val a{color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;}
+.c-val a:hover{color:var(--gold);}
+.contact-right{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;}
+.booking-box{border:.5px solid rgba(201,168,76,.3);padding:48px;text-align:center;}
+.booking-box .section-label{color:var(--gold-l);margin-bottom:16px;}
+.booking-box h3{font-size:34px;font-weight:400;letter-spacing:2px;margin-bottom:10px;}
+.booking-box p{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.55);line-height:1.8;font-weight:400;margin-bottom:32px;}
+.booking-box .btn-gold{width:100%;padding:16px;}
+.bk-div{display:flex;align-items:center;gap:14px;margin:18px 0;}
+.bk-div-line{flex:1;height:.5px;background:rgba(255,255,255,.1);}
+.bk-div span{font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.25);letter-spacing:2px;}
+.btn-outline-w{width:100%;background:transparent;color:rgba(255,255,255,.6);border:.5px solid rgba(255,255,255,.15);padding:15px;font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.btn-outline-w:hover{border-color:var(--gold);color:var(--gold);}
+footer{background:var(--black);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;border-top:.5px solid rgba(201,168,76,.1);}
+.contact-map{width:100%;background:var(--dark);padding:0;}
+.contact-map iframe{display:block;width:100%;filter:grayscale(30%) contrast(1.05);}
+.foot-logo{font-size:14px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.foot-copy{font-family:var(--sans);font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.4);}
+.foot-social a{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;transition:opacity .2s;}
+.foot-social a:hover{opacity:1;}
+.about-body{max-width:900px;margin:0 auto;padding:60px 40px;}
+.about-body img{width:100%;max-height:420px;object-fit:cover;margin-bottom:40px;}
+.about-body h2{font-size:32px;font-weight:400;letter-spacing:2px;margin:32px 0 16px;}
+.about-body p{font-family:var(--sans);font-size:14px;line-height:2;color:#444;font-weight:400;margin-bottom:16px;}
+.policy-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:12px;margin-top:16px;}
+.policy-table th{background:var(--dark);color:var(--gold);font-weight:400;letter-spacing:2px;text-align:left;padding:14px 16px;font-size:10px;text-transform:uppercase;}
+.policy-table td{padding:14px 16px;border-bottom:.5px solid rgba(0,0,0,.08);vertical-align:top;line-height:1.7;color:#333;font-weight:400;}
+.policy-table tr:nth-child(even) td{background:var(--light);}
+.rooms-page{padding:60px 48px;}
+.rooms-page-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:40px;}
+.rp-card{cursor:pointer;}
+.rp-card:hover .rp-gallery-main img{transform:scale(1.04);}
+.rp-gallery-main{height:320px;overflow:hidden;position:relative;}
+.rp-gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block;}
+.rp-thumbs{display:flex;gap:8px;margin-top:8px;}
+.rp-thumbs img{width:64px;height:48px;object-fit:cover;cursor:pointer;opacity:.7;transition:opacity .2s;border:.5px solid transparent;}
+.rp-thumbs img:hover,.rp-thumbs img.active{opacity:1;border-color:var(--gold);}
+.rp-info{padding:20px 0 10px;}
+.rp-num{font-family:var(--sans);font-size:10px;letter-spacing:3px;color:var(--gold-d);margin-bottom:6px;}
+.rp-name{font-size:28px;font-weight:400;letter-spacing:1px;margin-bottom:10px;}
+.rp-desc{font-family:var(--sans);font-size:13px;color:#444;line-height:1.9;font-weight:400;margin-bottom:18px;}
+.rp-book{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:12px 30px;cursor:pointer;transition:background .2s;}
+.rp-book:hover{background:var(--gold-l);}
+.amenities-page{padding:60px 48px;}
+.am-section{margin-bottom:60px;}
+.am-section h2{font-size:28px;font-weight:400;letter-spacing:2px;margin-bottom:8px;}
+.am-section>p{font-family:var(--sans);font-size:14px;color:#444;line-height:1.9;font-weight:400;margin-bottom:24px;max-width:700px;}
+.am-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
+.am-gallery img{width:100%;height:160px;object-fit:cover;cursor:pointer;transition:opacity .2s;}
+.am-gallery img:hover{opacity:.85;}
+.am-gallery.wide{grid-template-columns:repeat(5,1fr);}
+.am-tag{display:inline-block;font-family:var(--sans);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-d);border:.5px solid var(--gold-d);padding:4px 12px;margin-bottom:18px;}
+.fn-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:12px;margin-top:16px;}
+.fn-table th{background:var(--dark);color:var(--gold);font-weight:400;letter-spacing:2px;text-align:center;padding:12px 10px;font-size:10px;text-transform:uppercase;}
+.fn-table td{padding:12px 10px;border-bottom:.5px solid rgba(0,0,0,.08);text-align:center;color:#444;}
+.fn-table td:first-child{text-align:left;font-weight:500;}
+.fn-table tr:nth-child(even) td{background:var(--light);}
+.fn-hall-gallery{margin-top:28px;}
+.fn-hall-name{font-size:18px;font-weight:400;letter-spacing:1px;margin-bottom:12px;color:var(--black);}
+.promos-page{padding:60px 48px;}
+.promos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:40px;}
+.promo-card{border:.5px solid rgba(0,0,0,.1);overflow:hidden;}
+.promo-card img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .6s;}
+.promo-card:hover img{transform:scale(1.04);}
+.promo-info{padding:28px;}
+.promo-tag{font-family:var(--sans);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px;}
+.promo-name{font-size:26px;font-weight:400;letter-spacing:1px;margin-bottom:12px;}
+.promo-desc{font-family:var(--sans);font-size:13px;color:#444;line-height:1.9;font-weight:400;margin-bottom:20px;}
+.promo-btn{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-d);border:.5px solid var(--gold-d);padding:10px 24px;background:none;cursor:pointer;transition:all .2s;}
+.promo-btn:hover{background:var(--gold-d);color:#fff;}
+
+/* ══ LIGHTBOX ══ */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;}
+.lb-close{position:absolute;top:24px;right:32px;color:#fff;font-size:32px;cursor:pointer;font-family:var(--sans);font-weight:300;line-height:1;background:none;border:none;}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.6);font-size:40px;cursor:pointer;background:none;border:none;padding:0 20px;transition:color .2s;font-family:var(--sans);font-weight:300;}
+.lb-prev:hover,.lb-next:hover{color:var(--gold);}
+.lb-caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+
+/* ══ ROOM PRICES ══ */
+.room-price{font-family:var(--sans);font-size:13px;color:var(--gold-d);font-weight:500;margin-top:6px;letter-spacing:1px;}
+.room-price span{font-size:10px;color:#999;font-weight:300;margin-left:3px;}
+.rp-price{font-family:var(--sans);font-size:16px;color:var(--gold-d);font-weight:500;margin-bottom:14px;letter-spacing:1px;}
+.rp-price span{font-size:11px;color:#999;font-weight:300;margin-left:4px;}
+.bk-room-price{font-family:var(--sans);font-size:13px;color:var(--gold);margin-top:4px;letter-spacing:1px;}
+
+/* ══ MOBILE ══ */
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  nav.scrolled,nav.light-nav{padding:12px 20px;}
+  .nav-links,.nav-book{display:none;}
+  .nav-admin-btn{font-size:9px;padding:8px 12px;letter-spacing:1px;}
+  .nav-admin-btn::before{content:'⚙ ';}
+  .nav-hamburger{display:flex;}
+  .nav-logo{font-size:16px;letter-spacing:2px;gap:0;}
+  .nav-logo-icon{width:66px;height:66px;}
+  .nav-logo em{font-size:8px;letter-spacing:3px;}
+  .hero{height:100svh;min-height:500px;}
+  .hero-content{bottom:70px;padding:0 20px;}
+  .hero-title{font-size:clamp(38px,10vw,56px);letter-spacing:3px;}
+  .hero-eyebrow{font-size:9px;letter-spacing:4px;}
+  .hero-sub{font-size:9px;letter-spacing:2px;margin-bottom:28px;}
+  .hero-cta{font-size:9px;padding:12px 24px;margin:4px 4px;display:inline-block;}
+  .hero-dots{bottom:24px;}
+  .ornament{padding:0 24px;margin:36px 0;}
+  .intro{padding:0 24px 48px;}
+  .intro h2{font-size:28px;letter-spacing:1px;}
+  .intro p{font-size:12px;}
+  .rooms-home{padding:0 20px 56px;}
+  .sec-hdr{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:28px;}
+  .sec-hdr-txt h2{font-size:26px;}
+  .rooms-grid{grid-template-columns:1fr;gap:20px;}
+  .room-img-w{height:220px;}
+  .room-ov{bottom:0;}
+  .featured{margin:0 0 56px;height:320px;}
+  .feat-ov{padding:28px 24px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.3) 100%);}
+  .feat-cnt{max-width:100%;}
+  .feat-cnt h2{font-size:28px;}
+  .amenities-home{padding:48px 20px;}
+  .amenities-grid{grid-template-columns:repeat(2,1fr);}
+  .amenity{padding:24px 12px;}
+  .offers-home{padding:48px 20px;}
+  .offers-grid{grid-template-columns:1fr;gap:20px;}
+  .offer-img-w,.offers-grid .offer-card:first-child .offer-img-w{height:220px;}
+  .contact-sec{grid-template-columns:1fr;}
+  .contact-left{padding:48px 24px;border-right:none;border-bottom:.5px solid rgba(201,168,76,.15);}
+  .contact-left h2{font-size:26px;}
+  .contact-right{padding:40px 24px;}
+  .booking-box{padding:32px 24px;}
+  .booking-box h3{font-size:26px;}
+  footer{flex-direction:column;gap:10px;text-align:center;padding:24px 20px;}
+  .page-hero{height:220px;}
+  .page-hero-overlay{padding:28px 24px;}
+  .page-hero-overlay h1{font-size:clamp(28px,7vw,40px);}
+  .about-body{padding:40px 20px;}
+  .about-body img{max-height:260px;}
+  .about-body h2{font-size:24px;}
+  .rooms-page{padding:40px 20px;}
+  .rooms-page-grid{grid-template-columns:1fr;gap:32px;}
+  .rp-gallery-main{height:240px;}
+  .rp-thumbs img{width:52px;height:40px;}
+  .rp-name{font-size:22px;}
+  .amenities-page{padding:40px 20px;}
+  .am-gallery,.am-gallery.wide{grid-template-columns:repeat(2,1fr);}
+  .am-gallery img{height:130px;}
+  .promos-page{padding:40px 20px;}
+  .promos-grid{grid-template-columns:1fr;gap:24px;}
+  .promo-card img{height:200px;}
+}
+
+/* ══ BOOKING PAGE ══ */
+.booking-page{padding:60px 48px;max-width:900px;margin:0 auto;}
+.bk-form-wrap{display:grid;grid-template-columns:1fr 340px;gap:36px;margin-top:28px;}
+.bk-form{background:var(--white);border:.5px solid rgba(0,0,0,.1);}
+.bk-form-header{background:var(--dark);padding:22px 28px;}
+.bk-form-header h2{font-size:22px;font-weight:400;letter-spacing:2px;color:#fff;}
+.bk-form-header p{font-family:var(--sans);font-size:9px;letter-spacing:3px;color:var(--gold);margin-top:4px;text-transform:uppercase;}
+.bk-form-body{padding:24px 28px;}
+.bk-field{margin-bottom:16px;}
+.bk-field label{display:block;font-family:var(--sans);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#777;margin-bottom:6px;}
+.bk-field label .req{color:var(--gold-d);}
+.bk-field input,.bk-field select,.bk-field textarea{width:100%;border:.5px solid rgba(0,0,0,.2);background:var(--white);font-family:var(--sans);font-size:13px;padding:11px 13px;outline:none;color:var(--black);transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+.bk-field input:focus,.bk-field select:focus,.bk-field textarea:focus{border-color:var(--gold-d);}
+.bk-field textarea{min-height:76px;resize:vertical;}
+.bk-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;}
+.bk-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bk-submit{width:100%;background:var(--gold-d);color:#fff;border:none;font-family:var(--sans);font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:15px;cursor:pointer;margin-top:6px;transition:background .2s;}
+.bk-submit:hover{background:var(--gold);}
+.bk-submit:disabled{opacity:.5;cursor:not-allowed;}
+.bk-summary{background:var(--dark);color:#fff;padding:24px;height:fit-content;position:sticky;top:90px;}
+.bk-summary h3{font-size:17px;font-weight:400;letter-spacing:2px;margin-bottom:18px;padding-bottom:12px;border-bottom:.5px solid rgba(201,168,76,.2);}
+.bk-sum-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;font-family:var(--sans);font-size:12px;}
+.bk-sum-label{color:rgba(255,255,255,.45);font-size:9px;letter-spacing:2px;text-transform:uppercase;}
+.bk-sum-val{color:#fff;text-align:right;max-width:60%;}
+.bk-sum-divider{height:.5px;background:rgba(201,168,76,.2);margin:12px 0;}
+.bk-room-preview{margin-bottom:18px;}
+.bk-room-preview img{width:100%;height:110px;object-fit:cover;display:block;}
+.bk-room-preview-info{padding:10px 12px;background:rgba(255,255,255,.05);}
+.bk-room-preview-name{font-size:15px;font-weight:300;letter-spacing:1px;}
+.bk-room-preview-sub{font-family:var(--sans);font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-top:2px;}
+.bk-success{display:none;text-align:center;padding:40px 28px;}
+.bk-success.show{display:block;}
+.bk-success-icon{font-size:44px;margin-bottom:14px;}
+.bk-success h2{font-size:26px;font-weight:400;letter-spacing:2px;margin-bottom:10px;}
+.bk-success p{font-family:var(--sans);font-size:12px;color:#666;line-height:1.9;max-width:380px;margin:0 auto 20px;}
+.bk-success .ref{font-family:var(--sans);font-size:11px;letter-spacing:3px;color:var(--gold-d);border:.5px solid var(--gold-d);padding:9px 22px;display:inline-block;margin-bottom:20px;}
+@media(max-width:768px){
+  .booking-page{padding:20px 16px;}
+  .bk-form-wrap{grid-template-columns:1fr;}
+  .bk-summary{position:static;margin-top:0;}
+  .bk-form-body{padding:18px 16px;}
+  .bk-form-header{padding:16px 18px;}
+  .bk-2col{grid-template-columns:1fr;}
+}
+/* ══ BOOKING ADMIN ══ */
+.bk-adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
+.bk-adm-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.bk-adm-filter{font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:7px 13px;cursor:pointer;border:1px solid #2a2e3a;background:none;color:#8a8fa8;transition:all .2s;}
+.bk-adm-filter.active,.bk-adm-filter:hover{background:rgba(201,168,76,.1);border-color:#C9A84C;color:#C9A84C;}
+.bk-adm-card{background:#0f1117;border:1px solid #2a2e3a;padding:14px 16px;margin-bottom:10px;}
+.bk-adm-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.bk-adm-ref{font-family:var(--sans);font-size:10px;letter-spacing:2px;color:#C9A84C;}
+.bk-status{font-family:var(--sans);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.bk-status.pending{background:rgba(234,179,8,.15);color:#eab308;}
+.bk-status.confirmed{background:rgba(34,197,94,.15);color:#22c55e;}
+.bk-status.cancelled{background:rgba(239,68,68,.15);color:#ef4444;}
+.bk-adm-name{font-family:var(--sans);font-size:13px;color:#e0e0e0;font-weight:500;margin-bottom:3px;}
+.bk-adm-info{font-family:var(--sans);font-size:11px;color:#8a8fa8;line-height:1.7;}
+.bk-adm-btns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.bk-abtn{font-family:var(--sans);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:6px 11px;cursor:pointer;border:none;transition:all .2s;}
+.bk-abtn-ok{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.3);}
+.bk-abtn-ok:hover{background:#22c55e;color:#000;}
+.bk-abtn-no{background:rgba(239,68,68,.08);color:#ef4444;border:1px solid rgba(239,68,68,.3);}
+.bk-abtn-no:hover{background:#ef4444;color:#fff;}
+.bk-abtn-del{background:none;color:#8a8fa8;border:1px solid #2a2e3a;}
+.bk-abtn-del:hover{border-color:#ef4444;color:#ef4444;}
+.bk-adm-empty{text-align:center;padding:36px;font-family:var(--sans);font-size:11px;color:#8a8fa8;letter-spacing:2px;}
+@media(max-width:600px){.bk-adm-stats{grid-template-columns:repeat(2,1fr);}}
+
+/* ══════════ ADMIN ══════════ */
+.adm-login-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:8000;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.adm-login-overlay.open{display:flex;}
+.adm-login-box{background:#181c24;border:1px solid #2a2e3a;padding:40px 28px;width:300px;max-width:90vw;text-align:center;}
+.adm-login-box h2{font-family:var(--serif);font-size:22px;font-weight:300;color:#e0e0e0;letter-spacing:2px;margin-bottom:4px;}
+.adm-login-box p{font-family:var(--sans);font-size:9px;letter-spacing:4px;color:#C9A84C;text-transform:uppercase;margin-bottom:24px;}
+.adm-login-box input{width:100%;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:18px;padding:14px;margin-bottom:10px;outline:none;text-align:center;letter-spacing:8px;}
+.adm-login-box input:focus{border-color:#C9A84C;}
+.adm-login-btn{width:100%;background:#C9A84C;color:#000;border:none;font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:14px;cursor:pointer;margin-top:6px;}
+.adm-login-cancel{font-family:var(--sans);font-size:10px;color:#8a8fa8;cursor:pointer;margin-top:14px;display:block;background:none;border:none;width:100%;letter-spacing:2px;text-transform:uppercase;}
+.adm-login-err{font-family:var(--sans);font-size:11px;color:#e05555;margin-top:8px;display:none;}
+
+#adminPanel{display:none;position:fixed;inset:0;z-index:7000;background:#0f1117;font-family:var(--sans);flex-direction:column;}
+#adminPanel.open{display:flex;}
+
+/* ─ Header bar ─ */
+.adm-hbar{height:50px;background:#181c24;border-bottom:1px solid #2a2e3a;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex-shrink:0;}
+.adm-hbar-logo{font-family:var(--serif);font-size:14px;color:#e0e0e0;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.adm-hbar-logo span{font-family:var(--sans);font-size:8px;letter-spacing:2px;color:#C9A84C;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:3px 8px;text-transform:uppercase;}
+.adm-hbar-out{font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8a8fa8;background:none;border:1px solid #2a2e3a;padding:7px 12px;cursor:pointer;}
+.adm-hbar-out:hover{color:#e05555;border-color:#e05555;}
+
+/* ─ Tab bar ─ */
+.adm-tabs{display:flex;background:#181c24;border-bottom:1px solid #2a2e3a;overflow-x:auto;flex-shrink:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.adm-tabs::-webkit-scrollbar{display:none;}
+.adm-tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 12px;cursor:pointer;color:#8a8fa8;border-bottom:2px solid transparent;flex-shrink:0;min-width:58px;position:relative;transition:all .2s;}
+.adm-tab .ti{font-size:17px;line-height:1.2;}
+.adm-tab .tl{font-family:var(--sans);font-size:8px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;}
+.adm-tab .tb{position:absolute;top:4px;right:6px;font-size:8px;background:#C9A84C;color:#000;padding:1px 5px;border-radius:8px;font-weight:700;font-family:var(--sans);}
+.adm-tab.active{color:#C9A84C;border-bottom-color:#C9A84C;}
+.adm-tab:hover{color:#e0e0e0;background:rgba(255,255,255,.03);}
+
+/* ─ Content ─ */
+.adm-body{flex:1;overflow-y:auto;padding:16px;}
+@media(min-width:600px){.adm-body{padding:24px 28px;}}
+.adm-sec{display:none;}.adm-sec.active{display:block;}
+.adm-ph{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.adm-ph h1{font-family:var(--serif);font-size:20px;font-weight:300;color:#e0e0e0;letter-spacing:1px;}
+.adm-ph p{font-family:var(--sans);font-size:10px;color:#8a8fa8;margin-top:3px;}
+.adm-ph-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.adm-topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.adm-topbar h1{font-family:var(--serif);font-size:20px;font-weight:300;color:#e0e0e0;letter-spacing:1px;}
+.adm-topbar p{font-family:var(--sans);font-size:10px;color:#8a8fa8;margin-top:3px;}
+.adm-topbar-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.adm-img-preview{width:100%;height:120px;object-fit:cover;display:block;margin-top:8px;border:1px solid #2a2e3a;}
+.adm-card{background:#181c24;border:1px solid #2a2e3a;padding:18px;margin-bottom:16px;}
+.adm-card h3{font-family:var(--serif);font-size:15px;font-weight:400;color:#e0e0e0;letter-spacing:1px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a2e3a;}
+.adm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+.adm-stat{background:#181c24;border:1px solid #2a2e3a;padding:16px;text-align:center;}
+.adm-stat-num{font-family:var(--serif);font-size:32px;font-weight:300;color:#C9A84C;}
+.adm-stat-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#8a8fa8;margin-top:4px;}
+.adm-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.adm-qbtn{background:#0f1117;border:1px solid #2a2e3a;padding:16px 8px;text-align:center;cursor:pointer;transition:border-color .2s;}
+.adm-qbtn:hover{border-color:#C9A84C;}
+.adm-qbtn .qi{font-size:22px;margin-bottom:6px;}
+.adm-qbtn .ql{font-family:var(--sans);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#e0e0e0;}
+.adm-field{margin-bottom:14px;}
+.adm-field label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8a8fa8;margin-bottom:5px;}
+.adm-field input,.adm-field textarea{width:100%;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:13px;padding:10px 12px;outline:none;resize:vertical;}
+.adm-field input:focus,.adm-field textarea:focus{border-color:#C9A84C;}
+.adm-field textarea{min-height:72px;}
+.adm-field input[type=file]{color:#8a8fa8;font-size:11px;padding:8px 0;border:none;background:none;}
+.adm-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.adm-btn{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;border:none;transition:all .2s;}
+.adm-btn-gold{background:#C9A84C;color:#000;}
+.adm-btn-gold:hover{opacity:.85;}
+.adm-btn-out{background:none;border:1px solid #2a2e3a;color:#8a8fa8;}
+.adm-btn-out:hover{border-color:#e0e0e0;color:#e0e0e0;}
+.adm-btn-del{background:none;border:1px solid #c0392b;color:#e05555;}
+.adm-btn-del:hover{background:#c0392b;color:#fff;}
+.adm-btn-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.adm-ipreview{width:100%;height:120px;object-fit:cover;display:none;margin-top:8px;border:1px solid #2a2e3a;}
+.adm-list{display:flex;flex-direction:column;gap:10px;}
+.adm-item{background:#0f1117;border:1px solid #2a2e3a;padding:12px 14px;display:flex;align-items:center;gap:12px;}
+.adm-item img{width:72px;height:52px;object-fit:cover;flex-shrink:0;border:1px solid #2a2e3a;}
+.adm-item-info{flex:1;min-width:0;}
+.adm-item-info strong{display:block;color:#e0e0e0;font-size:13px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.adm-item-info span{font-size:10px;color:#8a8fa8;}
+.adm-item-btns{display:flex;gap:6px;flex-shrink:0;}
+.adm-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(10px);background:#C9A84C;color:#000;font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:12px 22px;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;}
+.adm-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.adm-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:8500;align-items:center;justify-content:center;}
+.adm-modal.open{display:flex;}
+.adm-modal-box{background:#181c24;border:1px solid #2a2e3a;padding:24px;width:500px;max-width:95vw;max-height:88vh;overflow-y:auto;}
+.adm-modal-box h2{font-family:var(--serif);font-size:19px;font-weight:300;color:#e0e0e0;letter-spacing:1px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid #2a2e3a;}
+.hero-url-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
+.hero-url-row input{flex:1;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;}
+.hero-url-row input:focus{border-color:#C9A84C;}
+</style>
+</head>
+<body>
+
+<!-- ADMIN TOAST -->
+<div class="adm-toast" id="admToast"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">×</button>
+  <button class="lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-next" onclick="lbNav(1)">&#8594;</button>
+  <div class="lb-caption" id="lbCap"></div>
+</div>
+
+<!-- ADMIN LOGIN OVERLAY -->
+<div class="adm-login-overlay" id="admLoginOverlay">
+  <div class="adm-login-box">
+    <h2>Admin Access</h2>
+    <p>Glory Hotel Management</p>
+    <input type="password" id="admPwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')admLogin()">
+    <div class="adm-login-err" id="admErr">Incorrect password</div>
+    <button class="adm-login-btn" onclick="admLogin()">Login</button>
+    <button class="adm-login-cancel" onclick="closeAdmLogin()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN MODAL (Add/Edit) -->
+<div class="adm-modal" id="admModal">
+  <div class="adm-modal-box" id="admModalBox"></div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="adm-hbar">
+    <div class="adm-hbar-logo">The Glory Hotel <span>Admin</span></div>
+    <button class="adm-hbar-out" onclick="admLogout()">🔒 Logout</button>
+  </div>
+  <div class="adm-tabs">
+    <div class="adm-tab active" onclick="admTab('dashboard')"><div class="ti">📊</div><div class="tl">Dashboard</div></div>
+    <div class="adm-tab" onclick="admTab('text')"><div class="ti">✏️</div><div class="tl">Text</div></div>
+    <div class="adm-tab" onclick="admTab('rooms')"><div class="ti">🛏</div><div class="tl">Rooms</div><div class="tb" id="navBadgeRooms">5</div></div>
+    <div class="adm-tab" onclick="admTab('promos')"><div class="ti">🎁</div><div class="tl">Promos</div><div class="tb" id="navBadgePromos">6</div></div>
+    <div class="adm-tab" onclick="admTab('images')"><div class="ti">🖼</div><div class="tl">Images</div></div>
+    <div class="adm-tab" onclick="admTab('preview')"><div class="ti">👁</div><div class="tl">Preview</div></div>
+    <div class="adm-tab" onclick="admTab('pages')"><div class="ti">📄</div><div class="tl">Pages</div></div>
+    <div class="adm-tab" onclick="admTab('bookings')"><div class="ti">📋</div><div class="tl">Bookings</div><div class="tb" id="navBadgeBookings">0</div></div>
+  </div>
+  <div class="adm-body">
+
+    <!-- DASHBOARD -->
+    <div class="adm-sec active" id="adm-dashboard">
+      <div class="adm-topbar">
+        <div><h1>Dashboard</h1><p>The Glory Hotel Admin Center</p></div>
+        <div class="adm-topbar-actions">
+          <button class="adm-btn adm-btn-gold" onclick="admTab('rooms');openAddRoom()">+ Add Room</button>
+          <button class="adm-btn adm-btn-out" onclick="admTab('promos');openAddPromo()">+ Add Promo</button>
+        </div>
+      </div>
+      <div class="adm-stats">
+        <div class="adm-stat"><div class="adm-stat-num" id="statRooms">5</div><div class="adm-stat-label">Room Types</div></div>
+        <div class="adm-stat"><div class="adm-stat-num" id="statPromos">6</div><div class="adm-stat-label">Promotions</div></div>
+        <div class="adm-stat"><div class="adm-stat-num" id="statImgs">30+</div><div class="adm-stat-label">Images</div></div>
+      </div>
+      <div class="adm-card">
+        <h3>Quick Menu</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;">
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('text')">
+            <div style="font-size:24px;margin-bottom:8px;">✏️</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Edit Text</div>
+          </div>
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('rooms')">
+            <div style="font-size:24px;margin-bottom:8px;">🛏</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Manage Rooms</div>
+          </div>
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('promos')">
+            <div style="font-size:24px;margin-bottom:8px;">🎁</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Promotions</div>
+          </div>
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('images')">
+            <div style="font-size:24px;margin-bottom:8px;">🖼</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Manage Images</div>
+          </div>
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admLogout()">
+            <div style="font-size:24px;margin-bottom:8px;">👁</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">View Site</div>
+          </div>
+          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admLogout()">
+            <div style="font-size:24px;margin-bottom:8px;">🔒</div>
+            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-muted);">Logout</div>
+          </div>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h3>⚠️ Notice</h3>
+        <p style="font-size:12px;color:var(--adm-muted);line-height:1.9;">Changes are applied immediately. They will reset when the browser is closed. For permanent storage, contact your developer for server integration.</p>
+      </div>
+    </div>
+
+    <!-- TEXT EDIT -->
+    <div class="adm-sec" id="adm-text">
+      <div class="adm-topbar"><div><h1>Edit Text</h1><p>Hotel name, descriptions, contact info</p></div></div>
+      <div class="adm-card">
+        <h3>Basic Info</h3>
+        <div class="adm-field"><label>Hotel Name</label><input id="txt-hotelName" value="The Glory Hotel"></div>
+        <div class="adm-field"><label>Subtitle (Location)</label><input id="txt-hotelSub" value="Clark · Pampanga"></div>
+        <div class="adm-row">
+          <div class="adm-field"><label>Check-in Time</label><input id="txt-checkin" value="15:00"></div>
+          <div class="adm-field"><label>Check-out Time</label><input id="txt-checkout" value="12:00"></div>
+        </div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveBasicInfo()">Save</button></div>
+      </div>
+      <div class="adm-card">
+        <h3>Homepage Introduction</h3>
+        <div class="adm-field"><label>Title</label><input id="txt-introTitle" value="Where Elegance Meets the Spirit of Clark"></div>
+        <div class="adm-field"><label>Body</label><textarea id="txt-introBody">Nestled within the Clark Freeport Zone, The Glory Hotel is a sanctuary of refined comfort and warm hospitality. Our East, West, and South Buildings offer thoughtfully designed rooms — each a quiet retreat crafted for the discerning traveler.</textarea></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveIntro()">Save</button></div>
+      </div>
+      <div class="adm-card">
+        <h3>Contact Info</h3>
+        <div class="adm-field"><label>Address</label><textarea id="txt-address" style="min-height:60px;">Gil Puyat Avenue corner Claro M. Recto Highway, Clark Freeport Zone, Mabalacat City, 2023 Pampanga, Philippines</textarea></div>
+        <div class="adm-row">
+          <div class="adm-field"><label>Phone</label><input id="txt-phone" value="+63 939 932 8080"></div>
+          <div class="adm-field"><label>Email</label><input id="txt-email" value="thegloryhotelresidence@gmail.com"></div>
+        </div>
+        <div class="adm-field"><label>Facebook URL</label><input id="txt-fb" value="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveContact()">Save</button></div>
+      </div>
+      <div class="adm-card">
+        <h3>South Building</h3>
+        <div class="adm-field"><label>Title</label><input id="txt-southTitle" value="The South Building"></div>
+        <div class="adm-field"><label>Description</label><textarea id="txt-southDesc">Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.</textarea></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveSouth()">Save</button></div>
+      </div>
+    </div>
+
+    <!-- ROOMS -->
+    <div class="adm-sec" id="adm-rooms">
+      <div class="adm-topbar">
+        <div><h1>Room Management</h1><p>Add, edit, or delete rooms</p></div>
+        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-gold" onclick="openAddRoom()">+ Add New Room</button></div>
+      </div>
+      <div class="adm-list" id="admRoomList"></div>
+    </div>
+
+    <!-- PROMOS -->
+    <div class="adm-sec" id="adm-promos">
+      <div class="adm-topbar">
+        <div><h1>Promotions</h1><p>Add, edit, or delete promotions</p></div>
+        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-gold" onclick="openAddPromo()">+ Add New Promotion</button></div>
+      </div>
+      <div class="adm-list" id="admPromoList"></div>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="adm-sec" id="adm-images">
+      <div class="adm-topbar"><div><h1>Image Management</h1><p>Replace section images</p></div></div>
+      <div class="adm-card">
+        <h3>Hero Slide Images</h3>
+        <div id="heroImgList"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addHeroImg()">+ Add Slide</button></div>
+      </div>
+      <div class="adm-card">
+        <h3>About Page Image</h3>
+        <div class="adm-field"><label>Image URL</label><input id="img-about" placeholder="https://... or local path" oninput="previewImg('img-about','prev-about')"></div>
+        <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-about','prev-about')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
+        <img id="prev-about" class="adm-img-preview" src="https://thegloryhotelpampanga.com/img/6cf41723a79f0051.webp" onerror="this.style.display='none'">
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAboutImg()">Apply</button></div>
+      </div>
+      <div class="adm-card">
+        <h3>South Building Banner</h3>
+        <div class="adm-field"><label>Image URL</label><input id="img-south" placeholder="https://..." oninput="previewImg('img-south','prev-south')"></div>
+        <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-south','prev-south')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
+        <img id="prev-south" class="adm-img-preview" src="https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp" onerror="this.style.display='none'">
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveSouthImg()">Apply</button></div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="adm-sec" id="adm-preview">
+      <div class="adm-topbar"><div><h1>Preview / Save</h1><p>Review changes and return to site</p></div></div>
+      <div class="adm-card">
+        <h3>Preview</h3>
+        <p style="font-size:12px;color:var(--adm-muted);line-height:1.8;margin-bottom:16px;">Close the admin panel and preview the site with your changes applied.</p>
+        <div class="adm-btn-row">
+          <button class="adm-btn adm-btn-gold" onclick="admLogout()">Go to Site</button>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h3>⚠️ Important Notice</h3>
+        <p style="font-size:12px;color:var(--adm-muted);line-height:1.9;">Changes are stored in <strong style="color:var(--adm-text)">browser memory</strong> only. They will reset if you close or refresh the browser.<br><br>For permanent storage, contact your developer for server integration or record your changes separately.</p>
+      </div>
+    </div>
+
+    <!-- PAGES (About, Amenities, Policies, Function Halls, Page Heroes) -->
+    <div class="adm-sec" id="adm-pages">
+      <div class="adm-topbar"><div><h1>Page Content</h1><p>Edit About, Amenities, Policies, Function Halls & Page Hero Images</p></div></div>
+
+      <div class="adm-card">
+        <h3>Page Hero Images</h3>
+        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Banner images for each page section</p>
+        <div class="adm-field"><label>About</label><input id="ph-img-about" oninput="previewImg('ph-img-about','ph-prev-about')"><img id="ph-prev-about" class="adm-img-preview"></div>
+        <div class="adm-field"><label>Rooms</label><input id="ph-img-rooms" oninput="previewImg('ph-img-rooms','ph-prev-rooms')"><img id="ph-prev-rooms" class="adm-img-preview"></div>
+        <div class="adm-field"><label>Amenities</label><input id="ph-img-amenities" oninput="previewImg('ph-img-amenities','ph-prev-amenities')"><img id="ph-prev-amenities" class="adm-img-preview"></div>
+        <div class="adm-field"><label>Promotions</label><input id="ph-img-promotions" oninput="previewImg('ph-img-promotions','ph-prev-promotions')"><img id="ph-prev-promotions" class="adm-img-preview"></div>
+        <div class="adm-field"><label>Contact</label><input id="ph-img-contact" oninput="previewImg('ph-img-contact','ph-prev-contact')"><img id="ph-prev-contact" class="adm-img-preview"></div>
+        <div class="adm-field"><label>Booking</label><input id="ph-img-booking" oninput="previewImg('ph-img-booking','ph-prev-booking')"><img id="ph-prev-booking" class="adm-img-preview"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="savePageHeroes()">Save</button></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>About Page</h3>
+        <div class="adm-field"><label>Section Label</label><input id="abt-label"></div>
+        <div class="adm-field"><label>Heading</label><input id="abt-heading"></div>
+        <div class="adm-field"><label>Paragraph 1</label><textarea id="abt-p1"></textarea></div>
+        <div class="adm-field"><label>Paragraph 2</label><textarea id="abt-p2"></textarea></div>
+        <div class="adm-field"><label>East & West Title</label><input id="abt-ewTitle"></div>
+        <div class="adm-field"><label>East & West Description</label><textarea id="abt-ewDesc"></textarea></div>
+        <div class="adm-field"><label>South Building Title</label><input id="abt-sbTitle"></div>
+        <div class="adm-field"><label>South Building Description</label><textarea id="abt-sbDesc"></textarea></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAbout()">Save</button></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>Policies</h3>
+        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Check-in/out times are set in the Text tab. Add custom policies below.</p>
+        <div id="admPoliciesList"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addPolicy()">+ Add Policy</button><button class="adm-btn adm-btn-gold" onclick="savePolicies()">Save</button></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>Amenity Sections</h3>
+        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Edit titles, descriptions, and gallery images for each amenity.</p>
+        <div id="admAmenitiesList"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addAmenitySection()">+ Add Section</button></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>Function Halls</h3>
+        <div id="admFnHallsList"></div>
+        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addFnHall()">+ Add Venue</button><button class="adm-btn adm-btn-gold" onclick="saveFnHalls()">Save</button></div>
+      </div>
+    </div>
+
+    <!-- BOOKINGS -->
+    <div class="adm-sec" id="adm-bookings">
+      <div class="adm-topbar">
+        <div><h1>Bookings</h1><p>Manage guest reservations</p></div>
+        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-out" onclick="exportBookings()">📥 Export</button></div>
+      </div>
+      <div class="bk-adm-stats" id="bkAdmStats"></div>
+      <div class="bk-adm-filters">
+        <button class="bk-adm-filter active" onclick="filterBookings('all',this)">All</button>
+        <button class="bk-adm-filter" onclick="filterBookings('pending',this)">Pending</button>
+        <button class="bk-adm-filter" onclick="filterBookings('confirmed',this)">Confirmed</button>
+        <button class="bk-adm-filter" onclick="filterBookings('cancelled',this)">Cancelled</button>
+      </div>
+      <div id="bkAdmList"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="navTo('about')" data-page="about">About</a>
+  <a onclick="navTo('rooms')" data-page="rooms">Rooms</a>
+  <a onclick="navTo('amenities')" data-page="amenities">Amenities</a>
+  <a onclick="navTo('promotions')" data-page="promotions">Promotions</a>
+  <a onclick="navTo('contact')" data-page="contact">Contact</a>
+  <a onclick="navTo('booking')" data-page="booking" style="color:var(--gold);">Booking</a>
+  <button class="mob-book" onclick="navTo('booking')">Book Now</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo" onclick="showPage('home')"><img class="nav-logo-icon" src="data:image/png;base64,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" alt="G"><div><span id="navLogoText">The Glory Hotel</span><em id="navSub">Clark · Pampanga</em></div></div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('about')" data-page="about">About</a></li>
+    <li><a onclick="showPage('rooms')" data-page="rooms">Rooms</a></li>
+    <li><a onclick="showPage('amenities')" data-page="amenities">Amenities</a></li>
+    <li><a onclick="showPage('promotions')" data-page="promotions">Promotions</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+    <li><a onclick="showPage('booking')" data-page="booking" style="color:var(--gold);">Booking</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-admin-btn" onclick="openAdmLogin()">Admin</button>
+    <button class="nav-book" onclick="showPage('booking')">Book Now</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div id="heroSlides"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Welcome to</div>
+      <h1 class="hero-title">The <em>Glory</em> Hotel</h1>
+      <div class="hero-sub" id="heroSub">Clark Freeport Zone &nbsp;·&nbsp; Pampanga, Philippines</div>
+      <span class="hero-cta filled" onclick="showPage('rooms')">Explore Rooms</span>
+      <span class="hero-cta" onclick="showPage('contact')">Reserve a Stay</span>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+  <div class="ornament"><div class="orn-line"></div><div class="orn-text">Est. Clark Freeport Zone</div><div class="orn-line"></div></div>
+  <div class="intro reveal">
+    <div class="section-label">Our Philosophy</div>
+    <h2 id="introTitle">Where <em>Elegance</em> Meets the Spirit of Clark</h2>
+    <p id="introBody">Nestled within the Clark Freeport Zone, The Glory Hotel is a sanctuary of refined comfort and warm hospitality. Our East, West, and South Buildings offer thoughtfully designed rooms — each a quiet retreat crafted for the discerning traveler.</p>
+  </div>
+  <section class="rooms-home">
+    <div class="sec-hdr reveal">
+      <div class="sec-hdr-txt"><div class="section-label">Accommodations</div><h2>Rooms &amp; Suites</h2><p>Five distinct room types across three buildings</p></div>
+      <a onclick="showPage('rooms')">View All Rooms →</a>
+    </div>
+    <div class="rooms-grid" id="homeRoomsGrid"></div>
+  </section>
+  <div class="featured reveal">
+    <img id="southBannerImg" src="https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp" alt="South Building">
+    <div class="feat-ov">
+      <div class="feat-cnt">
+        <div class="section-label">Highlight</div>
+        <h2 id="southTitle">The South Building</h2>
+        <p id="southDesc">Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.</p>
+        <button class="btn-gold" onclick="showPage('about')">Learn More</button>
+      </div>
+    </div>
+  </div>
+  <section class="amenities-home">
+    <div class="sec-hdr reveal">
+      <div class="sec-hdr-txt"><div class="section-label">Facilities</div><h2>World-Class Amenities</h2><p>Everything you need for a perfect stay</p></div>
+      <a onclick="showPage('amenities')">View All →</a>
+    </div>
+    <div class="amenities-grid reveal">
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🏊</span><span class="am-name">Rooftop Pool</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🍳</span><span class="am-name">Primo Dining</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🍺</span><span class="am-name">The Bunker Gastropub</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">💆</span><span class="am-name">Oasis of Calm Spa</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🏋</span><span class="am-name">Glory's Gym</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🎉</span><span class="am-name">Function Halls</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">📶</span><span class="am-name">Free Wi-Fi</span></div>
+      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🚗</span><span class="am-name">Free Parking</span></div>
+    </div>
+  </section>
+  <section class="offers-home">
+    <div class="sec-hdr reveal">
+      <div class="sec-hdr-txt"><div class="section-label">Special Offers</div><h2>Exclusive Promotions</h2><p>Curated packages</p></div>
+      <a onclick="showPage('promotions')">All Offers →</a>
+    </div>
+    <div class="offers-grid" id="homePromosGrid"></div>
+  </section>
+  <section class="contact-sec">
+    <div class="contact-left">
+      <div class="section-label" style="color:var(--gold-l);margin-bottom:20px;">Find Us</div>
+      <h2>Come, <em>Stay Awhile</em></h2>
+      <div class="c-row"><div class="c-label">Address</div><div class="c-val" id="dispAddress">Gil Puyat Avenue corner Claro M. Recto Highway,<br>Clark Freeport Zone, Mabalacat City,<br>2023 Pampanga, Philippines</div></div>
+      <div class="c-row"><div class="c-label">Mobile</div><div class="c-val"><a id="dispPhoneLink" href="tel:+639399328080">+63 939 932 8080</a></div></div>
+      <div class="c-row"><div class="c-label">Email</div><div class="c-val"><a id="dispEmailLink" href="mailto:thegloryhotelresidence@gmail.com">thegloryhotelresidence@gmail.com</a></div></div>
+      <div class="c-row"><div class="c-label">Follow</div><div class="c-val"><a id="dispFbLink" href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">Facebook — The Glory Hotel</a></div></div>
+    </div>
+    <div class="contact-right">
+      <div class="booking-box">
+        <div class="section-label">Reserve Your Stay</div>
+        <h3>Experience The Glory</h3>
+        <p>Choose from five room types across our East, West, and South Buildings.</p>
+        <button class="btn-gold" onclick="showPage('booking')">Book Your Room</button>
+      </div>
+    </div>
+  </section>
+  <div class="contact-map">
+    <iframe src="https://www.google.com/maps?q=The+Glory+Hotel+and+Residence+Clark+Pampanga,+Clark+Freeport+Zone,+Mabalacat,+Pampanga&output=embed&z=15" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga, Philippines</div><div class="foot-social"><a id="dispFbFoot" href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div id="page-about" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-about" src="" alt="About"><div class="page-hero-overlay"><h1>About <em>The Glory</em></h1></div></div>
+    <div class="about-body" id="aboutBody"></div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ ROOMS ══════════ -->
+<div id="page-rooms" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-rooms" src="" alt="Rooms"><div class="page-hero-overlay"><h1>Rooms &amp; <em>Suites</em></h1></div></div>
+    <div class="rooms-page">
+      <div class="section-label">Accommodations</div>
+      <p style="font-family:var(--sans);font-size:13px;color:#555;line-height:2;max-width:700px;font-weight:300;margin-top:10px;">Standard and Executive units in the East and West buildings, plus Deluxe Twin, Deluxe King, and Pool Villa in the South Building.</p>
+      <div class="rooms-page-grid" id="roomsPageGrid"></div>
+    </div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ AMENITIES ══════════ -->
+<div id="page-amenities" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-amenities" src="" alt="Amenities"><div class="page-hero-overlay"><h1>Hotel <em>Amenities</em></h1></div></div>
+    <div class="amenities-page" id="amenitiesBody"></div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ PROMOTIONS ══════════ -->
+<div id="page-promotions" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-promotions" src="" alt="Promotions"><div class="page-hero-overlay"><h1>Special <em>Offers</em></h1></div></div>
+    <div class="promos-page">
+      <div class="section-label">Exclusive Promotions</div>
+      <p style="font-family:var(--sans);font-size:13px;color:#555;line-height:2;font-weight:300;max-width:600px;margin-top:10px;">Curated packages and special rates designed to make your stay even more memorable.</p>
+      <div class="promos-grid" id="promosPageGrid"></div>
+    </div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<div id="page-contact" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-contact" src="" alt="Contact"><div class="page-hero-overlay"><h1>Contact <em>Us</em></h1></div></div>
+    <section class="contact-sec">
+      <div class="contact-left">
+        <div class="section-label" style="color:var(--gold-l);margin-bottom:20px;">Find Us</div>
+        <h2>Come, <em>Stay Awhile</em></h2>
+        <div class="c-row"><div class="c-label">Address</div><div class="c-val" id="dispAddress2"></div></div>
+        <div class="c-row"><div class="c-label">Mobile</div><div class="c-val"><a id="dispPhoneLink2" href="#">+63 939 932 8080</a></div></div>
+        <div class="c-row"><div class="c-label">Email</div><div class="c-val"><a id="dispEmailLink2" href="#">email</a></div></div>
+        <div class="c-row"><div class="c-label">Check-in / Check-out</div><div class="c-val" id="dispTimes">Check-in: 3:00 PM · Check-out: 12:00 PM</div></div>
+      </div>
+      <div class="contact-right">
+        <div class="booking-box">
+          <div class="section-label">Reserve Your Stay</div>
+          <h3>Experience The Glory</h3>
+          <p>Choose from five room types across our East, West, and South Buildings.</p>
+          <button class="btn-gold" onclick="showPage('booking')">Book Your Room</button>
+        </div>
+      </div>
+    </section>
+    <div class="contact-map">
+      <div class="section-label" style="text-align:center;margin-bottom:16px;">Location</div>
+      <iframe src="https://www.google.com/maps?q=The+Glory+Hotel+and+Residence+Clark+Pampanga,+Clark+Freeport+Zone,+Mabalacat,+Pampanga&output=embed&z=15" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<!-- ══════════ BOOKING ══════════ -->
+<div id="page-booking" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero">
+      <img id="ph-booking" src="" alt="Booking">
+      <div class="page-hero-overlay"><h1>Make a <em>Reservation</em></h1></div>
+    </div>
+    <div class="booking-page">
+      <div class="section-label">Direct Booking</div>
+      <p style="font-family:var(--sans);font-size:13px;color:#555;line-height:2;font-weight:300;margin-top:8px;max-width:600px;">Book directly with us for the best available rates. Fill out the form below and our team will confirm your reservation within 24 hours.</p>
+
+      <!-- SUCCESS STATE -->
+      <div class="bk-success" id="bkSuccess">
+        <div class="bk-success-icon">✅</div>
+        <h2>Reservation Request Received</h2>
+        <div class="ref" id="bkRef">REF #GH-000000</div>
+        <p>Your reservation will be confirmed via email within 24 hours.<br>For inquiries, call +63 939 932 8080.</p>
+        <button class="btn-gold" onclick="resetBookingForm()">Make Another Reservation</button>
+      </div>
+
+      <!-- FORM -->
+      <div class="bk-form-wrap" id="bkFormWrap">
+        <div class="bk-form">
+          <div class="bk-form-header">
+            <h2>Reservation Form</h2>
+            <p>Please fill in your reservation details</p>
+          </div>
+          <div class="bk-form-body">
+            <div class="bk-2col">
+              <div class="bk-field">
+                <label>Full Name <span class="req">*</span></label>
+                <input type="text" id="bk-name" placeholder="Hong Gil-Dong" oninput="updateSummary()">
+              </div>
+              <div class="bk-field">
+                <label>Nationality</label>
+                <select id="bk-nationality" onchange="updateSummary()">
+                  <option value="">Select</option>
+                  <option>Korean</option>
+                  <option>Filipino</option>
+                  <option>Japanese</option>
+                  <option>Chinese</option>
+                  <option>American</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="bk-2col">
+              <div class="bk-field">
+                <label>Email <span class="req">*</span></label>
+                <input type="email" id="bk-email" placeholder="email@example.com" oninput="updateSummary()">
+              </div>
+              <div class="bk-field">
+                <label>Phone <span class="req">*</span></label>
+                <input type="tel" id="bk-phone" placeholder="+82 10-0000-0000" oninput="updateSummary()">
+              </div>
+            </div>
+            <div class="bk-2col">
+              <div class="bk-field">
+                <label>Check-in <span class="req">*</span></label>
+                <input type="date" id="bk-checkin" lang="en" oninput="updateSummary();updateCheckout()">
+              </div>
+              <div class="bk-field">
+                <label>Check-out <span class="req">*</span></label>
+                <input type="date" id="bk-checkout" lang="en" oninput="updateSummary()">
+              </div>
+            </div>
+            <div class="bk-2col">
+              <div class="bk-field">
+                <label>Room Type <span class="req">*</span></label>
+                <select id="bk-room" onchange="updateSummary()">
+                  <option value="">Select a room</option>
+                </select>
+              </div>
+              <div class="bk-field">
+                <label>Guests <span class="req">*</span></label>
+                <select id="bk-guests" onchange="updateSummary()">
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5+">5+ Guests</option>
+                </select>
+              </div>
+            </div>
+            <div class="bk-field">
+              <label>Special Requests</label>
+              <textarea id="bk-request" placeholder="Allergies, special requests, celebrations, etc."></textarea>
+            </div>
+            <div style="background:var(--light);padding:14px 16px;margin-bottom:16px;font-family:var(--sans);font-size:11px;color:#555;line-height:1.8;">
+              <strong style="display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#333;margin-bottom:6px;">Cancellation Policy</strong>
+              Within 24 hours — Non-refundable &nbsp;|&nbsp; Within 48 hours — 50% refund &nbsp;|&nbsp; Within 72 hours — Full refund
+            </div>
+            <button class="bk-submit" id="bkSubmitBtn" onclick="submitBooking()">Submit Reservation</button>
+          </div>
+        </div>
+
+        <!-- SUMMARY SIDEBAR -->
+        <div class="bk-summary">
+          <h3>Booking Summary</h3>
+          <div class="bk-room-preview" id="bkRoomPreview" style="display:none;">
+            <img id="bkRoomImg" src="" alt="">
+            <div class="bk-room-preview-info">
+              <div class="bk-room-preview-name" id="bkRoomName">—</div>
+              <div class="bk-room-preview-sub" id="bkRoomSub">—</div>
+              <div class="bk-room-price" id="bkRoomPriceDisp"></div>
+            </div>
+          </div>
+          <div class="bk-sum-divider"></div>
+          <div class="bk-sum-row"><span class="bk-sum-label">Check-in</span><span class="bk-sum-val" id="sumCheckin">—</span></div>
+          <div class="bk-sum-row"><span class="bk-sum-label">Check-out</span><span class="bk-sum-val" id="sumCheckout">—</span></div>
+          <div class="bk-sum-row"><span class="bk-sum-label">Nights</span><span class="bk-sum-val" id="sumNights">—</span></div>
+          <div class="bk-sum-divider"></div>
+          <div class="bk-sum-row"><span class="bk-sum-label">Guest</span><span class="bk-sum-val" id="sumName">—</span></div>
+          <div class="bk-sum-row"><span class="bk-sum-label">Guests</span><span class="bk-sum-val" id="sumGuests">2 Guests</span></div>
+          <div class="bk-sum-divider"></div>
+          <div class="bk-sum-row" id="sumTotalRow" style="display:none;">
+            <span class="bk-sum-label" style="color:var(--gold);">Estimated Total</span>
+            <span class="bk-sum-val" id="sumTotal" style="color:var(--gold);font-size:15px;font-weight:500;">—</span>
+          </div>
+          <div style="font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:8px;">
+            Confirmation will be sent via email.<br>Check-in: <span id="sumCheckinTime">15:00</span> · Check-out: <span id="sumCheckoutTime">12:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   DATA STORE
+══════════════════════════════════════════ */
+const ADM_PW = 'glory2026';
+
+let siteData = {
+  heroImgs: [
+    'https://thegloryhotelpampanga.com/img/0631869523298a26.webp',
+    'https://thegloryhotelpampanga.com/img/bbccdedc73452614.webp',
+    'https://thegloryhotelpampanga.com/img/69640d5dbfa25f22.webp',
+    'https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp',
+    'https://thegloryhotelpampanga.com/img/05bdafd48c0ce146.webp'
+  ],
+  rooms: [
+    {id:1,num:'01 · South Building',name:'Deluxe King',desc:'Spacious king-bed suite with premium furnishings and panoramic views from the South Building.',img:'https://thegloryhotelpampanga.com/img/9c97b6d000fbd128.webp',thumbs:['https://thegloryhotelpampanga.com/img/9413af066aad77ca.webp','https://thegloryhotelpampanga.com/img/addf1964031f3857.webp','https://thegloryhotelpampanga.com/img/71bbb01ae8a0b096.webp','https://thegloryhotelpampanga.com/img/cb5d41d0576c83c2.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064709',price:5800,currency:'PHP'},
+    {id:2,num:'02 · South Building',name:'Deluxe Twin',desc:'Elegantly appointed twin room ideal for colleagues or travelling companions.',img:'https://thegloryhotelpampanga.com/img/164bef3920f64219.webp',thumbs:['https://thegloryhotelpampanga.com/img/02616393b56f7747.webp','https://thegloryhotelpampanga.com/img/1cdacbdf164594e5.webp','https://thegloryhotelpampanga.com/img/79cf87063fb9210d.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064708',price:5500,currency:'PHP'},
+    {id:3,num:'03 · Exclusive',name:'Pool Villa',desc:'Signature villa with exclusive pool access — the ultimate luxury retreat.',img:'https://thegloryhotelpampanga.com/img/589df6cd1f122ef7.webp',thumbs:['https://thegloryhotelpampanga.com/img/57c2de427c1ac151.webp','https://thegloryhotelpampanga.com/img/3f6b3ad77beb25a0.webp','https://thegloryhotelpampanga.com/img/bd44621383140bc3.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5066905',price:12000,currency:'PHP'},
+    {id:4,num:'04 · East & West',name:'Executive Room',desc:'Business-ready accommodation with elevated amenities and dedicated workspace.',img:'https://thegloryhotelpampanga.com/img/9b9ef91b665ced5b.webp',thumbs:['https://thegloryhotelpampanga.com/img/b90b22bc98137470.webp','https://thegloryhotelpampanga.com/img/a851f37aa5802dd5.webp','https://thegloryhotelpampanga.com/img/c6b17c8bc11474eb.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064710',price:4500,currency:'PHP'},
+    {id:5,num:'05 · East & West',name:'Standard Room',desc:'Comfortable, well-appointed rooms offering quality rest at exceptional value.',img:'https://thegloryhotelpampanga.com/img/74ca71a5ed764ae1.webp',thumbs:['https://thegloryhotelpampanga.com/img/9413af066aad77ca.webp','https://thegloryhotelpampanga.com/img/7db5a9f5bd599e57.webp','https://thegloryhotelpampanga.com/img/9025d113b877f52a.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064731',price:3200,currency:'PHP'}
+  ],
+  promos: [
+    {id:1,tag:'Same-Day · Limited',name:'Last Minute Offer',desc:'Book on the same day of check-in and enjoy exclusive savings.',img:'https://thegloryhotelpampanga.com/img/6ad2a215406df470.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141333'},
+    {id:2,tag:'Early Bird',name:'Book Now, Stay Later',desc:'Reserve 7 days in advance for significant savings.',img:'https://thegloryhotelpampanga.com/img/ba3aae73f2c01baa.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141331'},
+    {id:3,tag:'Extended Stay',name:'Stay Longer, Save More',desc:'7+ consecutive nights with progressive savings and complimentary perks.',img:'https://thegloryhotelpampanga.com/img/8c65d0cc89fd3cf9.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141332'},
+    {id:4,tag:'Best Rate · Room Only',name:'Best Available Rate: Room Only',desc:'Our best available rate for room-only bookings.',img:'https://thegloryhotelpampanga.com/img/f278ded787d43df2.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141329'},
+    {id:5,tag:'Best Rate · With Breakfast',name:'Room with Breakfast',desc:'Start every morning at Primo Dining with complimentary breakfast.',img:'https://thegloryhotelpampanga.com/img/a8cbb8089c57a3fb.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141330'},
+    {id:6,tag:'Published Rate',name:'Best Deal: Room with Breakfast',desc:'Published rate with complimentary breakfast each morning.',img:'https://thegloryhotelpampanga.com/img/589df6cd1f122ef7.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10142106'}
+  ],
+  text: {
+    hotelName:'The Glory Hotel', hotelSub:'Clark · Pampanga',
+    checkin:'15:00', checkout:'12:00',
+    introTitle:'Where Elegance Meets the Spirit of Clark',
+    introBody:'Nestled within the Clark Freeport Zone, The Glory Hotel is a sanctuary of refined comfort and warm hospitality. Our East, West, and South Buildings offer thoughtfully designed rooms — each a quiet retreat crafted for the discerning traveler.',
+    address:'Gil Puyat Avenue corner Claro M. Recto Highway,\nClark Freeport Zone, Mabalacat City,\n2023 Pampanga, Philippines',
+    phone:'+63 939 932 8080', email:'thegloryhotelresidence@gmail.com',
+    fb:'https://www.facebook.com/p/The-Glory-Hotel-61552951605532/',
+    southTitle:'The South Building',
+    southDesc:'Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.'
+  },
+  pageHeroes: {
+    about:'https://thegloryhotelpampanga.com/img/6cf41723a79f0051.webp',
+    rooms:'https://thegloryhotelpampanga.com/img/9c97b6d000fbd128.webp',
+    amenities:'https://thegloryhotelpampanga.com/img/26e85713a0d8912b.webp',
+    promotions:'https://thegloryhotelpampanga.com/img/bbccdedc73452614.webp',
+    contact:'https://thegloryhotelpampanga.com/img/ba3aae73f2c01baa.webp',
+    booking:'https://thegloryhotelpampanga.com/img/0631869523298a26.webp'
+  },
+  about: {
+    label:'Our Story',
+    heading:'The Glory Hotel, Clark, Pampanga',
+    p1:'Welcome to <strong>The Glory Hotel</strong>, where comfort, elegance, and modern living come together to create a memorable stay. Designed for both short-term travelers and long-stay guests, our hotel and residences offer well-appointed accommodations, quality amenities, and warm, personalized service.',
+    p2:'Strategically located for convenience and accessibility, The Glory Hotel provides guests with easy access to key business districts, lifestyle destinations, and local attractions.',
+    ewTitle:'East & West Buildings',
+    ewDesc:'Our East and West Buildings offer Standard and Executive room types, providing comfortable and consistent accommodations for every kind of traveler.',
+    sbTitle:'South Building',
+    sbDesc:'Experience elevated comfort at the South Building — featuring Deluxe Twin and Deluxe King rooms, a rooftop pool with panoramic views, The Bunker Gastropub, Glory Vista Rooftop Lounge, and a Grand Ballroom accommodating up to 300 guests.'
+  },
+  policies: [
+    {name:'Cancellation',detail:'Within 24 hours — Non-refundable | 48 hours prior — 50% refund | 72 hours prior — Full refund'},
+    {name:'Smoking',detail:'All rooms are NO SMOKING. Violation: PHP 5,000 fee.'},
+    {name:'Pets',detail:'No pets allowed (excluding assistance dogs)'}
+  ],
+  amenitySections: [
+    {tag:'Included with Room Stay',title:'Free Swimming Pool Access',desc:'Unwind and refresh at The Glory Hotel\'s exclusive swimming pool. Open 8:00 AM – 10:00 PM daily.',imgs:['https://thegloryhotelpampanga.com/img/6ad2a215406df470.webp','https://thegloryhotelpampanga.com/img/19e877fec47f179e.webp','https://thegloryhotelpampanga.com/img/381d8ef03868a44b.webp','https://thegloryhotelpampanga.com/img/0457087ef30f8937.webp','https://thegloryhotelpampanga.com/img/b7f8e8189ee69e94.webp'],wide:true},
+    {tag:'',title:'Free Gym Access',desc:'Stay active at Glory\'s Gym, West Building. Open 6:00 AM – 9:00 PM daily.',imgs:['https://thegloryhotelpampanga.com/img/391e1db618643856.webp','https://thegloryhotelpampanga.com/img/f619afc0fac16afc.webp','https://thegloryhotelpampanga.com/img/f67988898a523ccc.webp','https://thegloryhotelpampanga.com/img/d2bf69fc9f2f9da3.webp']},
+    {tag:'Dining & Leisure',title:'Primo Dining',desc:'Dedicated breakfast venue with freshly brewed coffee and local & international breakfast favorites.',imgs:['https://thegloryhotelpampanga.com/img/c155e4f201ce5a85.webp','https://thegloryhotelpampanga.com/img/a8cbb8089c57a3fb.webp','https://thegloryhotelpampanga.com/img/b5030acfa9251635.webp','https://thegloryhotelpampanga.com/img/2637c518f5b61359.webp']},
+    {tag:'',title:'Oasis of Calm — Spa',desc:'Expert therapists, serene atmosphere. Revitalize your body, mind, and soul.',imgs:['https://thegloryhotelpampanga.com/img/8c65d0cc89fd3cf9.webp','https://thegloryhotelpampanga.com/img/5a9d126c463f5c22.webp','https://thegloryhotelpampanga.com/img/f7a1fdfbd8a17efb.webp','https://thegloryhotelpampanga.com/img/8a48d353afe7f17c.webp']}
+  ],
+  functionHalls: [
+    {name:'Grand Lumiere Ballroom',u:75,b:85,c:135,bn:200,t:300,imgs:[]},
+    {name:'Luna Event Hall',u:50,b:50,c:60,bn:80,t:120,imgs:[]},
+    {name:'Hibiscus Hall',u:20,b:24,c:28,bn:50,t:60,imgs:[]},
+    {name:'Forsythia Hall',u:16,b:16,c:18,bn:20,t:25,imgs:[]},
+    {name:'Primo Dining',u:50,b:50,c:60,bn:100,t:150,imgs:[]}
+  ]
+};
+
+/* ══ LIGHTBOX ══ */
+/* Amenity images now in siteData.amenitySections */
+let lbCurrent=0,lbImages=[],lbCaption='';
+function openLB(imgs,idx,cap){lbImages=imgs;lbCurrent=idx;lbCaption=cap;document.getElementById('lbImg').src=imgs[idx];document.getElementById('lbCap').textContent=cap;document.getElementById('lightbox').classList.add('open');}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');}
+function lbNav(d){lbCurrent=(lbCurrent+d+lbImages.length)%lbImages.length;document.getElementById('lbImg').src=lbImages[lbCurrent];}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',function(e){if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);});
+
+
+/* ══ RENDER PAGE HEROES ══ */
+function renderPageHeroes(){
+  Object.keys(siteData.pageHeroes).forEach(k=>{
+    const el=document.getElementById('ph-'+k);
+    if(el) el.src=siteData.pageHeroes[k];
+  });
+}
+
+/* ══ RENDER ABOUT ══ */
+function renderAbout(){
+  const a=siteData.about;const t=siteData.text;
+  let policyRows=`<tr><td>Check-in</td><td>${t.checkin}</td></tr><tr><td>Check-out</td><td>${t.checkout}</td></tr>`;
+  siteData.policies.forEach(p=>{policyRows+=`<tr><td>${p.name}</td><td>${p.detail}</td></tr>`;});
+  document.getElementById('aboutBody').innerHTML=`
+    <div class="section-label">${a.label}</div>
+    <h2>${a.heading}</h2>
+    <p>${a.p1}</p><p>${a.p2}</p>
+    <h2>${a.ewTitle}</h2><p>${a.ewDesc}</p>
+    <h2>${a.sbTitle}</h2><p>${a.sbDesc}</p>
+    <h2>Hotel Policies</h2>
+    <table class="policy-table"><tr><th>Policy</th><th>Details</th></tr>${policyRows}</table>`;
+}
+
+/* ══ RENDER AMENITIES ══ */
+function renderAmenities(){
+  const body=document.getElementById('amenitiesBody');if(!body)return;
+  let html='';
+  siteData.amenitySections.forEach((sec,si)=>{
+    const tagHtml=sec.tag?`<div class="am-tag">${sec.tag}</div>`:'';
+    const mt=si>0&&!sec.tag?'style="margin-top:32px;"':'';
+    let galHtml='';
+    if(sec.imgs&&sec.imgs.length){
+      const cls=sec.wide?'am-gallery wide':'am-gallery';
+      galHtml=`<div class="${cls}">${sec.imgs.map((img,ii)=>`<img src="${img}" alt="${sec.title}" onclick="openLB(siteData.amenitySections[${si}].imgs,${ii},'${sec.title.replace(/'/g,"\\'")}')">`).join('')}</div>`;
+    }
+    html+=`<div class="am-section">${tagHtml}<h2 ${mt}>${sec.title}</h2><p>${sec.desc}</p>${galHtml}</div>`;
+  });
+  // Function halls table + photos
+  if(siteData.functionHalls.length){
+    let rows=siteData.functionHalls.map(h=>`<tr><td>${h.name}</td><td>${h.u}</td><td>${h.b}</td><td>${h.c}</td><td>${h.bn}</td><td>${h.t}</td></tr>`).join('');
+    let hallGalleries=siteData.functionHalls.map((h,hi)=>{
+      if(!h.imgs||!h.imgs.length) return '';
+      return `<div class="fn-hall-gallery"><h3 class="fn-hall-name">${h.name}</h3><div class="am-gallery">${h.imgs.map((img,ii)=>`<img src="${img}" alt="${h.name}" onclick="openLB(siteData.functionHalls[${hi}].imgs,${ii},'${h.name.replace(/'/g,"\\\\'")}')">`).join('')}</div></div>`;
+    }).join('');
+    html+=`<div class="am-section"><div class="am-tag">Events & Functions</div><h2>Function Halls</h2><p>Weddings, corporate events, government summits, and more — delivered with elegance.</p><table class="fn-table"><thead><tr><th>Venue</th><th>U-Shape</th><th>Block</th><th>Classroom</th><th>Banquet</th><th>Theater</th></tr></thead><tbody>${rows}</tbody></table>${hallGalleries}</div>`;
+  }
+  body.innerHTML=html;
+}
+
+/* ══ ADMIN: PAGES TAB INIT ══ */
+function initPagesAdmin(){
+  // Page hero images
+  Object.keys(siteData.pageHeroes).forEach(k=>{
+    const el=document.getElementById('ph-img-'+k);
+    const prev=document.getElementById('ph-prev-'+k);
+    if(el){el.value=siteData.pageHeroes[k];}
+    if(prev){prev.src=siteData.pageHeroes[k];prev.style.display='block';}
+  });
+  // About
+  const a=siteData.about;
+  document.getElementById('abt-label').value=a.label;
+  document.getElementById('abt-heading').value=a.heading;
+  document.getElementById('abt-p1').value=a.p1;
+  document.getElementById('abt-p2').value=a.p2;
+  document.getElementById('abt-ewTitle').value=a.ewTitle;
+  document.getElementById('abt-ewDesc').value=a.ewDesc;
+  document.getElementById('abt-sbTitle').value=a.sbTitle;
+  document.getElementById('abt-sbDesc').value=a.sbDesc;
+  renderAdmPolicies();
+  renderAdmAmenities();
+  renderAdmFnHalls();
+}
+
+function savePageHeroes(){
+  Object.keys(siteData.pageHeroes).forEach(k=>{
+    const el=document.getElementById('ph-img-'+k);
+    if(el&&el.value) siteData.pageHeroes[k]=el.value;
+  });
+  renderPageHeroes();showToast('Page hero images saved');
+}
+
+function saveAbout(){
+  const a=siteData.about;
+  a.label=v('abt-label');a.heading=v('abt-heading');
+  a.p1=v('abt-p1');a.p2=v('abt-p2');
+  a.ewTitle=v('abt-ewTitle');a.ewDesc=v('abt-ewDesc');
+  a.sbTitle=v('abt-sbTitle');a.sbDesc=v('abt-sbDesc');
+  renderAbout();showToast('About page saved');
+}
+
+/* ── Policies Admin ── */
+function renderAdmPolicies(){
+  const c=document.getElementById('admPoliciesList');c.innerHTML='';
+  siteData.policies.forEach((p,i)=>{
+    c.innerHTML+=`<div class="adm-2col" style="margin-bottom:8px;"><div class="adm-field"><label>Name</label><input id="pol-n-${i}" value="${p.name}"></div><div class="adm-field"><label>Detail</label><input id="pol-d-${i}" value="${p.detail}"></div></div><button class="adm-btn adm-btn-del" style="margin-bottom:12px;" onclick="removePolicy(${i})">Remove</button>`;
+  });
+}
+function addPolicy(){siteData.policies.push({name:'',detail:''});renderAdmPolicies();}
+function removePolicy(i){siteData.policies.splice(i,1);renderAdmPolicies();}
+function savePolicies(){
+  siteData.policies.forEach((p,i)=>{p.name=v('pol-n-'+i);p.detail=v('pol-d-'+i);});
+  siteData.policies=siteData.policies.filter(p=>p.name||p.detail);
+  renderAbout();renderAdmPolicies();showToast('Policies saved');
+}
+
+/* ── Amenities Admin ── */
+function renderAdmAmenities(){
+  const c=document.getElementById('admAmenitiesList');c.innerHTML='';
+  siteData.amenitySections.forEach((sec,i)=>{
+    const imgsStr=sec.imgs?sec.imgs.join('\n'):'';
+    c.innerHTML+=`<div class="adm-card" style="background:var(--adm-bg);">
+      <h3 style="font-size:13px;">${sec.title||'New Section'} <button class="adm-btn adm-btn-del" style="float:right;font-size:8px;" onclick="removeAmenitySection(${i})">Delete</button></h3>
+      <div class="adm-field"><label>Tag (e.g. Dining & Leisure)</label><input id="am-tag-${i}" value="${sec.tag||''}"></div>
+      <div class="adm-field"><label>Title</label><input id="am-title-${i}" value="${sec.title}"></div>
+      <div class="adm-field"><label>Description</label><textarea id="am-desc-${i}">${sec.desc}</textarea></div>
+      <div class="adm-field"><label>Wide gallery</label><select id="am-wide-${i}"><option value="false"${!sec.wide?' selected':''}>No</option><option value="true"${sec.wide?' selected':''}>Yes (5 columns)</option></select></div>
+      <div class="adm-field"><label>Image URLs (one per line)</label><textarea id="am-imgs-${i}" style="min-height:90px;">${imgsStr}</textarea></div>
+      <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAmenitySection(${i})">Save Section</button></div>
+    </div>`;
+  });
+}
+function addAmenitySection(){siteData.amenitySections.push({tag:'',title:'New Section',desc:'',imgs:[],wide:false});renderAdmAmenities();}
+function removeAmenitySection(i){if(!confirm('Delete this section?'))return;siteData.amenitySections.splice(i,1);renderAdmAmenities();renderAmenities();showToast('Section deleted');}
+function saveAmenitySection(i){
+  const sec=siteData.amenitySections[i];
+  sec.tag=v('am-tag-'+i);sec.title=v('am-title-'+i);sec.desc=v('am-desc-'+i);
+  sec.wide=v('am-wide-'+i)==='true';
+  sec.imgs=v('am-imgs-'+i).split('\n').map(s=>s.trim()).filter(s=>s);
+  renderAmenities();renderAdmAmenities();showToast('Amenity section saved');
+}
+
+/* ── Function Halls Admin ── */
+function renderAdmFnHalls(){
+  const c=document.getElementById('admFnHallsList');c.innerHTML='';
+  siteData.functionHalls.forEach((h,i)=>{
+    const previewHtml=(h.imgs||[]).map((img,pi)=>`<div style="position:relative;display:inline-block;"><img src="${img}" style="width:80px;height:60px;object-fit:cover;border:1px solid var(--adm-border);margin:2px;" onerror="this.style.display='none'"><button style="position:absolute;top:0;right:0;background:rgba(239,68,68,.8);color:#fff;border:none;font-size:9px;cursor:pointer;padding:1px 4px;" onclick="removeFnHallImg(${i},${pi})">✕</button></div>`).join('');
+    c.innerHTML+=`<div class="adm-card" style="background:var(--adm-bg);padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <strong style="color:var(--adm-text);font-size:13px;">${h.name||'New Venue'}</strong>
+        <button class="adm-btn adm-btn-del" style="font-size:8px;" onclick="removeFnHall(${i})">Delete</button>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:6px;margin-bottom:10px;">
+        <div class="adm-field"><label>Venue</label><input id="fn-n-${i}" value="${h.name}"></div>
+        <div class="adm-field"><label>U-Shape</label><input id="fn-u-${i}" value="${h.u}" type="number"></div>
+        <div class="adm-field"><label>Block</label><input id="fn-b-${i}" value="${h.b}" type="number"></div>
+        <div class="adm-field"><label>Class</label><input id="fn-c-${i}" value="${h.c}" type="number"></div>
+        <div class="adm-field"><label>Banquet</label><input id="fn-bn-${i}" value="${h.bn}" type="number"></div>
+        <div class="adm-field"><label>Theater</label><input id="fn-t-${i}" value="${h.t}" type="number"></div>
+      </div>
+      <div class="adm-field">
+        <label>Photos (up to 4) — Upload from PC or paste URL</label>
+        <div style="margin:6px 0;">${previewHtml||'<span style="font-size:10px;color:var(--adm-muted);">No photos</span>'}</div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
+          <label style="background:var(--adm-gold);color:#000;font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;cursor:pointer;">📷 Upload Photos<input type="file" accept="image/*" multiple style="display:none;" onchange="uploadFnHallImgs(this,${i})"></label>
+          <span style="font-size:10px;color:var(--adm-muted);">or</span>
+          <input id="fn-img-url-${i}" placeholder="Paste image URL" style="flex:1;background:var(--adm-bg);border:1px solid var(--adm-border);color:var(--adm-text);font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;">
+          <button class="adm-btn adm-btn-out" style="padding:8px 12px;" onclick="addFnHallImgUrl(${i})">Add</button>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+function uploadFnHallImgs(input,hallIdx){
+  const files=Array.from(input.files).slice(0,4-(siteData.functionHalls[hallIdx].imgs||[]).length);
+  if(!files.length){alert('Max 4 photos per hall.');return;}
+  let loaded=0;
+  files.forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      if(!siteData.functionHalls[hallIdx].imgs) siteData.functionHalls[hallIdx].imgs=[];
+      if(siteData.functionHalls[hallIdx].imgs.length<4){
+        siteData.functionHalls[hallIdx].imgs.push(e.target.result);
+      }
+      loaded++;
+      if(loaded===files.length){renderAdmFnHalls();renderAmenities();showToast(loaded+' photo(s) uploaded');}
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function addFnHallImgUrl(hallIdx){
+  const url=v('fn-img-url-'+hallIdx);
+  if(!url){alert('Please paste an image URL.');return;}
+  if(!siteData.functionHalls[hallIdx].imgs) siteData.functionHalls[hallIdx].imgs=[];
+  if(siteData.functionHalls[hallIdx].imgs.length>=4){alert('Max 4 photos per hall.');return;}
+  siteData.functionHalls[hallIdx].imgs.push(url);
+  renderAdmFnHalls();renderAmenities();showToast('Photo added');
+}
+function removeFnHallImg(hallIdx,imgIdx){
+  siteData.functionHalls[hallIdx].imgs.splice(imgIdx,1);
+  renderAdmFnHalls();renderAmenities();showToast('Photo removed');
+}
+function addFnHall(){siteData.functionHalls.push({name:'',u:0,b:0,c:0,bn:0,t:0,imgs:[]});renderAdmFnHalls();}
+function removeFnHall(i){siteData.functionHalls.splice(i,1);renderAdmFnHalls();}
+function saveFnHalls(){
+  siteData.functionHalls.forEach((h,i)=>{
+    h.name=v('fn-n-'+i);h.u=parseInt(v('fn-u-'+i))||0;h.b=parseInt(v('fn-b-'+i))||0;
+    h.c=parseInt(v('fn-c-'+i))||0;h.bn=parseInt(v('fn-bn-'+i))||0;h.t=parseInt(v('fn-t-'+i))||0;
+  });
+  siteData.functionHalls=siteData.functionHalls.filter(h=>h.name);
+  renderAmenities();renderAdmFnHalls();showToast('Function halls saved');
+}
+
+/* ══ RENDER SITE ══ */
+function renderAll(){
+  renderHero();renderRooms();renderPromos();updateContactDisplay();renderPageHeroes();renderAbout();renderAmenities();
+  document.getElementById('introTitle').innerHTML=siteData.text.introTitle.replace('Elegance','<em>Elegance</em>');
+  document.getElementById('introBody').textContent=siteData.text.introBody;
+  document.getElementById('southTitle').textContent=siteData.text.southTitle;
+  document.getElementById('southDesc').textContent=siteData.text.southDesc;
+  document.getElementById('navSub').textContent=siteData.text.hotelSub;
+  const logoTxt=document.getElementById('navLogoText');if(logoTxt)logoTxt.textContent=siteData.text.hotelName;
+  document.getElementById('statRooms').textContent=siteData.rooms.length;
+  document.getElementById('statPromos').textContent=siteData.promos.length;
+  const br=document.getElementById('navBadgeRooms');if(br)br.textContent=siteData.rooms.length;
+  const bp=document.getElementById('navBadgePromos');if(bp)bp.textContent=siteData.promos.length;
+}
+
+function renderHero(){
+  const sc=document.getElementById('heroSlides');
+  const dc=document.getElementById('heroDots');
+  sc.innerHTML='';dc.innerHTML='';
+  siteData.heroImgs.forEach((url,i)=>{
+    const d=document.createElement('div');
+    d.className='hero-slide'+(i===0?' active':'');
+    d.style.backgroundImage=`url('${url}')`;
+    sc.appendChild(d);
+    const dot=document.createElement('button');
+    dot.className='dot'+(i===0?' active':'');
+    dot.onclick=()=>goTo(i);
+    dc.appendChild(dot);
+  });
+  curSlide=0;
+}
+
+function renderRooms(){
+  const homeGrid=document.getElementById('homeRoomsGrid');
+  const pageGrid=document.getElementById('roomsPageGrid');
+  homeGrid.innerHTML='';pageGrid.innerHTML='';
+  siteData.rooms.slice(0,5).forEach(r=>{
+    const priceHtml = r.price ? `<div class="room-price">${(r.currency||'PHP')} ${r.price.toLocaleString()}<span>/ night</span></div>` : '';
+    homeGrid.innerHTML+=`<div class="room-card" onclick="showPage('rooms')"><div class="room-img-w"><img class="room-img" src="${r.img}" alt="${r.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22280%22><rect fill=%22%23ddd%22 width=%22400%22 height=%22280%22/><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2216%22>No Image</text></svg>'"></div><div class="room-ov"><span>View Room</span></div><div class="room-info"><div class="room-num">${r.num}</div><div class="room-name">${r.name}</div><div class="room-desc">${r.desc}</div>${priceHtml}</div></div>`;
+    const rpPriceHtml = r.price ? `<div class="rp-price">${(r.currency||'PHP')} ${r.price.toLocaleString()}<span>/ night (tax excl.)</span></div>` : '';
+    const thumbHtml=r.thumbs.map((t,ti)=>`<img src="${t}" ${ti===0?'class="active"':''} onclick="switchRoomImg('rgm-${r.id}',this,'${t}')" onerror="this.style.display='none'">`).join('');
+    pageGrid.innerHTML+=`<div class="rp-card"><div class="rp-gallery-main" id="rgm-${r.id}"><img src="${r.thumbs[0]||r.img}" alt="${r.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect fill=%22%23ddd%22 width=%22400%22 height=%22320%22/></svg>'"></div><div class="rp-thumbs">${thumbHtml}</div><div class="rp-info"><div class="rp-num">${r.num}</div><div class="rp-name">${r.name}</div>${rpPriceHtml}<div class="rp-desc">${r.desc}</div><button class="rp-book" onclick="window.open('${r.bookUrl||'https://thegloryhotelpampanga.com/booking/'}')">Check Availability</button></div></div>`;
+  });
+  if(siteData.rooms.length===0){homeGrid.innerHTML='<p style="font-family:var(--sans);font-size:12px;color:#999;padding:20px;">No rooms registered.</p>';}
+}
+
+function renderPromos(){
+  const homeGrid=document.getElementById('homePromosGrid');
+  const pageGrid=document.getElementById('promosPageGrid');
+  homeGrid.innerHTML='';pageGrid.innerHTML='';
+  siteData.promos.slice(0,3).forEach((p,i)=>{
+    homeGrid.innerHTML+=`<div class="offer-card" onclick="showPage('promotions')"><div class="offer-img-w"><img class="offer-img" src="${p.img}" alt="${p.name}" onerror="this.style.background='#ddd'"></div><div class="offer-info"><div class="offer-tag">${p.tag}</div><div class="offer-name">${p.name}</div><div class="offer-desc">${p.desc}</div></div></div>`;
+  });
+  siteData.promos.forEach(p=>{
+    pageGrid.innerHTML+=`<div class="promo-card"><img src="${p.img}" alt="${p.name}" onerror="this.style.background='#ddd'"><div class="promo-info"><div class="promo-tag">${p.tag}</div><div class="promo-name">${p.name}</div><div class="promo-desc">${p.desc}</div><button class="promo-btn" onclick="window.open('${p.url||'https://thegloryhotelpampanga.com/booking/'}')">Book This Offer</button></div></div>`;
+  });
+  if(siteData.promos.length===0){pageGrid.innerHTML='<p style="font-family:var(--sans);font-size:12px;color:#999;padding:20px;">No promotions registered.</p>';}
+}
+
+function updateContactDisplay(){
+  const t=siteData.text;
+  ['dispAddress','dispAddress2'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t.address.replace(/\n/g,'<br>');});
+  ['dispPhoneLink','dispPhoneLink2'].forEach(id=>{const el=document.getElementById(id);if(el){el.href='tel:'+t.phone.replace(/\s/g,'');el.textContent=t.phone;}});
+  ['dispEmailLink','dispEmailLink2'].forEach(id=>{const el=document.getElementById(id);if(el){el.href='mailto:'+t.email;el.textContent=t.email;}});
+  ['dispFbLink','dispFbFoot'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=t.fb;});
+  const times=document.getElementById('dispTimes');
+  if(times)times.textContent=`Check-in: ${t.checkin}  ·  Check-out: ${t.checkout}`;
+}
+
+/* ══ SLIDESHOW ══ */
+let curSlide=0,slideTimer;
+function goTo(n){
+  const slides=document.querySelectorAll('.hero-slide');
+  const dots=document.querySelectorAll('.dot');
+  if(!slides.length)return;
+  slides[curSlide]?.classList.remove('active');
+  dots[curSlide]?.classList.remove('active');
+  curSlide=n%slides.length;
+  slides[curSlide]?.classList.add('active');
+  dots[curSlide]?.classList.add('active');
+}
+function startSlideshow(){
+  clearInterval(slideTimer);
+  slideTimer=setInterval(()=>goTo(curSlide+1),5000);
+}
+
+/* ══ NAV / PAGE ══ */
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const h=document.getElementById('hamburger');
+  m.classList.toggle('open');h.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function navTo(name){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+  showPage(name);
+}
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links a,.mobile-menu a').forEach(a=>a.classList.toggle('active',a.dataset.page===name));
+  const nav=document.getElementById('nav');
+  nav.classList.toggle('light-nav',name!=='home');
+  if(name==='home')nav.classList.remove('scrolled');
+  window.scrollTo(0,0);
+  setTimeout(()=>{
+    document.getElementById('page-'+name).querySelectorAll('.reveal').forEach(el=>{
+      new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1}).observe(el);
+    });
+  },50);
+}
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  if(document.getElementById('page-home').classList.contains('active'))
+    nav.classList.toggle('scrolled',window.scrollY>60);
+});
+const revObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+function switchRoomImg(gid,thumb,src){
+  const el=document.getElementById(gid);if(!el)return;
+  el.querySelector('img').src=src;
+  thumb.parentElement.querySelectorAll('img').forEach(s=>s.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+/* ══════════════ ADMIN ══════════════ */
+function openAdmLogin(){document.getElementById('admLoginOverlay').classList.add('open');document.getElementById('admPwInput').value='';document.getElementById('admErr').style.display='none';setTimeout(()=>document.getElementById('admPwInput').focus(),100);}
+function closeAdmLogin(){document.getElementById('admLoginOverlay').classList.remove('open');}
+function admLogin(){
+  const pw=document.getElementById('admPwInput').value;
+  if(pw===ADM_PW){
+    closeAdmLogin();
+    document.getElementById('adminPanel').classList.add('open');
+    document.body.style.overflow='hidden';
+    renderAdmRooms();renderAdmPromos();renderHeroImgList();renderAdmBookings();initPagesAdmin();
+  } else {
+    document.getElementById('admErr').style.display='block';
+    document.getElementById('admPwInput').value='';
+    document.getElementById('admPwInput').focus();
+  }
+}
+function admLogout(){
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.style.overflow='';
+  renderAll();
+}
+function admTab(name){
+  document.querySelectorAll('.adm-tab').forEach((el,i)=>el.classList.toggle('active',['dashboard','text','rooms','promos','images','preview','pages','bookings'][i]===name));
+  document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById('adm-'+name).classList.add('active');
+  if(name==='bookings') renderAdmBookings();
+  if(name==='pages') initPagesAdmin();
+}
+function showToast(msg){
+  const t=document.getElementById('admToast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+/* TEXT SAVES */
+function saveBasicInfo(){
+  siteData.text.hotelName=document.getElementById('txt-hotelName').value;
+  siteData.text.hotelSub=document.getElementById('txt-hotelSub').value;
+  siteData.text.checkin=document.getElementById('txt-checkin').value;
+  siteData.text.checkout=document.getElementById('txt-checkout').value;
+  showToast('Basic info saved');
+}
+function saveIntro(){
+  siteData.text.introTitle=document.getElementById('txt-introTitle').value;
+  siteData.text.introBody=document.getElementById('txt-introBody').value;
+  showToast('Introduction saved');
+}
+function saveContact(){
+  siteData.text.address=document.getElementById('txt-address').value;
+  siteData.text.phone=document.getElementById('txt-phone').value;
+  siteData.text.email=document.getElementById('txt-email').value;
+  siteData.text.fb=document.getElementById('txt-fb').value;
+  showToast('Contact info saved');
+}
+function saveSouth(){
+  siteData.text.southTitle=document.getElementById('txt-southTitle').value;
+  siteData.text.southDesc=document.getElementById('txt-southDesc').value;
+  showToast('South Building info saved');
+}
+
+/* IMAGE SAVES */
+function previewImg(inputId,prevId){
+  const url=document.getElementById(inputId).value;
+  const prev=document.getElementById(prevId);
+  if(url){prev.src=url;prev.style.display='block';}
+}
+function fileToUrl(input,inputId,prevId){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    document.getElementById(inputId).value=e.target.result;
+    const prev=document.getElementById(prevId);
+    prev.src=e.target.result;prev.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+function saveAboutImg(){
+  const url=document.getElementById('img-about').value;
+  if(url)document.getElementById('aboutHeroImg').src=url;
+  showToast('About image applied');
+}
+function saveSouthImg(){
+  const url=document.getElementById('img-south').value;
+  if(url)document.getElementById('southBannerImg').src=url;
+  showToast('South Building image applied');
+}
+
+/* HERO IMAGES */
+function renderHeroImgList(){
+  const c=document.getElementById('heroImgList');
+  c.innerHTML='';
+  siteData.heroImgs.forEach((url,i)=>{
+    c.innerHTML+=`<div class="adm-field" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
+      <input value="${url}" onchange="siteData.heroImgs[${i}]=this.value;renderHero();startSlideshow();" style="flex:1;background:var(--adm-bg);border:1px solid var(--adm-border);color:var(--adm-text);font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;">
+      <input type="file" accept="image/*" onchange="heroFileUpload(this,${i})" style="color:var(--adm-text);font-size:10px;width:120px;">
+      <button class="adm-btn adm-btn-del" onclick="removeHeroImg(${i})">Delete</button>
+    </div>`;
+  });
+}
+function addHeroImg(){
+  siteData.heroImgs.push('');
+  renderHeroImgList();
+}
+function removeHeroImg(i){
+  siteData.heroImgs.splice(i,1);
+  renderHeroImgList();renderHero();startSlideshow();
+  showToast('Slide image removed');
+}
+function heroFileUpload(input,i){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{siteData.heroImgs[i]=e.target.result;renderHeroImgList();renderHero();startSlideshow();showToast('Image uploaded');};
+  reader.readAsDataURL(file);
+}
+
+/* ROOMS ADMIN */
+function renderAdmRooms(){
+  const c=document.getElementById('admRoomList');c.innerHTML='';
+  if(!siteData.rooms.length){c.innerHTML='<p style="font-size:12px;color:var(--adm-muted);padding:16px;">No rooms registered.</p>';return;}
+  siteData.rooms.forEach(r=>{
+    c.innerHTML+=`<div class="adm-item">
+      <img src="${r.img}" alt="${r.name}" onerror="this.style.background='#333';this.style.display='block'">
+      <div class="adm-item-info"><strong>${r.name}</strong><span>${r.num}${r.price ? ' · '+(r.currency||'PHP')+' '+r.price.toLocaleString()+'/night' : ''}</span></div>
+      <div class="adm-item-btns">
+        <button class="adm-btn adm-btn-out" onclick="openEditRoom(${r.id})">Edit</button>
+        <button class="adm-btn adm-btn-del" onclick="deleteRoom(${r.id})">Delete</button>
+      </div>
+    </div>`;
+  });
+}
+function openAddRoom(){
+  admTab('rooms');
+  showModal(`<h2>Add New Room</h2>
+    <div class="adm-field"><label>Number / Location (e.g. 01 · South Building)</label><input id="mr-num"></div>
+    <div class="adm-field"><label>Room Name</label><input id="mr-name"></div>
+    <div class="adm-field"><label>Description</label><textarea id="mr-desc"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="adm-field"><label>Price per Night</label><input id="mr-price" type="number" placeholder="e.g. 5800"></div>
+      <div class="adm-field"><label>Currency</label><input id="mr-currency" value="PHP" placeholder="PHP"></div>
+    </div>
+    <div class="adm-field"><label>Main Image URL</label><input id="mr-img" oninput="previewModalImg()"></div>
+    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mr-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
+    <img id="mr-img-prev" style="width:100%;height:120px;object-fit:cover;display:none;margin:8px 0;border:1px solid var(--adm-border);">
+    <div class="adm-field"><label>Booking URL</label><input id="mr-url" value="https://thegloryhotelpampanga.com/booking/"></div>
+    <div class="adm-btn-row">
+      <button class="adm-btn adm-btn-gold" onclick="saveNewRoom()">Add</button>
+      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
+    </div>`);
+}
+function openEditRoom(id){
+  const r=siteData.rooms.find(x=>x.id===id);if(!r)return;
+  showModal(`<h2>Edit Room — ${r.name}</h2>
+    <div class="adm-field"><label>Number / Location</label><input id="mr-num" value="${r.num}"></div>
+    <div class="adm-field"><label>Room Name</label><input id="mr-name" value="${r.name}"></div>
+    <div class="adm-field"><label>Description</label><textarea id="mr-desc">${r.desc}</textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="adm-field"><label>Price per Night</label><input id="mr-price" type="number" value="${r.price||''}" placeholder="e.g. 5800"></div>
+      <div class="adm-field"><label>Currency</label><input id="mr-currency" value="${r.currency||'PHP'}"></div>
+    </div>
+    <div class="adm-field"><label>Main Image URL</label><input id="mr-img" value="${r.img}" oninput="previewModalImg()"></div>
+    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mr-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
+    <img id="mr-img-prev" src="${r.img}" style="width:100%;height:120px;object-fit:cover;display:block;margin:8px 0;border:1px solid var(--adm-border);" onerror="this.style.display='none'">
+    <div class="adm-field"><label>Booking URL</label><input id="mr-url" value="${r.bookUrl||''}"></div>
+    <div class="adm-btn-row">
+      <button class="adm-btn adm-btn-gold" onclick="saveEditRoom(${id})">Save</button>
+      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
+    </div>`);
+}
+function saveNewRoom(){
+  const maxId=siteData.rooms.reduce((m,r)=>Math.max(m,r.id),0);
+  siteData.rooms.push({id:maxId+1,num:v('mr-num'),name:v('mr-name'),desc:v('mr-desc'),img:v('mr-img'),thumbs:[v('mr-img')],bookUrl:v('mr-url'),price:parseInt(v('mr-price'))||0,currency:v('mr-currency')||'PHP'});
+  closeModal();renderAdmRooms();renderRooms();showToast('Room added');
+}
+function saveEditRoom(id){
+  const r=siteData.rooms.find(x=>x.id===id);if(!r)return;
+  r.num=v('mr-num');r.name=v('mr-name');r.desc=v('mr-desc');r.img=v('mr-img');r.thumbs=[v('mr-img')];r.bookUrl=v('mr-url');r.price=parseInt(v('mr-price'))||0;r.currency=v('mr-currency')||'PHP';
+  closeModal();renderAdmRooms();renderRooms();showToast('Room updated');
+}
+function deleteRoom(id){
+  if(!confirm('Delete this room?'))return;
+  siteData.rooms=siteData.rooms.filter(r=>r.id!==id);
+  renderAdmRooms();renderRooms();showToast('Room deleted');
+}
+
+/* PROMOS ADMIN */
+function renderAdmPromos(){
+  const c=document.getElementById('admPromoList');c.innerHTML='';
+  if(!siteData.promos.length){c.innerHTML='<p style="font-size:12px;color:var(--adm-muted);padding:16px;">No promotions registered.</p>';return;}
+  siteData.promos.forEach(p=>{
+    c.innerHTML+=`<div class="adm-item">
+      <img src="${p.img}" alt="${p.name}" onerror="this.style.background='#333'">
+      <div class="adm-item-info"><strong>${p.name}</strong><span>${p.tag}</span></div>
+      <div class="adm-item-btns">
+        <button class="adm-btn adm-btn-out" onclick="openEditPromo(${p.id})">Edit</button>
+        <button class="adm-btn adm-btn-del" onclick="deletePromo(${p.id})">Delete</button>
+      </div>
+    </div>`;
+  });
+}
+function openAddPromo(){
+  admTab('promos');
+  showModal(`<h2>Add New Promotion</h2>
+    <div class="adm-field"><label>Tag (e.g. Early Bird)</label><input id="mp-tag"></div>
+    <div class="adm-field"><label>Promotion Name</label><input id="mp-name"></div>
+    <div class="adm-field"><label>Description</label><textarea id="mp-desc"></textarea></div>
+    <div class="adm-field"><label>Image URL</label><input id="mp-img" oninput="previewModalImg('mp-img')"></div>
+    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mp-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
+    <img id="mr-img-prev" style="width:100%;height:120px;object-fit:cover;display:none;margin:8px 0;border:1px solid var(--adm-border);">
+    <div class="adm-field"><label>Booking URL</label><input id="mp-url" value="https://thegloryhotelpampanga.com/booking/"></div>
+    <div class="adm-btn-row">
+      <button class="adm-btn adm-btn-gold" onclick="saveNewPromo()">Add</button>
+      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
+    </div>`);
+}
+function openEditPromo(id){
+  const p=siteData.promos.find(x=>x.id===id);if(!p)return;
+  showModal(`<h2>Edit Promotion — ${p.name}</h2>
+    <div class="adm-field"><label>Tag</label><input id="mp-tag" value="${p.tag}"></div>
+    <div class="adm-field"><label>Promotion Name</label><input id="mp-name" value="${p.name}"></div>
+    <div class="adm-field"><label>Description</label><textarea id="mp-desc">${p.desc}</textarea></div>
+    <div class="adm-field"><label>Image URL</label><input id="mp-img" value="${p.img}" oninput="previewModalImg('mp-img')"></div>
+    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mp-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
+    <img id="mr-img-prev" src="${p.img}" style="width:100%;height:120px;object-fit:cover;display:block;margin:8px 0;border:1px solid var(--adm-border);" onerror="this.style.display='none'">
+    <div class="adm-field"><label>Booking URL</label><input id="mp-url" value="${p.url||''}"></div>
+    <div class="adm-btn-row">
+      <button class="adm-btn adm-btn-gold" onclick="saveEditPromo(${id})">Save</button>
+      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
+    </div>`);
+}
+function saveNewPromo(){
+  const maxId=siteData.promos.reduce((m,p)=>Math.max(m,p.id),0);
+  siteData.promos.push({id:maxId+1,tag:v('mp-tag'),name:v('mp-name'),desc:v('mp-desc'),img:v('mp-img'),url:v('mp-url')});
+  closeModal();renderAdmPromos();renderPromos();showToast('Promotion added');
+}
+function saveEditPromo(id){
+  const p=siteData.promos.find(x=>x.id===id);if(!p)return;
+  p.tag=v('mp-tag');p.name=v('mp-name');p.desc=v('mp-desc');p.img=v('mp-img');p.url=v('mp-url');
+  closeModal();renderAdmPromos();renderPromos();showToast('Promotion updated');
+}
+function deletePromo(id){
+  if(!confirm('Delete this promotion?'))return;
+  siteData.promos=siteData.promos.filter(p=>p.id!==id);
+  renderAdmPromos();renderPromos();showToast('Promotion deleted');
+}
+
+/* MODAL HELPERS */
+function showModal(html){
+  document.getElementById('admModalBox').innerHTML=html;
+  document.getElementById('admModal').classList.add('open');
+}
+function closeModal(){document.getElementById('admModal').classList.remove('open');}
+document.getElementById('admModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function v(id){const el=document.getElementById(id);return el?el.value:'';}
+function previewModalImg(inputId){
+  const id=inputId||'mr-img';
+  const url=document.getElementById(id)?.value;
+  const prev=document.getElementById('mr-img-prev');
+  if(url&&prev){prev.src=url;prev.style.display='block';}
+}
+function modalFileUp(input,targetId){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const el=document.getElementById(targetId);if(el)el.value=e.target.result;
+    const prev=document.getElementById('mr-img-prev');
+    if(prev){prev.src=e.target.result;prev.style.display='block';}
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ══ BOOKING SYSTEM ══ */
+let bookings = [];
+let bkFilter = 'all';
+
+function initBookingForm(){
+  const sel = document.getElementById('bk-room');
+  if(!sel) return;
+  sel.innerHTML = '<option value="">Select a room</option>';
+  siteData.rooms.forEach(r=>{
+    const priceStr = r.price ? ` — ${r.currency||'PHP'} ${r.price.toLocaleString()}/night` : '';
+    sel.innerHTML += `<option value="${r.id}">${r.name}${priceStr} (${r.num})</option>`;
+  });
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bk-checkin').min = today;
+  document.getElementById('bk-checkout').min = today;
+  document.getElementById('sumCheckinTime').textContent = siteData.text.checkin||'15:00';
+  document.getElementById('sumCheckoutTime').textContent = siteData.text.checkout||'12:00';
+}
+
+function updateCheckout(){
+  const ci = document.getElementById('bk-checkin').value;
+  if(!ci) return;
+  const next = new Date(ci);
+  next.setDate(next.getDate()+1);
+  const co = document.getElementById('bk-checkout');
+  co.min = next.toISOString().split('T')[0];
+  if(!co.value || co.value <= ci) co.value = next.toISOString().split('T')[0];
+  updateSummary();
+}
+
+function updateSummary(){
+  const name = document.getElementById('bk-name').value;
+  const ci = document.getElementById('bk-checkin').value;
+  const co = document.getElementById('bk-checkout').value;
+  const roomId = parseInt(document.getElementById('bk-room').value);
+  const guests = document.getElementById('bk-guests').value;
+  const room = siteData.rooms.find(r=>r.id===roomId);
+
+  document.getElementById('sumName').textContent = name||'—';
+  document.getElementById('sumGuests').textContent = guests ? guests+' guest'+(parseInt(guests)>1?'s':'') : '—';
+
+  if(ci) document.getElementById('sumCheckin').textContent = formatDate(ci);
+  else document.getElementById('sumCheckin').textContent = '—';
+
+  if(co) document.getElementById('sumCheckout').textContent = formatDate(co);
+  else document.getElementById('sumCheckout').textContent = '—';
+
+  if(ci && co){
+    const diff = (new Date(co)-new Date(ci))/(1000*60*60*24);
+    document.getElementById('sumNights').textContent = diff > 0 ? diff+' night'+(diff>1?'s':'') : '—';
+    // Calculate total
+    const totalEl = document.getElementById('sumTotal');
+    const totalRowEl = document.getElementById('sumTotalRow');
+    if(room && room.price && diff > 0){
+      const total = room.price * diff;
+      if(totalEl) totalEl.textContent = `${room.currency||'PHP'} ${total.toLocaleString()}`;
+      if(totalRowEl) totalRowEl.style.display='flex';
+    } else {
+      if(totalRowEl) totalRowEl.style.display='none';
+    }
+  } else {
+    document.getElementById('sumNights').textContent = '—';
+    const totalRowEl = document.getElementById('sumTotalRow');
+    if(totalRowEl) totalRowEl.style.display='none';
+  }
+
+  const preview = document.getElementById('bkRoomPreview');
+  if(room){
+    document.getElementById('bkRoomImg').src = room.img;
+    document.getElementById('bkRoomName').textContent = room.name;
+    document.getElementById('bkRoomSub').textContent = room.num;
+    const priceEl = document.getElementById('bkRoomPriceDisp');
+    if(priceEl) priceEl.textContent = room.price ? `${room.currency||'PHP'} ${room.price.toLocaleString()} / night` : '';
+    preview.style.display='block';
+  } else {
+    preview.style.display='none';
+  }
+}
+
+function formatDate(d){
+  if(!d) return '—';
+  const dt = new Date(d+'T00:00:00');
+  return dt.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+}
+
+function submitBooking(){
+  const name = document.getElementById('bk-name').value.trim();
+  const email = document.getElementById('bk-email').value.trim();
+  const phone = document.getElementById('bk-phone').value.trim();
+  const ci = document.getElementById('bk-checkin').value;
+  const co = document.getElementById('bk-checkout').value;
+  const roomId = parseInt(document.getElementById('bk-room').value);
+  const guests = document.getElementById('bk-guests').value;
+  const request = document.getElementById('bk-request').value.trim();
+
+  if(!name){alert('Please enter your name.');document.getElementById('bk-name').focus();return;}
+  if(!email||!email.includes('@')){alert('Please enter a valid email.');document.getElementById('bk-email').focus();return;}
+  if(!phone){alert('Please enter your phone number.');document.getElementById('bk-phone').focus();return;}
+  if(!ci){alert('Please select a check-in date.');document.getElementById('bk-checkin').focus();return;}
+  if(!co||co<=ci){alert('Please check your check-out date.');document.getElementById('bk-checkout').focus();return;}
+  if(!roomId){alert('Please select a room.');document.getElementById('bk-room').focus();return;}
+
+  const btn = document.getElementById('bkSubmitBtn');
+  btn.disabled=true; btn.textContent='Processing...';
+
+  const room = siteData.rooms.find(r=>r.id===roomId);
+  const nights = (new Date(co)-new Date(ci))/(1000*60*60*24);
+  const ref = 'GH-'+Date.now().toString().slice(-6);
+
+  const booking = {
+    id: Date.now(), ref, status:'pending',
+    name, email, phone, ci, co, nights,
+    roomId, roomName: room?room.name:'—',
+    guests, request,
+    createdAt: new Date().toISOString()
+  };
+  bookings.push(booking);
+  updateBookingBadge();
+
+  setTimeout(()=>{
+    document.getElementById('bkFormWrap').style.display='none';
+    const suc = document.getElementById('bkSuccess');
+    suc.classList.add('show');
+    document.getElementById('bkRef').textContent = 'REF #'+ref;
+    btn.disabled=false; btn.textContent='Submit Reservation';
+  },800);
+}
+
+function resetBookingForm(){
+  document.getElementById('bkFormWrap').style.display='';
+  document.getElementById('bkSuccess').classList.remove('show');
+  ['bk-name','bk-email','bk-phone','bk-checkin','bk-checkout','bk-request'].forEach(id=>{
+    document.getElementById(id).value='';
+  });
+  document.getElementById('bk-room').value='';
+  document.getElementById('bk-guests').value='2';
+  updateSummary();
+}
+
+function updateBookingBadge(){
+  const pending = bookings.filter(b=>b.status==='pending').length;
+  const badge = document.getElementById('navBadgeBookings');
+  if(badge) badge.textContent = pending||bookings.length;
+}
+
+/* ── ADMIN BOOKINGS ── */
+function renderAdmBookings(){
+  const stats = document.getElementById('bkAdmStats');
+  const total = bookings.length;
+  const pending = bookings.filter(b=>b.status==='pending').length;
+  const confirmed = bookings.filter(b=>b.status==='confirmed').length;
+  const cancelled = bookings.filter(b=>b.status==='cancelled').length;
+  stats.innerHTML = `
+    <div class="adm-stat"><div class="adm-stat-num">${total}</div><div class="adm-stat-label">Total</div></div>
+    <div class="adm-stat" style="border-color:rgba(234,179,8,.3)"><div class="adm-stat-num" style="color:#eab308">${pending}</div><div class="adm-stat-label">Pending</div></div>
+    <div class="adm-stat" style="border-color:rgba(34,197,94,.3)"><div class="adm-stat-num" style="color:#22c55e">${confirmed}</div><div class="adm-stat-label">Confirmed</div></div>
+    <div class="adm-stat" style="border-color:rgba(239,68,68,.3)"><div class="adm-stat-num" style="color:#ef4444">${cancelled}</div><div class="adm-stat-label">Cancelled</div></div>`;
+
+  const list = document.getElementById('bkAdmList');
+  const filtered = bkFilter==='all' ? bookings : bookings.filter(b=>b.status===bkFilter);
+  if(!filtered.length){
+    list.innerHTML = '<div class="bk-adm-empty">No bookings found</div>';
+    return;
+  }
+  list.innerHTML = '';
+  [...filtered].reverse().forEach(b=>{
+    const statusMap = {pending:'Pending',confirmed:'Confirmed',cancelled:'Cancelled'};
+    list.innerHTML += `
+    <div class="bk-adm-card" id="bkcard-${b.id}">
+      <div class="bk-adm-top">
+        <span class="bk-adm-ref">${b.ref}</span>
+        <span class="bk-status ${b.status}">${statusMap[b.status]}</span>
+      </div>
+      <div class="bk-adm-name">${b.name}</div>
+      <div class="bk-adm-info">
+        📧 ${b.email} &nbsp;|&nbsp; 📞 ${b.phone}<br>
+        🛏 ${b.roomName} &nbsp;|&nbsp; 👥 ${b.guests} guest(s)<br>
+        📅 ${formatDate(b.ci)} → ${formatDate(b.co)} (${b.nights} night(s))
+        ${b.request ? '<br>💬 '+b.request : ''}
+      </div>
+      <div class="bk-adm-btns">
+        ${b.status!=='confirmed'?`<button class="bk-abtn bk-abtn-ok" onclick="changeBookingStatus(${b.id},'confirmed')">✓ Confirm</button>`:''}
+        ${b.status!=='cancelled'?`<button class="bk-abtn bk-abtn-no" onclick="changeBookingStatus(${b.id},'cancelled')">✕ Cancel</button>`:''}
+        <button class="bk-abtn bk-abtn-del" onclick="deleteBooking(${b.id})">Delete</button>
+      </div>
+    </div>`;
+  });
+}
+
+function filterBookings(status, btn){
+  bkFilter=status;
+  document.querySelectorAll('.bk-adm-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAdmBookings();
+}
+
+function changeBookingStatus(id, status){
+  const b = bookings.find(x=>x.id===id);
+  if(b){b.status=status;renderAdmBookings();updateBookingBadge();showToast(status==='confirmed'?'Booking confirmed':'Booking cancelled');}
+}
+
+function deleteBooking(id){
+  if(!confirm('Delete this booking?'))return;
+  bookings=bookings.filter(x=>x.id!==id);
+  renderAdmBookings();updateBookingBadge();showToast('Deleted');
+}
+
+function exportBookings(){
+  if(!bookings.length){alert('No bookings to export.');return;}
+  const headers = ['REF','Status','Name','Email','Phone','Room','Guests','Check-in','Check-out','Nights','Requests','Date'];
+  const rows = bookings.map(b=>[
+    b.ref, b.status, b.name, b.email, b.phone,
+    b.roomName, b.guests+' guest'+(parseInt(guests)>1?'s':''), b.ci, b.co, b.nights+' night'+(b.nights>1?'s':''),
+    b.request||'', b.createdAt.slice(0,10)
+  ]);
+  const csv = [headers,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'glory_bookings_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('CSV export complete');
+}
+
+/* ══ INIT ══ */
+renderAll();
+startSlideshow();
+initBookingForm();
+</script>
+</body>
+</html>
