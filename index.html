@@ -1006,7 +1006,7 @@ function updateSummary(){
 function formatDate(d){
   if(!d) return '—';
   const dt = new Date(d+'T00:00:00');
-  return dt.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+  return dt.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
 }
 
 function submitBooking(){
@@ -1101,6 +1101,15 @@ function resetBookingForm(){
   document.getElementById('bk-room').value='';
   document.getElementById('bk-guests').value='2';
   updateSummary();
+}
+
+/* ══ BOOKING FORM INIT ══ */
+function initBookingForm(){
+  const sel = document.getElementById('bk-room');
+  sel.innerHTML = '<option value="">Select a room</option>';
+  siteData.rooms.forEach(r=>{
+    sel.innerHTML += `<option value="${r.id}">${r.name} — ${r.currency||'PHP'} ${r.price.toLocaleString()}</option>`;
+  });
 }
 
 /* ══ INIT ══ */
