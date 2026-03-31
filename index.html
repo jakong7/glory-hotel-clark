@@ -13,9 +13,6 @@
   --gray:#888;--light:#F5F2ED;--white:#FDFCFA;
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Montserrat',sans-serif;
-  /* Admin */
-  --adm-bg:#0f1117;--adm-surface:#181c24;--adm-border:#2a2e3a;
-  --adm-gold:#C9A84C;--adm-text:#e0e0e0;--adm-muted:#8a8fa8;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--serif);background:var(--white);color:var(--black);overflow-x:hidden;}
@@ -40,9 +37,6 @@ nav.light-nav{background:rgba(10,10,10,0.95);border-bottom:.5px solid rgba(201,1
 .nav-right{display:flex;align-items:center;gap:12px;}
 .nav-book{font-family:var(--sans);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:11px 28px;cursor:pointer;transition:background .2s;}
 .nav-book:hover{background:var(--gold-l);}
-.nav-admin-btn{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;border:1px solid var(--gold);background:rgba(201,168,76,.15);padding:10px 20px;cursor:pointer;transition:all .2s;}
-.nav-admin-btn:hover{background:var(--gold);color:var(--black);}
-.nav-admin-btn::before{content:'⚙ ';font-size:11px;}
 
 /* ══ HAMBURGER ══ */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
@@ -161,8 +155,8 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
 .contact-map iframe{display:block;width:100%;filter:grayscale(30%) contrast(1.05);}
 .foot-logo{font-size:14px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);}
 .foot-copy{font-family:var(--sans);font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.4);}
-.foot-social a{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;transition:opacity .2s;}
-.foot-social a:hover{opacity:1;}
+.foot-social a{font-family:var(--sans);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#E8D5A3;text-decoration:none;opacity:1;transition:all .2s;font-weight:500;}
+.foot-social a:hover{color:#fff;}
 .about-body{max-width:900px;margin:0 auto;padding:60px 40px;}
 .about-body img{width:100%;max-height:420px;object-fit:cover;margin-bottom:40px;}
 .about-body h2{font-size:32px;font-weight:400;letter-spacing:2px;margin:32px 0 16px;}
@@ -235,9 +229,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
   nav{padding:16px 20px;}
   nav.scrolled,nav.light-nav{padding:12px 20px;}
   .nav-links,.nav-book{display:none;}
-  .nav-admin-btn{font-size:9px;padding:8px 12px;letter-spacing:1px;}
-  .nav-admin-btn::before{content:'⚙ ';}
-  .nav-hamburger{display:flex;}
+      .nav-hamburger{display:flex;}
   .nav-logo{font-size:16px;letter-spacing:2px;gap:0;}
   .nav-logo-icon{width:66px;height:66px;}
   .nav-logo em{font-size:8px;letter-spacing:3px;}
@@ -338,126 +330,10 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
   .bk-form-header{padding:16px 18px;}
   .bk-2col{grid-template-columns:1fr;}
 }
-/* ══ BOOKING ADMIN ══ */
-.bk-adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
-.bk-adm-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
-.bk-adm-filter{font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:7px 13px;cursor:pointer;border:1px solid #2a2e3a;background:none;color:#8a8fa8;transition:all .2s;}
-.bk-adm-filter.active,.bk-adm-filter:hover{background:rgba(201,168,76,.1);border-color:#C9A84C;color:#C9A84C;}
-.bk-adm-card{background:#0f1117;border:1px solid #2a2e3a;padding:14px 16px;margin-bottom:10px;}
-.bk-adm-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
-.bk-adm-ref{font-family:var(--sans);font-size:10px;letter-spacing:2px;color:#C9A84C;}
-.bk-status{font-family:var(--sans);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
-.bk-status.pending{background:rgba(234,179,8,.15);color:#eab308;}
-.bk-status.confirmed{background:rgba(34,197,94,.15);color:#22c55e;}
-.bk-status.cancelled{background:rgba(239,68,68,.15);color:#ef4444;}
-.bk-adm-name{font-family:var(--sans);font-size:13px;color:#e0e0e0;font-weight:500;margin-bottom:3px;}
-.bk-adm-info{font-family:var(--sans);font-size:11px;color:#8a8fa8;line-height:1.7;}
-.bk-adm-btns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
-.bk-abtn{font-family:var(--sans);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:6px 11px;cursor:pointer;border:none;transition:all .2s;}
-.bk-abtn-ok{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.3);}
-.bk-abtn-ok:hover{background:#22c55e;color:#000;}
-.bk-abtn-no{background:rgba(239,68,68,.08);color:#ef4444;border:1px solid rgba(239,68,68,.3);}
-.bk-abtn-no:hover{background:#ef4444;color:#fff;}
-.bk-abtn-del{background:none;color:#8a8fa8;border:1px solid #2a2e3a;}
-.bk-abtn-del:hover{border-color:#ef4444;color:#ef4444;}
-.bk-adm-empty{text-align:center;padding:36px;font-family:var(--sans);font-size:11px;color:#8a8fa8;letter-spacing:2px;}
-@media(max-width:600px){.bk-adm-stats{grid-template-columns:repeat(2,1fr);}}
-
-/* ══════════ ADMIN ══════════ */
-.adm-login-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:8000;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
-.adm-login-overlay.open{display:flex;}
-.adm-login-box{background:#181c24;border:1px solid #2a2e3a;padding:40px 28px;width:300px;max-width:90vw;text-align:center;}
-.adm-login-box h2{font-family:var(--serif);font-size:22px;font-weight:300;color:#e0e0e0;letter-spacing:2px;margin-bottom:4px;}
-.adm-login-box p{font-family:var(--sans);font-size:9px;letter-spacing:4px;color:#C9A84C;text-transform:uppercase;margin-bottom:24px;}
-.adm-login-box input{width:100%;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:18px;padding:14px;margin-bottom:10px;outline:none;text-align:center;letter-spacing:8px;}
-.adm-login-box input:focus{border-color:#C9A84C;}
-.adm-login-btn{width:100%;background:#C9A84C;color:#000;border:none;font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:14px;cursor:pointer;margin-top:6px;}
-.adm-login-cancel{font-family:var(--sans);font-size:10px;color:#8a8fa8;cursor:pointer;margin-top:14px;display:block;background:none;border:none;width:100%;letter-spacing:2px;text-transform:uppercase;}
-.adm-login-err{font-family:var(--sans);font-size:11px;color:#e05555;margin-top:8px;display:none;}
-
-#adminPanel{display:none;position:fixed;inset:0;z-index:7000;background:#0f1117;font-family:var(--sans);flex-direction:column;}
-#adminPanel.open{display:flex;}
-
-/* ─ Header bar ─ */
-.adm-hbar{height:50px;background:#181c24;border-bottom:1px solid #2a2e3a;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex-shrink:0;}
-.adm-hbar-logo{font-family:var(--serif);font-size:14px;color:#e0e0e0;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
-.adm-hbar-logo span{font-family:var(--sans);font-size:8px;letter-spacing:2px;color:#C9A84C;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:3px 8px;text-transform:uppercase;}
-.adm-hbar-out{font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8a8fa8;background:none;border:1px solid #2a2e3a;padding:7px 12px;cursor:pointer;}
-.adm-hbar-out:hover{color:#e05555;border-color:#e05555;}
-
-/* ─ Tab bar ─ */
-.adm-tabs{display:flex;background:#181c24;border-bottom:1px solid #2a2e3a;overflow-x:auto;flex-shrink:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-.adm-tabs::-webkit-scrollbar{display:none;}
-.adm-tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 12px;cursor:pointer;color:#8a8fa8;border-bottom:2px solid transparent;flex-shrink:0;min-width:58px;position:relative;transition:all .2s;}
-.adm-tab .ti{font-size:17px;line-height:1.2;}
-.adm-tab .tl{font-family:var(--sans);font-size:8px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;}
-.adm-tab .tb{position:absolute;top:4px;right:6px;font-size:8px;background:#C9A84C;color:#000;padding:1px 5px;border-radius:8px;font-weight:700;font-family:var(--sans);}
-.adm-tab.active{color:#C9A84C;border-bottom-color:#C9A84C;}
-.adm-tab:hover{color:#e0e0e0;background:rgba(255,255,255,.03);}
-
-/* ─ Content ─ */
-.adm-body{flex:1;overflow-y:auto;padding:16px;}
-@media(min-width:600px){.adm-body{padding:24px 28px;}}
-.adm-sec{display:none;}.adm-sec.active{display:block;}
-.adm-ph{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
-.adm-ph h1{font-family:var(--serif);font-size:20px;font-weight:300;color:#e0e0e0;letter-spacing:1px;}
-.adm-ph p{font-family:var(--sans);font-size:10px;color:#8a8fa8;margin-top:3px;}
-.adm-ph-actions{display:flex;gap:8px;flex-wrap:wrap;}
-.adm-topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
-.adm-topbar h1{font-family:var(--serif);font-size:20px;font-weight:300;color:#e0e0e0;letter-spacing:1px;}
-.adm-topbar p{font-family:var(--sans);font-size:10px;color:#8a8fa8;margin-top:3px;}
-.adm-topbar-actions{display:flex;gap:8px;flex-wrap:wrap;}
-.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.adm-img-preview{width:100%;height:120px;object-fit:cover;display:block;margin-top:8px;border:1px solid #2a2e3a;}
-.adm-card{background:#181c24;border:1px solid #2a2e3a;padding:18px;margin-bottom:16px;}
-.adm-card h3{font-family:var(--serif);font-size:15px;font-weight:400;color:#e0e0e0;letter-spacing:1px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a2e3a;}
-.adm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
-.adm-stat{background:#181c24;border:1px solid #2a2e3a;padding:16px;text-align:center;}
-.adm-stat-num{font-family:var(--serif);font-size:32px;font-weight:300;color:#C9A84C;}
-.adm-stat-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#8a8fa8;margin-top:4px;}
-.adm-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.adm-qbtn{background:#0f1117;border:1px solid #2a2e3a;padding:16px 8px;text-align:center;cursor:pointer;transition:border-color .2s;}
-.adm-qbtn:hover{border-color:#C9A84C;}
-.adm-qbtn .qi{font-size:22px;margin-bottom:6px;}
-.adm-qbtn .ql{font-family:var(--sans);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#e0e0e0;}
-.adm-field{margin-bottom:14px;}
-.adm-field label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8a8fa8;margin-bottom:5px;}
-.adm-field input,.adm-field textarea{width:100%;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:13px;padding:10px 12px;outline:none;resize:vertical;}
-.adm-field input:focus,.adm-field textarea:focus{border-color:#C9A84C;}
-.adm-field textarea{min-height:72px;}
-.adm-field input[type=file]{color:#8a8fa8;font-size:11px;padding:8px 0;border:none;background:none;}
-.adm-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.adm-btn{font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;border:none;transition:all .2s;}
-.adm-btn-gold{background:#C9A84C;color:#000;}
-.adm-btn-gold:hover{opacity:.85;}
-.adm-btn-out{background:none;border:1px solid #2a2e3a;color:#8a8fa8;}
-.adm-btn-out:hover{border-color:#e0e0e0;color:#e0e0e0;}
-.adm-btn-del{background:none;border:1px solid #c0392b;color:#e05555;}
-.adm-btn-del:hover{background:#c0392b;color:#fff;}
-.adm-btn-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
-.adm-ipreview{width:100%;height:120px;object-fit:cover;display:none;margin-top:8px;border:1px solid #2a2e3a;}
-.adm-list{display:flex;flex-direction:column;gap:10px;}
-.adm-item{background:#0f1117;border:1px solid #2a2e3a;padding:12px 14px;display:flex;align-items:center;gap:12px;}
-.adm-item img{width:72px;height:52px;object-fit:cover;flex-shrink:0;border:1px solid #2a2e3a;}
-.adm-item-info{flex:1;min-width:0;}
-.adm-item-info strong{display:block;color:#e0e0e0;font-size:13px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.adm-item-info span{font-size:10px;color:#8a8fa8;}
-.adm-item-btns{display:flex;gap:6px;flex-shrink:0;}
-.adm-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(10px);background:#C9A84C;color:#000;font-family:var(--sans);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:12px 22px;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;}
-.adm-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.adm-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:8500;align-items:center;justify-content:center;}
-.adm-modal.open{display:flex;}
-.adm-modal-box{background:#181c24;border:1px solid #2a2e3a;padding:24px;width:500px;max-width:95vw;max-height:88vh;overflow-y:auto;}
-.adm-modal-box h2{font-family:var(--serif);font-size:19px;font-weight:300;color:#e0e0e0;letter-spacing:1px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid #2a2e3a;}
-.hero-url-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
-.hero-url-row input{flex:1;background:#0f1117;border:1px solid #2a2e3a;color:#e0e0e0;font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;}
-.hero-url-row input:focus{border-color:#C9A84C;}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-
-<!-- ADMIN TOAST -->
-<div class="adm-toast" id="admToast"></div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -468,262 +344,14 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
   <div class="lb-caption" id="lbCap"></div>
 </div>
 
-<!-- ADMIN LOGIN OVERLAY -->
-<div class="adm-login-overlay" id="admLoginOverlay">
-  <div class="adm-login-box">
-    <h2>Admin Access</h2>
-    <p>Glory Hotel Management</p>
-    <input type="password" id="admPwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')admLogin()">
-    <div class="adm-login-err" id="admErr">Incorrect password</div>
-    <button class="adm-login-btn" onclick="admLogin()">Login</button>
-    <button class="adm-login-cancel" onclick="closeAdmLogin()">Cancel</button>
-  </div>
-</div>
-
-<!-- ADMIN MODAL (Add/Edit) -->
-<div class="adm-modal" id="admModal">
-  <div class="adm-modal-box" id="admModalBox"></div>
-</div>
-
-<!-- ADMIN PANEL -->
-<div id="adminPanel">
-  <div class="adm-hbar">
-    <div class="adm-hbar-logo">The Glory Hotel <span>Admin</span></div>
-    <button class="adm-hbar-out" onclick="admLogout()">🔒 Logout</button>
-  </div>
-  <div class="adm-tabs">
-    <div class="adm-tab active" onclick="admTab('dashboard')"><div class="ti">📊</div><div class="tl">Dashboard</div></div>
-    <div class="adm-tab" onclick="admTab('text')"><div class="ti">✏️</div><div class="tl">Text</div></div>
-    <div class="adm-tab" onclick="admTab('rooms')"><div class="ti">🛏</div><div class="tl">Rooms</div><div class="tb" id="navBadgeRooms">5</div></div>
-    <div class="adm-tab" onclick="admTab('promos')"><div class="ti">🎁</div><div class="tl">Promos</div><div class="tb" id="navBadgePromos">6</div></div>
-    <div class="adm-tab" onclick="admTab('images')"><div class="ti">🖼</div><div class="tl">Images</div></div>
-    <div class="adm-tab" onclick="admTab('preview')"><div class="ti">👁</div><div class="tl">Preview</div></div>
-    <div class="adm-tab" onclick="admTab('pages')"><div class="ti">📄</div><div class="tl">Pages</div></div>
-    <div class="adm-tab" onclick="admTab('bookings')"><div class="ti">📋</div><div class="tl">Bookings</div><div class="tb" id="navBadgeBookings">0</div></div>
-  </div>
-  <div class="adm-body">
-
-    <!-- DASHBOARD -->
-    <div class="adm-sec active" id="adm-dashboard">
-      <div class="adm-topbar">
-        <div><h1>Dashboard</h1><p>The Glory Hotel Admin Center</p></div>
-        <div class="adm-topbar-actions">
-          <button class="adm-btn adm-btn-gold" onclick="admTab('rooms');openAddRoom()">+ Add Room</button>
-          <button class="adm-btn adm-btn-out" onclick="admTab('promos');openAddPromo()">+ Add Promo</button>
-        </div>
-      </div>
-      <div class="adm-stats">
-        <div class="adm-stat"><div class="adm-stat-num" id="statRooms">5</div><div class="adm-stat-label">Room Types</div></div>
-        <div class="adm-stat"><div class="adm-stat-num" id="statPromos">6</div><div class="adm-stat-label">Promotions</div></div>
-        <div class="adm-stat"><div class="adm-stat-num" id="statImgs">30+</div><div class="adm-stat-label">Images</div></div>
-      </div>
-      <div class="adm-card">
-        <h3>Quick Menu</h3>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;">
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('text')">
-            <div style="font-size:24px;margin-bottom:8px;">✏️</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Edit Text</div>
-          </div>
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('rooms')">
-            <div style="font-size:24px;margin-bottom:8px;">🛏</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Manage Rooms</div>
-          </div>
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('promos')">
-            <div style="font-size:24px;margin-bottom:8px;">🎁</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Promotions</div>
-          </div>
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admTab('images')">
-            <div style="font-size:24px;margin-bottom:8px;">🖼</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">Manage Images</div>
-          </div>
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admLogout()">
-            <div style="font-size:24px;margin-bottom:8px;">👁</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-text);">View Site</div>
-          </div>
-          <div style="background:var(--adm-bg);border:1px solid var(--adm-border);padding:18px;text-align:center;cursor:pointer;" onclick="admLogout()">
-            <div style="font-size:24px;margin-bottom:8px;">🔒</div>
-            <div style="font-family:var(--sans);font-size:10px;letter-spacing:2px;color:var(--adm-muted);">Logout</div>
-          </div>
-        </div>
-      </div>
-      <div class="adm-card">
-        <h3>⚠️ Notice</h3>
-        <p style="font-size:12px;color:var(--adm-muted);line-height:1.9;">Changes are applied immediately. They will reset when the browser is closed. For permanent storage, contact your developer for server integration.</p>
-      </div>
-    </div>
-
-    <!-- TEXT EDIT -->
-    <div class="adm-sec" id="adm-text">
-      <div class="adm-topbar"><div><h1>Edit Text</h1><p>Hotel name, descriptions, contact info</p></div></div>
-      <div class="adm-card">
-        <h3>Basic Info</h3>
-        <div class="adm-field"><label>Hotel Name</label><input id="txt-hotelName" value="The Glory Hotel"></div>
-        <div class="adm-field"><label>Subtitle (Location)</label><input id="txt-hotelSub" value="Clark · Pampanga"></div>
-        <div class="adm-row">
-          <div class="adm-field"><label>Check-in Time</label><input id="txt-checkin" value="15:00"></div>
-          <div class="adm-field"><label>Check-out Time</label><input id="txt-checkout" value="12:00"></div>
-        </div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveBasicInfo()">Save</button></div>
-      </div>
-      <div class="adm-card">
-        <h3>Homepage Introduction</h3>
-        <div class="adm-field"><label>Title</label><input id="txt-introTitle" value="Where Elegance Meets the Spirit of Clark"></div>
-        <div class="adm-field"><label>Body</label><textarea id="txt-introBody">Nestled within the Clark Freeport Zone, The Glory Hotel is a sanctuary of refined comfort and warm hospitality. Our East, West, and South Buildings offer thoughtfully designed rooms — each a quiet retreat crafted for the discerning traveler.</textarea></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveIntro()">Save</button></div>
-      </div>
-      <div class="adm-card">
-        <h3>Contact Info</h3>
-        <div class="adm-field"><label>Address</label><textarea id="txt-address" style="min-height:60px;">Gil Puyat Avenue corner Claro M. Recto Highway, Clark Freeport Zone, Mabalacat City, 2023 Pampanga, Philippines</textarea></div>
-        <div class="adm-row">
-          <div class="adm-field"><label>Phone</label><input id="txt-phone" value="+63 939 932 8080"></div>
-          <div class="adm-field"><label>Email</label><input id="txt-email" value="thegloryhotelresidence@gmail.com"></div>
-        </div>
-        <div class="adm-field"><label>Facebook URL</label><input id="txt-fb" value="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveContact()">Save</button></div>
-      </div>
-      <div class="adm-card">
-        <h3>South Building</h3>
-        <div class="adm-field"><label>Title</label><input id="txt-southTitle" value="The South Building"></div>
-        <div class="adm-field"><label>Description</label><textarea id="txt-southDesc">Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.</textarea></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveSouth()">Save</button></div>
-      </div>
-    </div>
-
-    <!-- ROOMS -->
-    <div class="adm-sec" id="adm-rooms">
-      <div class="adm-topbar">
-        <div><h1>Room Management</h1><p>Add, edit, or delete rooms</p></div>
-        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-gold" onclick="openAddRoom()">+ Add New Room</button></div>
-      </div>
-      <div class="adm-list" id="admRoomList"></div>
-    </div>
-
-    <!-- PROMOS -->
-    <div class="adm-sec" id="adm-promos">
-      <div class="adm-topbar">
-        <div><h1>Promotions</h1><p>Add, edit, or delete promotions</p></div>
-        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-gold" onclick="openAddPromo()">+ Add New Promotion</button></div>
-      </div>
-      <div class="adm-list" id="admPromoList"></div>
-    </div>
-
-    <!-- IMAGES -->
-    <div class="adm-sec" id="adm-images">
-      <div class="adm-topbar"><div><h1>Image Management</h1><p>Replace section images</p></div></div>
-      <div class="adm-card">
-        <h3>Hero Slide Images</h3>
-        <div id="heroImgList"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addHeroImg()">+ Add Slide</button></div>
-      </div>
-      <div class="adm-card">
-        <h3>About Page Image</h3>
-        <div class="adm-field"><label>Image URL</label><input id="img-about" placeholder="https://... or local path" oninput="previewImg('img-about','prev-about')"></div>
-        <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-about','prev-about')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
-        <img id="prev-about" class="adm-img-preview" src="img/6cf41723a79f0051.webp" onerror="this.style.display='none'">
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAboutImg()">Apply</button></div>
-      </div>
-      <div class="adm-card">
-        <h3>South Building Banner</h3>
-        <div class="adm-field"><label>Image URL</label><input id="img-south" placeholder="https://..." oninput="previewImg('img-south','prev-south')"></div>
-        <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="fileToUrl(this,'img-south','prev-south')" style="color:var(--adm-text);font-size:11px;padding:8px 0;"></div>
-        <img id="prev-south" class="adm-img-preview" src="img/f278ded787d43df2.webp" onerror="this.style.display='none'">
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveSouthImg()">Apply</button></div>
-      </div>
-    </div>
-
-    <!-- PREVIEW -->
-    <div class="adm-sec" id="adm-preview">
-      <div class="adm-topbar"><div><h1>Preview / Save</h1><p>Review changes and return to site</p></div></div>
-      <div class="adm-card">
-        <h3>Preview</h3>
-        <p style="font-size:12px;color:var(--adm-muted);line-height:1.8;margin-bottom:16px;">Close the admin panel and preview the site with your changes applied.</p>
-        <div class="adm-btn-row">
-          <button class="adm-btn adm-btn-gold" onclick="admLogout()">Go to Site</button>
-        </div>
-      </div>
-      <div class="adm-card">
-        <h3>⚠️ Important Notice</h3>
-        <p style="font-size:12px;color:var(--adm-muted);line-height:1.9;">Changes are stored in <strong style="color:var(--adm-text)">browser memory</strong> only. They will reset if you close or refresh the browser.<br><br>For permanent storage, contact your developer for server integration or record your changes separately.</p>
-      </div>
-    </div>
-
-    <!-- PAGES (About, Amenities, Policies, Function Halls, Page Heroes) -->
-    <div class="adm-sec" id="adm-pages">
-      <div class="adm-topbar"><div><h1>Page Content</h1><p>Edit About, Amenities, Policies, Function Halls & Page Hero Images</p></div></div>
-
-      <div class="adm-card">
-        <h3>Page Hero Images</h3>
-        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Banner images for each page section</p>
-        <div class="adm-field"><label>About</label><input id="ph-img-about" oninput="previewImg('ph-img-about','ph-prev-about')"><img id="ph-prev-about" class="adm-img-preview"></div>
-        <div class="adm-field"><label>Rooms</label><input id="ph-img-rooms" oninput="previewImg('ph-img-rooms','ph-prev-rooms')"><img id="ph-prev-rooms" class="adm-img-preview"></div>
-        <div class="adm-field"><label>Amenities</label><input id="ph-img-amenities" oninput="previewImg('ph-img-amenities','ph-prev-amenities')"><img id="ph-prev-amenities" class="adm-img-preview"></div>
-        <div class="adm-field"><label>Promotions</label><input id="ph-img-promotions" oninput="previewImg('ph-img-promotions','ph-prev-promotions')"><img id="ph-prev-promotions" class="adm-img-preview"></div>
-        <div class="adm-field"><label>Contact</label><input id="ph-img-contact" oninput="previewImg('ph-img-contact','ph-prev-contact')"><img id="ph-prev-contact" class="adm-img-preview"></div>
-        <div class="adm-field"><label>Booking</label><input id="ph-img-booking" oninput="previewImg('ph-img-booking','ph-prev-booking')"><img id="ph-prev-booking" class="adm-img-preview"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="savePageHeroes()">Save</button></div>
-      </div>
-
-      <div class="adm-card">
-        <h3>About Page</h3>
-        <div class="adm-field"><label>Section Label</label><input id="abt-label"></div>
-        <div class="adm-field"><label>Heading</label><input id="abt-heading"></div>
-        <div class="adm-field"><label>Paragraph 1</label><textarea id="abt-p1"></textarea></div>
-        <div class="adm-field"><label>Paragraph 2</label><textarea id="abt-p2"></textarea></div>
-        <div class="adm-field"><label>East & West Title</label><input id="abt-ewTitle"></div>
-        <div class="adm-field"><label>East & West Description</label><textarea id="abt-ewDesc"></textarea></div>
-        <div class="adm-field"><label>South Building Title</label><input id="abt-sbTitle"></div>
-        <div class="adm-field"><label>South Building Description</label><textarea id="abt-sbDesc"></textarea></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAbout()">Save</button></div>
-      </div>
-
-      <div class="adm-card">
-        <h3>Policies</h3>
-        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Check-in/out times are set in the Text tab. Add custom policies below.</p>
-        <div id="admPoliciesList"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addPolicy()">+ Add Policy</button><button class="adm-btn adm-btn-gold" onclick="savePolicies()">Save</button></div>
-      </div>
-
-      <div class="adm-card">
-        <h3>Amenity Sections</h3>
-        <p style="font-size:11px;color:var(--adm-muted);margin-bottom:12px;">Edit titles, descriptions, and gallery images for each amenity.</p>
-        <div id="admAmenitiesList"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addAmenitySection()">+ Add Section</button></div>
-      </div>
-
-      <div class="adm-card">
-        <h3>Function Halls</h3>
-        <div id="admFnHallsList"></div>
-        <div class="adm-btn-row"><button class="adm-btn adm-btn-out" onclick="addFnHall()">+ Add Venue</button><button class="adm-btn adm-btn-gold" onclick="saveFnHalls()">Save</button></div>
-      </div>
-    </div>
-
-    <!-- BOOKINGS -->
-    <div class="adm-sec" id="adm-bookings">
-      <div class="adm-topbar">
-        <div><h1>Bookings</h1><p>Manage guest reservations</p></div>
-        <div class="adm-topbar-actions"><button class="adm-btn adm-btn-out" onclick="exportBookings()">📥 Export</button></div>
-      </div>
-      <div class="bk-adm-stats" id="bkAdmStats"></div>
-      <div class="bk-adm-filters">
-        <button class="bk-adm-filter active" onclick="filterBookings('all',this)">All</button>
-        <button class="bk-adm-filter" onclick="filterBookings('pending',this)">Pending</button>
-        <button class="bk-adm-filter" onclick="filterBookings('confirmed',this)">Confirmed</button>
-        <button class="bk-adm-filter" onclick="filterBookings('cancelled',this)">Cancelled</button>
-      </div>
-      <div id="bkAdmList"></div>
-    </div>
-
-  </div>
-</div>
-
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a onclick="navTo('about')" data-page="about">About</a>
   <a onclick="navTo('rooms')" data-page="rooms">Rooms</a>
   <a onclick="navTo('amenities')" data-page="amenities">Amenities</a>
+  <a onclick="navTo('functionhalls')" data-page="functionhalls">Function Halls</a>
   <a onclick="navTo('promotions')" data-page="promotions">Promotions</a>
   <a onclick="navTo('contact')" data-page="contact">Contact</a>
-  <a onclick="navTo('booking')" data-page="booking" style="color:var(--gold);">Booking</a>
   <button class="mob-book" onclick="navTo('booking')">Book Now</button>
 </div>
 
@@ -734,12 +362,11 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
     <li><a onclick="showPage('about')" data-page="about">About</a></li>
     <li><a onclick="showPage('rooms')" data-page="rooms">Rooms</a></li>
     <li><a onclick="showPage('amenities')" data-page="amenities">Amenities</a></li>
+    <li><a onclick="showPage('functionhalls')" data-page="functionhalls">Halls</a></li>
     <li><a onclick="showPage('promotions')" data-page="promotions">Promotions</a></li>
     <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
-    <li><a onclick="showPage('booking')" data-page="booking" style="color:var(--gold);">Booking</a></li>
   </ul>
   <div class="nav-right">
-    <button class="nav-admin-btn" onclick="openAdmLogin()">Admin</button>
     <button class="nav-book" onclick="showPage('booking')">Book Now</button>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -772,17 +399,6 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
     </div>
     <div class="rooms-grid" id="homeRoomsGrid"></div>
   </section>
-  <div class="featured reveal">
-    <img id="southBannerImg" src="img/f278ded787d43df2.webp" alt="South Building">
-    <div class="feat-ov">
-      <div class="feat-cnt">
-        <div class="section-label">Highlight</div>
-        <h2 id="southTitle">The South Building</h2>
-        <p id="southDesc">Rooftop pool, The Bunker Gastropub, Glory Vista Lounge, and a Grand Ballroom for 300 guests. The jewel of The Glory Hotel.</p>
-        <button class="btn-gold" onclick="showPage('about')">Learn More</button>
-      </div>
-    </div>
-  </div>
   <section class="amenities-home">
     <div class="sec-hdr reveal">
       <div class="sec-hdr-txt"><div class="section-label">Facilities</div><h2>World-Class Amenities</h2><p>Everything you need for a perfect stay</p></div>
@@ -794,7 +410,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🍺</span><span class="am-name">The Bunker Gastropub</span></div>
       <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">💆</span><span class="am-name">Oasis of Calm Spa</span></div>
       <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🏋</span><span class="am-name">Glory's Gym</span></div>
-      <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🎉</span><span class="am-name">Function Halls</span></div>
+      <div class="amenity" onclick="showPage('functionhalls')"><span class="am-icon">🎉</span><span class="am-name">Function Halls</span></div>
       <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">📶</span><span class="am-name">Free Wi-Fi</span></div>
       <div class="amenity" onclick="showPage('amenities')"><span class="am-icon">🚗</span><span class="am-name">Free Parking</span></div>
     </div>
@@ -812,7 +428,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       <h2>Come, <em>Stay Awhile</em></h2>
       <div class="c-row"><div class="c-label">Address</div><div class="c-val" id="dispAddress">Gil Puyat Avenue corner Claro M. Recto Highway,<br>Clark Freeport Zone, Mabalacat City,<br>2023 Pampanga, Philippines</div></div>
       <div class="c-row"><div class="c-label">Mobile</div><div class="c-val"><a id="dispPhoneLink" href="tel:+639399328080">+63 939 932 8080</a></div></div>
-      <div class="c-row"><div class="c-label">Email</div><div class="c-val"><a id="dispEmailLink" href="mailto:thegloryhotelresidence@gmail.com">thegloryhotelresidence@gmail.com</a></div></div>
+      <div class="c-row"><div class="c-label">Email</div><div class="c-val"><a id="dispEmailLink" href="/cdn-cgi/l/email-protection#60140805070c0f1219080f14050c1205130904050e030520070d01090c4e030f0d"><span class="__cf_email__" data-cfemail="3b4f535e5c5754494253544f5e57495e48525f5e55585e7b5c565a525715585456">[email&#160;protected]</span></a></div></div>
       <div class="c-row"><div class="c-label">Follow</div><div class="c-val"><a id="dispFbLink" href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">Facebook — The Glory Hotel</a></div></div>
     </div>
     <div class="contact-right">
@@ -827,7 +443,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
   <div class="contact-map">
     <iframe src="https://www.google.com/maps?q=The+Glory+Hotel+and+Residence+Clark+Pampanga,+Clark+Freeport+Zone,+Mabalacat,+Pampanga&output=embed&z=15" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga, Philippines</div><div class="foot-social"><a id="dispFbFoot" href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga, Philippines</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ ABOUT ══════════ -->
@@ -836,7 +452,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
     <div class="page-hero"><img id="ph-about" src="" alt="About"><div class="page-hero-overlay"><h1>About <em>The Glory</em></h1></div></div>
     <div class="about-body" id="aboutBody"></div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ ROOMS ══════════ -->
@@ -849,7 +465,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       <div class="rooms-page-grid" id="roomsPageGrid"></div>
     </div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ AMENITIES ══════════ -->
@@ -858,7 +474,17 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
     <div class="page-hero"><img id="ph-amenities" src="" alt="Amenities"><div class="page-hero-overlay"><h1>Hotel <em>Amenities</em></h1></div></div>
     <div class="amenities-page" id="amenitiesBody"></div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
+</div>
+
+
+<!-- ══════════ FUNCTION HALLS ══════════ -->
+<div id="page-functionhalls" class="page">
+  <div style="padding-top:70px;">
+    <div class="page-hero"><img id="ph-functionhalls" src="" alt="Function Halls"><div class="page-hero-overlay"><h1>Function <em>Halls</em></h1></div></div>
+    <div class="amenities-page" id="functionHallsBody"></div>
+  </div>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ PROMOTIONS ══════════ -->
@@ -871,7 +497,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       <div class="promos-grid" id="promosPageGrid"></div>
     </div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ CONTACT ══════════ -->
@@ -901,7 +527,7 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       <iframe src="https://www.google.com/maps?q=The+Glory+Hotel+and+Residence+Clark+Pampanga,+Clark+Freeport+Zone,+Mabalacat,+Pampanga&output=embed&z=15" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
 <!-- ══════════ BOOKING ══════════ -->
@@ -1030,37 +656,54 @@ footer{background:var(--black);padding:28px 48px;display:flex;align-items:center
       </div>
     </div>
   </div>
-  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="#" target="_blank">Facebook</a></div></footer>
+  <footer><div class="foot-logo">The Glory Hotel</div><div class="foot-copy">© 2026 · Clark Freeport Zone, Pampanga</div><div class="foot-social"><a href="https://www.facebook.com/p/The-Glory-Hotel-61552951605532/" target="_blank">📘 Facebook</a></div></footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══════════════════════════════════════════
    DATA STORE
 ══════════════════════════════════════════ */
-const ADM_PW = 'glory2026';
+const EMAILJS_PUBLIC_KEY = 'pz4pcRSUp3A6MWmkA';
+const EMAILJS_SERVICE_ID = 'service_booking';
+const EMAILJS_TEMPLATE_ID = 'template_kvx6xxp';
+const EMAILJS_GUEST_TEMPLATE_ID = 'YOUR_GUEST_TEMPLATE_ID';
+const BOOKING_NOTIFY_EMAIL = 'jackhong7@gmail.com';
+
+// Initialize EmailJS
+(function(){
+  try{
+    emailjs.init({publicKey: EMAILJS_PUBLIC_KEY});
+    console.log('EmailJS initialized OK');
+  }catch(e){
+    console.log('EmailJS init error:',e);
+  }
+})();
 
 let siteData = {
   heroImgs: [
-    'img/0631869523298a26.webp',
-    'img/bbccdedc73452614.webp',
-    'img/69640d5dbfa25f22.webp',
-    'img/f278ded787d43df2.webp',
-    'img/05bdafd48c0ce146.webp'
+    'img/hero-general-view.jpg',
+    'img/hero-facade.jpg',
+    'img/hero-rooftop-pool.jpg',
+    'img/hero-gastropub.jpg',
+    'img/hero-pool-indoor.jpg',
+    'img/hero-dining.jpg',
+    'img/hero-twin-room.jpg',
+    'img/hero-pool-villa.jpg'
   ],
   rooms: [
-    {id:1,num:'01 · South Building',name:'Deluxe King',desc:'Spacious king-bed suite with premium furnishings and panoramic views from the South Building.',img:'img/9c97b6d000fbd128.webp',thumbs:['img/9413af066aad77ca.webp','img/addf1964031f3857.webp','img/71bbb01ae8a0b096.webp','img/cb5d41d0576c83c2.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064709',price:5800,currency:'PHP'},
-    {id:2,num:'02 · South Building',name:'Deluxe Twin',desc:'Elegantly appointed twin room ideal for colleagues or travelling companions.',img:'img/164bef3920f64219.webp',thumbs:['img/02616393b56f7747.webp','img/1cdacbdf164594e5.webp','img/79cf87063fb9210d.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064708',price:5500,currency:'PHP'},
-    {id:3,num:'03 · Exclusive',name:'Pool Villa',desc:'Signature villa with exclusive pool access — the ultimate luxury retreat.',img:'img/589df6cd1f122ef7.webp',thumbs:['img/57c2de427c1ac151.webp','img/3f6b3ad77beb25a0.webp','img/bd44621383140bc3.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5066905',price:12000,currency:'PHP'},
-    {id:4,num:'04 · East & West',name:'Executive Room',desc:'Business-ready accommodation with elevated amenities and dedicated workspace.',img:'img/9b9ef91b665ced5b.webp',thumbs:['img/b90b22bc98137470.webp','img/a851f37aa5802dd5.webp','img/c6b17c8bc11474eb.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064710',price:4500,currency:'PHP'},
-    {id:5,num:'05 · East & West',name:'Standard Room',desc:'Comfortable, well-appointed rooms offering quality rest at exceptional value.',img:'img/74ca71a5ed764ae1.webp',thumbs:['img/9413af066aad77ca.webp','img/7db5a9f5bd599e57.webp','img/9025d113b877f52a.webp'],bookUrl:'https://thegloryhotelpampanga.com/booking/?room-type=5064731',price:3200,currency:'PHP'}
+    {id:1,num:'01 · South Building',name:'Deluxe King',desc:'Spacious king-bed suite with premium furnishings and panoramic views from the South Building.',img:'img/room-dking-1.webp',thumbs:['img/room-dking-1.webp','img/room-dking-2.webp','img/room-dking-3.webp','img/room-dking-4.webp','img/room-dking-5.webp','img/room-dking-6.webp','img/room-dking-7.webp','img/room-dking-8.webp','img/room-dking-9.webp'],bookUrl:'#',price:4500,currency:'PHP'},
+    {id:2,num:'02 · South Building',name:'Deluxe Twin',desc:'Elegantly appointed twin room ideal for colleagues or travelling companions.',img:'img/room-dtwin-1.webp',thumbs:['img/room-dtwin-1.webp','img/room-dtwin-2.webp','img/room-dtwin-3.webp','img/room-dtwin-4.webp','img/room-dtwin-5.webp','img/room-dtwin-6.webp','img/room-dtwin-7.webp','img/room-dtwin-8.webp'],bookUrl:'#',price:4500,currency:'PHP'},
+    {id:5,num:'03 · East & West',name:'Standard Room',desc:'Comfortable, well-appointed rooms offering quality rest at exceptional value.',img:'img/room-standard-1.webp',thumbs:['img/room-standard-1.webp','img/room-standard-2.webp','img/room-standard-3.webp','img/room-standard-4.webp','img/room-standard-5.webp','img/room-standard-6.webp','img/room-standard-7.webp','img/room-standard-8.webp'],bookUrl:'#',price:6000,currency:'PHP'},
+    {id:3,num:'04 · Exclusive',name:'Pool Villa',desc:'Signature villa with exclusive pool access — the ultimate luxury retreat.',img:'img/room-poolvilla-1.webp',thumbs:['img/room-poolvilla-1.webp','img/room-poolvilla-2.webp','img/room-poolvilla-3.webp','img/room-poolvilla-4.webp','img/room-poolvilla-5.webp','img/room-poolvilla-6.webp','img/room-poolvilla-7.webp','img/room-poolvilla-8.webp','img/room-poolvilla-9.webp','img/room-poolvilla-10.webp','img/room-poolvilla-11.webp'],bookUrl:'#',price:8000,currency:'PHP'},
+    {id:4,num:'05 · East & West',name:'Executive Room',desc:'Business-ready accommodation with elevated amenities and dedicated workspace.',img:'img/room-exec-1.webp',thumbs:['img/room-exec-1.webp','img/room-exec-2.webp','img/room-exec-3.webp','img/room-exec-4.webp','img/room-exec-5.webp','img/room-exec-6.webp','img/room-exec-7.webp','img/room-exec-8.webp','img/room-exec-9.webp','img/room-exec-10.webp','img/room-exec-11.webp','img/room-exec-12.webp','img/room-exec-13.webp','img/room-exec-14.webp','img/room-exec-15.webp'],bookUrl:'#',price:11000,currency:'PHP'}
   ],
   promos: [
-    {id:1,tag:'Same-Day · Limited',name:'Last Minute Offer',desc:'Book on the same day of check-in and enjoy exclusive savings.',img:'img/6ad2a215406df470.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141333'},
-    {id:2,tag:'Early Bird',name:'Book Now, Stay Later',desc:'Reserve 7 days in advance for significant savings.',img:'img/ba3aae73f2c01baa.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141331'},
-    {id:3,tag:'Extended Stay',name:'Stay Longer, Save More',desc:'7+ consecutive nights with progressive savings and complimentary perks.',img:'img/8c65d0cc89fd3cf9.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141332'},
-    {id:4,tag:'Best Rate · Room Only',name:'Best Available Rate: Room Only',desc:'Our best available rate for room-only bookings.',img:'img/f278ded787d43df2.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141329'},
-    {id:5,tag:'Best Rate · With Breakfast',name:'Room with Breakfast',desc:'Start every morning at Primo Dining with complimentary breakfast.',img:'img/a8cbb8089c57a3fb.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10141330'},
-    {id:6,tag:'Published Rate',name:'Best Deal: Room with Breakfast',desc:'Published rate with complimentary breakfast each morning.',img:'img/589df6cd1f122ef7.webp',url:'https://thegloryhotelpampanga.com/booking/?special-offer=10142106'}
+    {id:1,tag:'Same-Day Special',name:'Last Minute Offer',desc:'Enjoy big savings at The Glory Hotel! Book on the same day of check-in and save. Perfect for spontaneous travelers looking for great value.',img:'img/promo-last-minute.webp',url:'#'},
+    {id:2,tag:'Early Bird',name:'Book Now and Stay Later',desc:'Book at least 7 days before your check-in and save. Book early, save more, and experience the ultimate comfort and convenience during your stay.',img:'img/promo-book-early.webp',url:'#'},
+    {id:3,tag:'Extended Stay',name:'Stay Longer and Save More',desc:'Book a minimum of 7 consecutive nights and save. Stay longer, save more, and enjoy the ultimate comfort during your extended stay with us.',img:'img/promo-stay-longer.webp',url:'#'},
+    {id:4,tag:'Best Rate',name:'Best Available Rate: Room Only',desc:'Our best available rate for room-only bookings. Experience comfort and elegance at the most competitive price.',img:'img/promo-room-only.webp',url:'#'},
+    {id:5,tag:'With Breakfast',name:'Best Available Rate: Room with Breakfast',desc:'Includes daily breakfast at Primo Dining. Deluxe King/Twin/Standard/Pool Villa: 2 pax, Executive Room: 3 pax.',img:'img/promo-with-breakfast.webp',url:'#'},
+    {id:6,tag:'Best Deal',name:'Published Rate: Room with Breakfast',desc:'Book at our published rate and enjoy a relaxing stay with complimentary breakfast each morning. Deluxe King/Twin/Standard/Pool Villa: 2 pax, Executive Room: 3 pax.',img:'img/promo-best-deal.webp',url:'#'}
   ],
   text: {
     hotelName:'The Glory Hotel', hotelSub:'Clark · Pampanga',
@@ -1077,6 +720,7 @@ let siteData = {
     about:'img/6cf41723a79f0051.webp',
     rooms:'img/9c97b6d000fbd128.webp',
     amenities:'img/26e85713a0d8912b.webp',
+    functionhalls:'img/bbccdedc73452614.webp',
     promotions:'img/bbccdedc73452614.webp',
     contact:'img/ba3aae73f2c01baa.webp',
     booking:'img/0631869523298a26.webp'
@@ -1097,17 +741,17 @@ let siteData = {
     {name:'Pets',detail:'No pets allowed (excluding assistance dogs)'}
   ],
   amenitySections: [
-    {tag:'Included with Room Stay',title:'Free Swimming Pool Access',desc:'Unwind and refresh at The Glory Hotel\'s exclusive swimming pool. Open 8:00 AM – 10:00 PM daily.',imgs:['img/6ad2a215406df470.webp','img/19e877fec47f179e.webp','img/381d8ef03868a44b.webp','img/0457087ef30f8937.webp','img/b7f8e8189ee69e94.webp'],wide:true},
-    {tag:'',title:'Free Gym Access',desc:'Stay active at Glory\'s Gym, West Building. Open 6:00 AM – 9:00 PM daily.',imgs:['img/391e1db618643856.webp','img/f619afc0fac16afc.webp','img/f67988898a523ccc.webp','img/d2bf69fc9f2f9da3.webp']},
+    {tag:'Included with Room Stay',title:'Free Swimming Pool Access',desc:'Unwind and refresh at The Glory Hotel\'s exclusive swimming pool. Open 8:00 AM – 10:00 PM daily.',imgs:['img/rooftop-pool-1.webp','img/rooftop-pool-2.webp','img/rooftop-pool-3.webp','img/ground-pool-1.webp','img/ground-pool-2.webp'],wide:true},
+    {tag:'South Building · 1F',title:'The Bunker Gastropub & Cafe',desc:'A stylish gastropub and café featuring contemporary cuisine, handcrafted cocktails, and a vibrant atmosphere. Perfect for casual dining, celebrations, and social gatherings.',imgs:['img/bunker-1.webp','img/bunker-2.webp'],wide:true},
     {tag:'Dining & Leisure',title:'Primo Dining',desc:'Dedicated breakfast venue with freshly brewed coffee and local & international breakfast favorites.',imgs:['img/c155e4f201ce5a85.webp','img/a8cbb8089c57a3fb.webp','img/b5030acfa9251635.webp','img/2637c518f5b61359.webp']},
-    {tag:'',title:'Oasis of Calm — Spa',desc:'Expert therapists, serene atmosphere. Revitalize your body, mind, and soul.',imgs:['img/8c65d0cc89fd3cf9.webp','img/5a9d126c463f5c22.webp','img/f7a1fdfbd8a17efb.webp','img/8a48d353afe7f17c.webp']}
+    {tag:'',title:'Oasis of Calm — Spa',desc:'Expert therapists, serene atmosphere. Revitalize your body, mind, and soul.',imgs:['img/8c65d0cc89fd3cf9.webp','img/5a9d126c463f5c22.webp','img/f7a1fdfbd8a17efb.webp','img/8a48d353afe7f17c.webp']},
+    {tag:'',title:'Free Gym Access',desc:'Stay active at Glory\'s Gym, West Building. Open 6:00 AM – 9:00 PM daily.',imgs:['img/391e1db618643856.webp','img/f619afc0fac16afc.webp','img/f67988898a523ccc.webp','img/d2bf69fc9f2f9da3.webp']}
   ],
   functionHalls: [
-    {name:'Grand Lumiere Ballroom',u:75,b:85,c:135,bn:200,t:300,imgs:[]},
-    {name:'Luna Event Hall',u:50,b:50,c:60,bn:80,t:120,imgs:[]},
-    {name:'Hibiscus Hall',u:20,b:24,c:28,bn:50,t:60,imgs:[]},
-    {name:'Forsythia Hall',u:16,b:16,c:18,bn:20,t:25,imgs:[]},
-    {name:'Primo Dining',u:50,b:50,c:60,bn:100,t:150,imgs:[]}
+    {name:'Grand Lumiere Ballroom',u:75,b:85,c:135,bn:200,t:300,imgs:['img/hall-grand-1.webp','img/hall-grand-2.webp']},
+    {name:'Luna Event Hall',u:50,b:50,c:60,bn:80,t:120,imgs:['img/hall-luna-1.webp']},
+    {name:'Hibiscus Hall',u:20,b:24,c:28,bn:50,t:60,imgs:['img/hall-hibiscus-1.webp','img/hall-hibiscus-2.webp']},
+    {name:'Forsythia Hall',u:16,b:16,c:18,bn:20,t:25,imgs:['img/hall-forsythia-1.webp']}
   ]
 };
 
@@ -1123,6 +767,7 @@ document.addEventListener('keydown',function(e){if(!document.getElementById('lig
 
 /* ══ RENDER PAGE HEROES ══ */
 function renderPageHeroes(){
+  // Include functionhalls in page heroes
   Object.keys(siteData.pageHeroes).forEach(k=>{
     const el=document.getElementById('ph-'+k);
     if(el) el.src=siteData.pageHeroes[k];
@@ -1158,184 +803,42 @@ function renderAmenities(){
     }
     html+=`<div class="am-section">${tagHtml}<h2 ${mt}>${sec.title}</h2><p>${sec.desc}</p>${galHtml}</div>`;
   });
-  // Function halls table + photos
-  if(siteData.functionHalls.length){
-    let rows=siteData.functionHalls.map(h=>`<tr><td>${h.name}</td><td>${h.u}</td><td>${h.b}</td><td>${h.c}</td><td>${h.bn}</td><td>${h.t}</td></tr>`).join('');
-    let hallGalleries=siteData.functionHalls.map((h,hi)=>{
-      if(!h.imgs||!h.imgs.length) return '';
-      return `<div class="fn-hall-gallery"><h3 class="fn-hall-name">${h.name}</h3><div class="am-gallery">${h.imgs.map((img,ii)=>`<img src="${img}" alt="${h.name}" onclick="openLB(siteData.functionHalls[${hi}].imgs,${ii},'${h.name.replace(/'/g,"\\\\'")}')">`).join('')}</div></div>`;
-    }).join('');
-    html+=`<div class="am-section"><div class="am-tag">Events & Functions</div><h2>Function Halls</h2><p>Weddings, corporate events, government summits, and more — delivered with elegance.</p><table class="fn-table"><thead><tr><th>Venue</th><th>U-Shape</th><th>Block</th><th>Classroom</th><th>Banquet</th><th>Theater</th></tr></thead><tbody>${rows}</tbody></table>${hallGalleries}</div>`;
-  }
+  // Function halls moved to dedicated page
   body.innerHTML=html;
 }
 
-/* ══ ADMIN: PAGES TAB INIT ══ */
-function initPagesAdmin(){
-  // Page hero images
-  Object.keys(siteData.pageHeroes).forEach(k=>{
-    const el=document.getElementById('ph-img-'+k);
-    const prev=document.getElementById('ph-prev-'+k);
-    if(el){el.value=siteData.pageHeroes[k];}
-    if(prev){prev.src=siteData.pageHeroes[k];prev.style.display='block';}
-  });
-  // About
-  const a=siteData.about;
-  document.getElementById('abt-label').value=a.label;
-  document.getElementById('abt-heading').value=a.heading;
-  document.getElementById('abt-p1').value=a.p1;
-  document.getElementById('abt-p2').value=a.p2;
-  document.getElementById('abt-ewTitle').value=a.ewTitle;
-  document.getElementById('abt-ewDesc').value=a.ewDesc;
-  document.getElementById('abt-sbTitle').value=a.sbTitle;
-  document.getElementById('abt-sbDesc').value=a.sbDesc;
-  renderAdmPolicies();
-  renderAdmAmenities();
-  renderAdmFnHalls();
-}
-
-function savePageHeroes(){
-  Object.keys(siteData.pageHeroes).forEach(k=>{
-    const el=document.getElementById('ph-img-'+k);
-    if(el&&el.value) siteData.pageHeroes[k]=el.value;
-  });
-  renderPageHeroes();showToast('Page hero images saved');
-}
-
-function saveAbout(){
-  const a=siteData.about;
-  a.label=v('abt-label');a.heading=v('abt-heading');
-  a.p1=v('abt-p1');a.p2=v('abt-p2');
-  a.ewTitle=v('abt-ewTitle');a.ewDesc=v('abt-ewDesc');
-  a.sbTitle=v('abt-sbTitle');a.sbDesc=v('abt-sbDesc');
-  renderAbout();showToast('About page saved');
-}
-
-/* ── Policies Admin ── */
-function renderAdmPolicies(){
-  const c=document.getElementById('admPoliciesList');c.innerHTML='';
-  siteData.policies.forEach((p,i)=>{
-    c.innerHTML+=`<div class="adm-2col" style="margin-bottom:8px;"><div class="adm-field"><label>Name</label><input id="pol-n-${i}" value="${p.name}"></div><div class="adm-field"><label>Detail</label><input id="pol-d-${i}" value="${p.detail}"></div></div><button class="adm-btn adm-btn-del" style="margin-bottom:12px;" onclick="removePolicy(${i})">Remove</button>`;
-  });
-}
-function addPolicy(){siteData.policies.push({name:'',detail:''});renderAdmPolicies();}
-function removePolicy(i){siteData.policies.splice(i,1);renderAdmPolicies();}
-function savePolicies(){
-  siteData.policies.forEach((p,i)=>{p.name=v('pol-n-'+i);p.detail=v('pol-d-'+i);});
-  siteData.policies=siteData.policies.filter(p=>p.name||p.detail);
-  renderAbout();renderAdmPolicies();showToast('Policies saved');
-}
-
-/* ── Amenities Admin ── */
-function renderAdmAmenities(){
-  const c=document.getElementById('admAmenitiesList');c.innerHTML='';
-  siteData.amenitySections.forEach((sec,i)=>{
-    const imgsStr=sec.imgs?sec.imgs.join('\n'):'';
-    c.innerHTML+=`<div class="adm-card" style="background:var(--adm-bg);">
-      <h3 style="font-size:13px;">${sec.title||'New Section'} <button class="adm-btn adm-btn-del" style="float:right;font-size:8px;" onclick="removeAmenitySection(${i})">Delete</button></h3>
-      <div class="adm-field"><label>Tag (e.g. Dining & Leisure)</label><input id="am-tag-${i}" value="${sec.tag||''}"></div>
-      <div class="adm-field"><label>Title</label><input id="am-title-${i}" value="${sec.title}"></div>
-      <div class="adm-field"><label>Description</label><textarea id="am-desc-${i}">${sec.desc}</textarea></div>
-      <div class="adm-field"><label>Wide gallery</label><select id="am-wide-${i}"><option value="false"${!sec.wide?' selected':''}>No</option><option value="true"${sec.wide?' selected':''}>Yes (5 columns)</option></select></div>
-      <div class="adm-field"><label>Image URLs (one per line)</label><textarea id="am-imgs-${i}" style="min-height:90px;">${imgsStr}</textarea></div>
-      <div class="adm-btn-row"><button class="adm-btn adm-btn-gold" onclick="saveAmenitySection(${i})">Save Section</button></div>
-    </div>`;
-  });
-}
-function addAmenitySection(){siteData.amenitySections.push({tag:'',title:'New Section',desc:'',imgs:[],wide:false});renderAdmAmenities();}
-function removeAmenitySection(i){if(!confirm('Delete this section?'))return;siteData.amenitySections.splice(i,1);renderAdmAmenities();renderAmenities();showToast('Section deleted');}
-function saveAmenitySection(i){
-  const sec=siteData.amenitySections[i];
-  sec.tag=v('am-tag-'+i);sec.title=v('am-title-'+i);sec.desc=v('am-desc-'+i);
-  sec.wide=v('am-wide-'+i)==='true';
-  sec.imgs=v('am-imgs-'+i).split('\n').map(s=>s.trim()).filter(s=>s);
-  renderAmenities();renderAdmAmenities();showToast('Amenity section saved');
-}
-
-/* ── Function Halls Admin ── */
-function renderAdmFnHalls(){
-  const c=document.getElementById('admFnHallsList');c.innerHTML='';
-  siteData.functionHalls.forEach((h,i)=>{
-    const previewHtml=(h.imgs||[]).map((img,pi)=>`<div style="position:relative;display:inline-block;"><img src="${img}" style="width:80px;height:60px;object-fit:cover;border:1px solid var(--adm-border);margin:2px;" onerror="this.style.display='none'"><button style="position:absolute;top:0;right:0;background:rgba(239,68,68,.8);color:#fff;border:none;font-size:9px;cursor:pointer;padding:1px 4px;" onclick="removeFnHallImg(${i},${pi})">✕</button></div>`).join('');
-    c.innerHTML+=`<div class="adm-card" style="background:var(--adm-bg);padding:14px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-        <strong style="color:var(--adm-text);font-size:13px;">${h.name||'New Venue'}</strong>
-        <button class="adm-btn adm-btn-del" style="font-size:8px;" onclick="removeFnHall(${i})">Delete</button>
-      </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:6px;margin-bottom:10px;">
-        <div class="adm-field"><label>Venue</label><input id="fn-n-${i}" value="${h.name}"></div>
-        <div class="adm-field"><label>U-Shape</label><input id="fn-u-${i}" value="${h.u}" type="number"></div>
-        <div class="adm-field"><label>Block</label><input id="fn-b-${i}" value="${h.b}" type="number"></div>
-        <div class="adm-field"><label>Class</label><input id="fn-c-${i}" value="${h.c}" type="number"></div>
-        <div class="adm-field"><label>Banquet</label><input id="fn-bn-${i}" value="${h.bn}" type="number"></div>
-        <div class="adm-field"><label>Theater</label><input id="fn-t-${i}" value="${h.t}" type="number"></div>
-      </div>
-      <div class="adm-field">
-        <label>Photos (up to 4) — Upload from PC or paste URL</label>
-        <div style="margin:6px 0;">${previewHtml||'<span style="font-size:10px;color:var(--adm-muted);">No photos</span>'}</div>
-        <div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
-          <label style="background:var(--adm-gold);color:#000;font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;cursor:pointer;">📷 Upload Photos<input type="file" accept="image/*" multiple style="display:none;" onchange="uploadFnHallImgs(this,${i})"></label>
-          <span style="font-size:10px;color:var(--adm-muted);">or</span>
-          <input id="fn-img-url-${i}" placeholder="Paste image URL" style="flex:1;background:var(--adm-bg);border:1px solid var(--adm-border);color:var(--adm-text);font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;">
-          <button class="adm-btn adm-btn-out" style="padding:8px 12px;" onclick="addFnHallImgUrl(${i})">Add</button>
-        </div>
-      </div>
-    </div>`;
-  });
-}
-function uploadFnHallImgs(input,hallIdx){
-  const files=Array.from(input.files).slice(0,4-(siteData.functionHalls[hallIdx].imgs||[]).length);
-  if(!files.length){alert('Max 4 photos per hall.');return;}
-  let loaded=0;
-  files.forEach(file=>{
-    const reader=new FileReader();
-    reader.onload=e=>{
-      if(!siteData.functionHalls[hallIdx].imgs) siteData.functionHalls[hallIdx].imgs=[];
-      if(siteData.functionHalls[hallIdx].imgs.length<4){
-        siteData.functionHalls[hallIdx].imgs.push(e.target.result);
+/* ══ FUNCTION HALLS PAGE ══ */
+function renderFunctionHalls(){
+  const body = document.getElementById('functionHallsBody');
+  if(!body) return;
+  let html = '';
+  // Capacity table
+  if(siteData.functionHalls.length){
+    let rows = siteData.functionHalls.map(h=>`<tr><td>${h.name}</td><td>${h.u}</td><td>${h.b}</td><td>${h.c}</td><td>${h.bn}</td><td>${h.t}</td></tr>`).join('');
+    html += `<div class="am-section"><div class="am-tag">Events & Functions</div><h2>Function Halls</h2><p>Weddings, corporate events, government summits, and more — delivered with elegance.</p><table class="fn-table"><thead><tr><th>Venue</th><th>U-Shape</th><th>Block</th><th>Classroom</th><th>Banquet</th><th>Theater</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    // Each hall with photos
+    siteData.functionHalls.forEach((h, hi) => {
+      let photoHtml = '';
+      if(h.imgs && h.imgs.length){
+        photoHtml = `<div class="am-gallery am-wide">${h.imgs.map((img,ii)=>`<img src="${img}" alt="${h.name}" onclick="openLB(siteData.functionHalls[${hi}].imgs,${ii},'${h.name.replace(/'/g,"\\'")}')">`).join('')}</div>`;
+      } else {
+        photoHtml = `<div class="am-gallery am-wide"><div style="width:280px;height:200px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:11px;color:#aaa;">Photo 1</div><div style="width:280px;height:200px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:11px;color:#aaa;">Photo 2</div></div>`;
       }
-      loaded++;
-      if(loaded===files.length){renderAdmFnHalls();renderAmenities();showToast(loaded+' photo(s) uploaded');}
-    };
-    reader.readAsDataURL(file);
-  });
-}
-function addFnHallImgUrl(hallIdx){
-  const url=v('fn-img-url-'+hallIdx);
-  if(!url){alert('Please paste an image URL.');return;}
-  if(!siteData.functionHalls[hallIdx].imgs) siteData.functionHalls[hallIdx].imgs=[];
-  if(siteData.functionHalls[hallIdx].imgs.length>=4){alert('Max 4 photos per hall.');return;}
-  siteData.functionHalls[hallIdx].imgs.push(url);
-  renderAdmFnHalls();renderAmenities();showToast('Photo added');
-}
-function removeFnHallImg(hallIdx,imgIdx){
-  siteData.functionHalls[hallIdx].imgs.splice(imgIdx,1);
-  renderAdmFnHalls();renderAmenities();showToast('Photo removed');
-}
-function addFnHall(){siteData.functionHalls.push({name:'',u:0,b:0,c:0,bn:0,t:0,imgs:[]});renderAdmFnHalls();}
-function removeFnHall(i){siteData.functionHalls.splice(i,1);renderAdmFnHalls();}
-function saveFnHalls(){
-  siteData.functionHalls.forEach((h,i)=>{
-    h.name=v('fn-n-'+i);h.u=parseInt(v('fn-u-'+i))||0;h.b=parseInt(v('fn-b-'+i))||0;
-    h.c=parseInt(v('fn-c-'+i))||0;h.bn=parseInt(v('fn-bn-'+i))||0;h.t=parseInt(v('fn-t-'+i))||0;
-  });
-  siteData.functionHalls=siteData.functionHalls.filter(h=>h.name);
-  renderAmenities();renderAdmFnHalls();showToast('Function halls saved');
+      html += `<div class="am-section"><h2>${h.name}</h2><p style="font-family:var(--sans);font-size:12px;color:#888;">U-Shape: ${h.u} · Block: ${h.b} · Classroom: ${h.c} · Banquet: ${h.bn} · Theater: ${h.t}</p>${photoHtml}</div>`;
+    });
+  }
+  body.innerHTML = html;
 }
 
 /* ══ RENDER SITE ══ */
 function renderAll(){
-  renderHero();renderRooms();renderPromos();updateContactDisplay();renderPageHeroes();renderAbout();renderAmenities();
+  renderHero();renderRooms();renderPromos();updateContactDisplay();renderPageHeroes();renderAbout();renderAmenities();renderFunctionHalls();
   document.getElementById('introTitle').innerHTML=siteData.text.introTitle.replace('Elegance','<em>Elegance</em>');
   document.getElementById('introBody').textContent=siteData.text.introBody;
-  document.getElementById('southTitle').textContent=siteData.text.southTitle;
-  document.getElementById('southDesc').textContent=siteData.text.southDesc;
+  const st=document.getElementById('southTitle');if(st)st.textContent=siteData.text.southTitle;
+  const sd=document.getElementById('southDesc');if(sd)sd.textContent=siteData.text.southDesc;
   document.getElementById('navSub').textContent=siteData.text.hotelSub;
   const logoTxt=document.getElementById('navLogoText');if(logoTxt)logoTxt.textContent=siteData.text.hotelName;
-  document.getElementById('statRooms').textContent=siteData.rooms.length;
-  document.getElementById('statPromos').textContent=siteData.promos.length;
-  const br=document.getElementById('navBadgeRooms');if(br)br.textContent=siteData.rooms.length;
-  const bp=document.getElementById('navBadgePromos');if(bp)bp.textContent=siteData.promos.length;
 }
 
 function renderHero(){
@@ -1364,7 +867,7 @@ function renderRooms(){
     homeGrid.innerHTML+=`<div class="room-card" onclick="showPage('rooms')"><div class="room-img-w"><img class="room-img" src="${r.img}" alt="${r.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22280%22><rect fill=%22%23ddd%22 width=%22400%22 height=%22280%22/><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2216%22>No Image</text></svg>'"></div><div class="room-ov"><span>View Room</span></div><div class="room-info"><div class="room-num">${r.num}</div><div class="room-name">${r.name}</div><div class="room-desc">${r.desc}</div>${priceHtml}</div></div>`;
     const rpPriceHtml = r.price ? `<div class="rp-price">${(r.currency||'PHP')} ${r.price.toLocaleString()}<span>/ night (tax excl.)</span></div>` : '';
     const thumbHtml=r.thumbs.map((t,ti)=>`<img src="${t}" ${ti===0?'class="active"':''} onclick="switchRoomImg('rgm-${r.id}',this,'${t}')" onerror="this.style.display='none'">`).join('');
-    pageGrid.innerHTML+=`<div class="rp-card"><div class="rp-gallery-main" id="rgm-${r.id}"><img src="${r.thumbs[0]||r.img}" alt="${r.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect fill=%22%23ddd%22 width=%22400%22 height=%22320%22/></svg>'"></div><div class="rp-thumbs">${thumbHtml}</div><div class="rp-info"><div class="rp-num">${r.num}</div><div class="rp-name">${r.name}</div>${rpPriceHtml}<div class="rp-desc">${r.desc}</div><button class="rp-book" onclick="window.open('${r.bookUrl||'https://thegloryhotelpampanga.com/booking/'}')">Check Availability</button></div></div>`;
+    pageGrid.innerHTML+=`<div class="rp-card"><div class="rp-gallery-main" id="rgm-${r.id}"><img src="${r.thumbs[0]||r.img}" alt="${r.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect fill=%22%23ddd%22 width=%22400%22 height=%22320%22/></svg>'"></div><div class="rp-thumbs">${thumbHtml}</div><div class="rp-info"><div class="rp-num">${r.num}</div><div class="rp-name">${r.name}</div>${rpPriceHtml}<div class="rp-desc">${r.desc}</div><button class="rp-book" onclick="showPage('booking')">Book Now</button></div></div>`;
   });
   if(siteData.rooms.length===0){homeGrid.innerHTML='<p style="font-family:var(--sans);font-size:12px;color:#999;padding:20px;">No rooms registered.</p>';}
 }
@@ -1377,7 +880,7 @@ function renderPromos(){
     homeGrid.innerHTML+=`<div class="offer-card" onclick="showPage('promotions')"><div class="offer-img-w"><img class="offer-img" src="${p.img}" alt="${p.name}" onerror="this.style.background='#ddd'"></div><div class="offer-info"><div class="offer-tag">${p.tag}</div><div class="offer-name">${p.name}</div><div class="offer-desc">${p.desc}</div></div></div>`;
   });
   siteData.promos.forEach(p=>{
-    pageGrid.innerHTML+=`<div class="promo-card"><img src="${p.img}" alt="${p.name}" onerror="this.style.background='#ddd'"><div class="promo-info"><div class="promo-tag">${p.tag}</div><div class="promo-name">${p.name}</div><div class="promo-desc">${p.desc}</div><button class="promo-btn" onclick="window.open('${p.url||'https://thegloryhotelpampanga.com/booking/'}')">Book This Offer</button></div></div>`;
+    pageGrid.innerHTML+=`<div class="promo-card"><img src="${p.img}" alt="${p.name}" onerror="this.style.background='#ddd'"><div class="promo-info"><div class="promo-tag">${p.tag}</div><div class="promo-name">${p.name}</div><div class="promo-desc">${p.desc}</div><button class="promo-btn" onclick="showPage('booking')">Book This Offer</button></div></div>`;
   });
   if(siteData.promos.length===0){pageGrid.innerHTML='<p style="font-family:var(--sans);font-size:12px;color:#999;padding:20px;">No promotions registered.</p>';}
 }
@@ -1450,306 +953,7 @@ function switchRoomImg(gid,thumb,src){
   thumb.classList.add('active');
 }
 
-/* ══════════════ ADMIN ══════════════ */
-function openAdmLogin(){document.getElementById('admLoginOverlay').classList.add('open');document.getElementById('admPwInput').value='';document.getElementById('admErr').style.display='none';setTimeout(()=>document.getElementById('admPwInput').focus(),100);}
-function closeAdmLogin(){document.getElementById('admLoginOverlay').classList.remove('open');}
-function admLogin(){
-  const pw=document.getElementById('admPwInput').value;
-  if(pw===ADM_PW){
-    closeAdmLogin();
-    document.getElementById('adminPanel').classList.add('open');
-    document.body.style.overflow='hidden';
-    renderAdmRooms();renderAdmPromos();renderHeroImgList();renderAdmBookings();initPagesAdmin();
-  } else {
-    document.getElementById('admErr').style.display='block';
-    document.getElementById('admPwInput').value='';
-    document.getElementById('admPwInput').focus();
-  }
-}
-function admLogout(){
-  document.getElementById('adminPanel').classList.remove('open');
-  document.body.style.overflow='';
-  renderAll();
-}
-function admTab(name){
-  document.querySelectorAll('.adm-tab').forEach((el,i)=>el.classList.toggle('active',['dashboard','text','rooms','promos','images','preview','pages','bookings'][i]===name));
-  document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('active'));
-  document.getElementById('adm-'+name).classList.add('active');
-  if(name==='bookings') renderAdmBookings();
-  if(name==='pages') initPagesAdmin();
-}
-function showToast(msg){
-  const t=document.getElementById('admToast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
-}
-
-/* TEXT SAVES */
-function saveBasicInfo(){
-  siteData.text.hotelName=document.getElementById('txt-hotelName').value;
-  siteData.text.hotelSub=document.getElementById('txt-hotelSub').value;
-  siteData.text.checkin=document.getElementById('txt-checkin').value;
-  siteData.text.checkout=document.getElementById('txt-checkout').value;
-  showToast('Basic info saved');
-}
-function saveIntro(){
-  siteData.text.introTitle=document.getElementById('txt-introTitle').value;
-  siteData.text.introBody=document.getElementById('txt-introBody').value;
-  showToast('Introduction saved');
-}
-function saveContact(){
-  siteData.text.address=document.getElementById('txt-address').value;
-  siteData.text.phone=document.getElementById('txt-phone').value;
-  siteData.text.email=document.getElementById('txt-email').value;
-  siteData.text.fb=document.getElementById('txt-fb').value;
-  showToast('Contact info saved');
-}
-function saveSouth(){
-  siteData.text.southTitle=document.getElementById('txt-southTitle').value;
-  siteData.text.southDesc=document.getElementById('txt-southDesc').value;
-  showToast('South Building info saved');
-}
-
-/* IMAGE SAVES */
-function previewImg(inputId,prevId){
-  const url=document.getElementById(inputId).value;
-  const prev=document.getElementById(prevId);
-  if(url){prev.src=url;prev.style.display='block';}
-}
-function fileToUrl(input,inputId,prevId){
-  const file=input.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    document.getElementById(inputId).value=e.target.result;
-    const prev=document.getElementById(prevId);
-    prev.src=e.target.result;prev.style.display='block';
-  };
-  reader.readAsDataURL(file);
-}
-function saveAboutImg(){
-  const url=document.getElementById('img-about').value;
-  if(url)document.getElementById('aboutHeroImg').src=url;
-  showToast('About image applied');
-}
-function saveSouthImg(){
-  const url=document.getElementById('img-south').value;
-  if(url)document.getElementById('southBannerImg').src=url;
-  showToast('South Building image applied');
-}
-
-/* HERO IMAGES */
-function renderHeroImgList(){
-  const c=document.getElementById('heroImgList');
-  c.innerHTML='';
-  siteData.heroImgs.forEach((url,i)=>{
-    c.innerHTML+=`<div class="adm-field" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
-      <input value="${url}" onchange="siteData.heroImgs[${i}]=this.value;renderHero();startSlideshow();" style="flex:1;background:var(--adm-bg);border:1px solid var(--adm-border);color:var(--adm-text);font-family:var(--sans);font-size:11px;padding:8px 10px;outline:none;">
-      <input type="file" accept="image/*" onchange="heroFileUpload(this,${i})" style="color:var(--adm-text);font-size:10px;width:120px;">
-      <button class="adm-btn adm-btn-del" onclick="removeHeroImg(${i})">Delete</button>
-    </div>`;
-  });
-}
-function addHeroImg(){
-  siteData.heroImgs.push('');
-  renderHeroImgList();
-}
-function removeHeroImg(i){
-  siteData.heroImgs.splice(i,1);
-  renderHeroImgList();renderHero();startSlideshow();
-  showToast('Slide image removed');
-}
-function heroFileUpload(input,i){
-  const file=input.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{siteData.heroImgs[i]=e.target.result;renderHeroImgList();renderHero();startSlideshow();showToast('Image uploaded');};
-  reader.readAsDataURL(file);
-}
-
-/* ROOMS ADMIN */
-function renderAdmRooms(){
-  const c=document.getElementById('admRoomList');c.innerHTML='';
-  if(!siteData.rooms.length){c.innerHTML='<p style="font-size:12px;color:var(--adm-muted);padding:16px;">No rooms registered.</p>';return;}
-  siteData.rooms.forEach(r=>{
-    c.innerHTML+=`<div class="adm-item">
-      <img src="${r.img}" alt="${r.name}" onerror="this.style.background='#333';this.style.display='block'">
-      <div class="adm-item-info"><strong>${r.name}</strong><span>${r.num}${r.price ? ' · '+(r.currency||'PHP')+' '+r.price.toLocaleString()+'/night' : ''}</span></div>
-      <div class="adm-item-btns">
-        <button class="adm-btn adm-btn-out" onclick="openEditRoom(${r.id})">Edit</button>
-        <button class="adm-btn adm-btn-del" onclick="deleteRoom(${r.id})">Delete</button>
-      </div>
-    </div>`;
-  });
-}
-function openAddRoom(){
-  admTab('rooms');
-  showModal(`<h2>Add New Room</h2>
-    <div class="adm-field"><label>Number / Location (e.g. 01 · South Building)</label><input id="mr-num"></div>
-    <div class="adm-field"><label>Room Name</label><input id="mr-name"></div>
-    <div class="adm-field"><label>Description</label><textarea id="mr-desc"></textarea></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div class="adm-field"><label>Price per Night</label><input id="mr-price" type="number" placeholder="e.g. 5800"></div>
-      <div class="adm-field"><label>Currency</label><input id="mr-currency" value="PHP" placeholder="PHP"></div>
-    </div>
-    <div class="adm-field"><label>Main Image URL</label><input id="mr-img" oninput="previewModalImg()"></div>
-    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mr-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
-    <img id="mr-img-prev" style="width:100%;height:120px;object-fit:cover;display:none;margin:8px 0;border:1px solid var(--adm-border);">
-    <div class="adm-field"><label>Booking URL</label><input id="mr-url" value="https://thegloryhotelpampanga.com/booking/"></div>
-    <div class="adm-btn-row">
-      <button class="adm-btn adm-btn-gold" onclick="saveNewRoom()">Add</button>
-      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
-    </div>`);
-}
-function openEditRoom(id){
-  const r=siteData.rooms.find(x=>x.id===id);if(!r)return;
-  showModal(`<h2>Edit Room — ${r.name}</h2>
-    <div class="adm-field"><label>Number / Location</label><input id="mr-num" value="${r.num}"></div>
-    <div class="adm-field"><label>Room Name</label><input id="mr-name" value="${r.name}"></div>
-    <div class="adm-field"><label>Description</label><textarea id="mr-desc">${r.desc}</textarea></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div class="adm-field"><label>Price per Night</label><input id="mr-price" type="number" value="${r.price||''}" placeholder="e.g. 5800"></div>
-      <div class="adm-field"><label>Currency</label><input id="mr-currency" value="${r.currency||'PHP'}"></div>
-    </div>
-    <div class="adm-field"><label>Main Image URL</label><input id="mr-img" value="${r.img}" oninput="previewModalImg()"></div>
-    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mr-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
-    <img id="mr-img-prev" src="${r.img}" style="width:100%;height:120px;object-fit:cover;display:block;margin:8px 0;border:1px solid var(--adm-border);" onerror="this.style.display='none'">
-    <div class="adm-field"><label>Booking URL</label><input id="mr-url" value="${r.bookUrl||''}"></div>
-    <div class="adm-btn-row">
-      <button class="adm-btn adm-btn-gold" onclick="saveEditRoom(${id})">Save</button>
-      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
-    </div>`);
-}
-function saveNewRoom(){
-  const maxId=siteData.rooms.reduce((m,r)=>Math.max(m,r.id),0);
-  siteData.rooms.push({id:maxId+1,num:v('mr-num'),name:v('mr-name'),desc:v('mr-desc'),img:v('mr-img'),thumbs:[v('mr-img')],bookUrl:v('mr-url'),price:parseInt(v('mr-price'))||0,currency:v('mr-currency')||'PHP'});
-  closeModal();renderAdmRooms();renderRooms();showToast('Room added');
-}
-function saveEditRoom(id){
-  const r=siteData.rooms.find(x=>x.id===id);if(!r)return;
-  r.num=v('mr-num');r.name=v('mr-name');r.desc=v('mr-desc');r.img=v('mr-img');r.thumbs=[v('mr-img')];r.bookUrl=v('mr-url');r.price=parseInt(v('mr-price'))||0;r.currency=v('mr-currency')||'PHP';
-  closeModal();renderAdmRooms();renderRooms();showToast('Room updated');
-}
-function deleteRoom(id){
-  if(!confirm('Delete this room?'))return;
-  siteData.rooms=siteData.rooms.filter(r=>r.id!==id);
-  renderAdmRooms();renderRooms();showToast('Room deleted');
-}
-
-/* PROMOS ADMIN */
-function renderAdmPromos(){
-  const c=document.getElementById('admPromoList');c.innerHTML='';
-  if(!siteData.promos.length){c.innerHTML='<p style="font-size:12px;color:var(--adm-muted);padding:16px;">No promotions registered.</p>';return;}
-  siteData.promos.forEach(p=>{
-    c.innerHTML+=`<div class="adm-item">
-      <img src="${p.img}" alt="${p.name}" onerror="this.style.background='#333'">
-      <div class="adm-item-info"><strong>${p.name}</strong><span>${p.tag}</span></div>
-      <div class="adm-item-btns">
-        <button class="adm-btn adm-btn-out" onclick="openEditPromo(${p.id})">Edit</button>
-        <button class="adm-btn adm-btn-del" onclick="deletePromo(${p.id})">Delete</button>
-      </div>
-    </div>`;
-  });
-}
-function openAddPromo(){
-  admTab('promos');
-  showModal(`<h2>Add New Promotion</h2>
-    <div class="adm-field"><label>Tag (e.g. Early Bird)</label><input id="mp-tag"></div>
-    <div class="adm-field"><label>Promotion Name</label><input id="mp-name"></div>
-    <div class="adm-field"><label>Description</label><textarea id="mp-desc"></textarea></div>
-    <div class="adm-field"><label>Image URL</label><input id="mp-img" oninput="previewModalImg('mp-img')"></div>
-    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mp-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
-    <img id="mr-img-prev" style="width:100%;height:120px;object-fit:cover;display:none;margin:8px 0;border:1px solid var(--adm-border);">
-    <div class="adm-field"><label>Booking URL</label><input id="mp-url" value="https://thegloryhotelpampanga.com/booking/"></div>
-    <div class="adm-btn-row">
-      <button class="adm-btn adm-btn-gold" onclick="saveNewPromo()">Add</button>
-      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
-    </div>`);
-}
-function openEditPromo(id){
-  const p=siteData.promos.find(x=>x.id===id);if(!p)return;
-  showModal(`<h2>Edit Promotion — ${p.name}</h2>
-    <div class="adm-field"><label>Tag</label><input id="mp-tag" value="${p.tag}"></div>
-    <div class="adm-field"><label>Promotion Name</label><input id="mp-name" value="${p.name}"></div>
-    <div class="adm-field"><label>Description</label><textarea id="mp-desc">${p.desc}</textarea></div>
-    <div class="adm-field"><label>Image URL</label><input id="mp-img" value="${p.img}" oninput="previewModalImg('mp-img')"></div>
-    <div class="adm-field"><label>Or Upload File</label><input type="file" accept="image/*" onchange="modalFileUp(this,'mp-img')" style="color:var(--adm-text);font-size:11px;padding:6px 0;"></div>
-    <img id="mr-img-prev" src="${p.img}" style="width:100%;height:120px;object-fit:cover;display:block;margin:8px 0;border:1px solid var(--adm-border);" onerror="this.style.display='none'">
-    <div class="adm-field"><label>Booking URL</label><input id="mp-url" value="${p.url||''}"></div>
-    <div class="adm-btn-row">
-      <button class="adm-btn adm-btn-gold" onclick="saveEditPromo(${id})">Save</button>
-      <button class="adm-btn adm-btn-out" onclick="closeModal()">Cancel</button>
-    </div>`);
-}
-function saveNewPromo(){
-  const maxId=siteData.promos.reduce((m,p)=>Math.max(m,p.id),0);
-  siteData.promos.push({id:maxId+1,tag:v('mp-tag'),name:v('mp-name'),desc:v('mp-desc'),img:v('mp-img'),url:v('mp-url')});
-  closeModal();renderAdmPromos();renderPromos();showToast('Promotion added');
-}
-function saveEditPromo(id){
-  const p=siteData.promos.find(x=>x.id===id);if(!p)return;
-  p.tag=v('mp-tag');p.name=v('mp-name');p.desc=v('mp-desc');p.img=v('mp-img');p.url=v('mp-url');
-  closeModal();renderAdmPromos();renderPromos();showToast('Promotion updated');
-}
-function deletePromo(id){
-  if(!confirm('Delete this promotion?'))return;
-  siteData.promos=siteData.promos.filter(p=>p.id!==id);
-  renderAdmPromos();renderPromos();showToast('Promotion deleted');
-}
-
-/* MODAL HELPERS */
-function showModal(html){
-  document.getElementById('admModalBox').innerHTML=html;
-  document.getElementById('admModal').classList.add('open');
-}
-function closeModal(){document.getElementById('admModal').classList.remove('open');}
-document.getElementById('admModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-function v(id){const el=document.getElementById(id);return el?el.value:'';}
-function previewModalImg(inputId){
-  const id=inputId||'mr-img';
-  const url=document.getElementById(id)?.value;
-  const prev=document.getElementById('mr-img-prev');
-  if(url&&prev){prev.src=url;prev.style.display='block';}
-}
-function modalFileUp(input,targetId){
-  const file=input.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    const el=document.getElementById(targetId);if(el)el.value=e.target.result;
-    const prev=document.getElementById('mr-img-prev');
-    if(prev){prev.src=e.target.result;prev.style.display='block';}
-  };
-  reader.readAsDataURL(file);
-}
-
-/* ══ BOOKING SYSTEM ══ */
-let bookings = [];
-let bkFilter = 'all';
-
-function initBookingForm(){
-  const sel = document.getElementById('bk-room');
-  if(!sel) return;
-  sel.innerHTML = '<option value="">Select a room</option>';
-  siteData.rooms.forEach(r=>{
-    const priceStr = r.price ? ` — ${r.currency||'PHP'} ${r.price.toLocaleString()}/night` : '';
-    sel.innerHTML += `<option value="${r.id}">${r.name}${priceStr} (${r.num})</option>`;
-  });
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('bk-checkin').min = today;
-  document.getElementById('bk-checkout').min = today;
-  document.getElementById('sumCheckinTime').textContent = siteData.text.checkin||'15:00';
-  document.getElementById('sumCheckoutTime').textContent = siteData.text.checkout||'12:00';
-}
-
-function updateCheckout(){
-  const ci = document.getElementById('bk-checkin').value;
-  if(!ci) return;
-  const next = new Date(ci);
-  next.setDate(next.getDate()+1);
-  const co = document.getElementById('bk-checkout');
-  co.min = next.toISOString().split('T')[0];
-  if(!co.value || co.value <= ci) co.value = next.toISOString().split('T')[0];
-  updateSummary();
-}
-
+/* ══ BOOKING FORM ══ */
 function updateSummary(){
   const name = document.getElementById('bk-name').value;
   const ci = document.getElementById('bk-checkin').value;
@@ -1836,8 +1040,13 @@ function submitBooking(){
     guests, request,
     createdAt: new Date().toISOString()
   };
+  // Keep max 100 bookings
   bookings.push(booking);
+  if(bookings.length>100) bookings=bookings.slice(-100);
   updateBookingBadge();
+
+  // Send email notification
+  sendBookingEmail(booking, room);
 
   setTimeout(()=>{
     document.getElementById('bkFormWrap').style.display='none';
@@ -1846,6 +1055,41 @@ function submitBooking(){
     document.getElementById('bkRef').textContent = 'REF #'+ref;
     btn.disabled=false; btn.textContent='Submit Reservation';
   },800);
+}
+
+
+/* ══ BOOKING EMAIL ══ */
+function sendBookingEmail(booking, room){
+  const totalPrice = room && room.price ? (room.currency||'PHP')+' '+(room.price * booking.nights).toLocaleString() : 'N/A';
+  const templateParams = {
+    to_email: BOOKING_NOTIFY_EMAIL,
+    ref: booking.ref,
+    guest_name: booking.name,
+    guest_email: booking.email,
+    guest_phone: booking.phone,
+    room_name: booking.roomName,
+    check_in: booking.ci,
+    check_out: booking.co,
+    nights: booking.nights,
+    guests: booking.guests,
+    total_price: totalPrice,
+    special_request: booking.request || 'None',
+    booking_date: new Date().toLocaleString(),
+    hotel_phone: siteData.text.phone || '+63 939 932 8080',
+    hotel_email: siteData.text.email || 'thegloryhotelresidence@gmail.com'
+  };
+  if(typeof emailjs==='undefined'){
+    console.log('EmailJS library not loaded');
+    return;
+  }
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+    .then(function(response){
+      console.log('Email SUCCESS:', response.status, response.text);
+    })
+    .catch(function(error){
+      console.log('Email FAILED:', JSON.stringify(error));
+      alert('Email sending failed: ' + JSON.stringify(error));
+    });
 }
 
 function resetBookingForm(){
@@ -1857,92 +1101,6 @@ function resetBookingForm(){
   document.getElementById('bk-room').value='';
   document.getElementById('bk-guests').value='2';
   updateSummary();
-}
-
-function updateBookingBadge(){
-  const pending = bookings.filter(b=>b.status==='pending').length;
-  const badge = document.getElementById('navBadgeBookings');
-  if(badge) badge.textContent = pending||bookings.length;
-}
-
-/* ── ADMIN BOOKINGS ── */
-function renderAdmBookings(){
-  const stats = document.getElementById('bkAdmStats');
-  const total = bookings.length;
-  const pending = bookings.filter(b=>b.status==='pending').length;
-  const confirmed = bookings.filter(b=>b.status==='confirmed').length;
-  const cancelled = bookings.filter(b=>b.status==='cancelled').length;
-  stats.innerHTML = `
-    <div class="adm-stat"><div class="adm-stat-num">${total}</div><div class="adm-stat-label">Total</div></div>
-    <div class="adm-stat" style="border-color:rgba(234,179,8,.3)"><div class="adm-stat-num" style="color:#eab308">${pending}</div><div class="adm-stat-label">Pending</div></div>
-    <div class="adm-stat" style="border-color:rgba(34,197,94,.3)"><div class="adm-stat-num" style="color:#22c55e">${confirmed}</div><div class="adm-stat-label">Confirmed</div></div>
-    <div class="adm-stat" style="border-color:rgba(239,68,68,.3)"><div class="adm-stat-num" style="color:#ef4444">${cancelled}</div><div class="adm-stat-label">Cancelled</div></div>`;
-
-  const list = document.getElementById('bkAdmList');
-  const filtered = bkFilter==='all' ? bookings : bookings.filter(b=>b.status===bkFilter);
-  if(!filtered.length){
-    list.innerHTML = '<div class="bk-adm-empty">No bookings found</div>';
-    return;
-  }
-  list.innerHTML = '';
-  [...filtered].reverse().forEach(b=>{
-    const statusMap = {pending:'Pending',confirmed:'Confirmed',cancelled:'Cancelled'};
-    list.innerHTML += `
-    <div class="bk-adm-card" id="bkcard-${b.id}">
-      <div class="bk-adm-top">
-        <span class="bk-adm-ref">${b.ref}</span>
-        <span class="bk-status ${b.status}">${statusMap[b.status]}</span>
-      </div>
-      <div class="bk-adm-name">${b.name}</div>
-      <div class="bk-adm-info">
-        📧 ${b.email} &nbsp;|&nbsp; 📞 ${b.phone}<br>
-        🛏 ${b.roomName} &nbsp;|&nbsp; 👥 ${b.guests} guest(s)<br>
-        📅 ${formatDate(b.ci)} → ${formatDate(b.co)} (${b.nights} night(s))
-        ${b.request ? '<br>💬 '+b.request : ''}
-      </div>
-      <div class="bk-adm-btns">
-        ${b.status!=='confirmed'?`<button class="bk-abtn bk-abtn-ok" onclick="changeBookingStatus(${b.id},'confirmed')">✓ Confirm</button>`:''}
-        ${b.status!=='cancelled'?`<button class="bk-abtn bk-abtn-no" onclick="changeBookingStatus(${b.id},'cancelled')">✕ Cancel</button>`:''}
-        <button class="bk-abtn bk-abtn-del" onclick="deleteBooking(${b.id})">Delete</button>
-      </div>
-    </div>`;
-  });
-}
-
-function filterBookings(status, btn){
-  bkFilter=status;
-  document.querySelectorAll('.bk-adm-filter').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderAdmBookings();
-}
-
-function changeBookingStatus(id, status){
-  const b = bookings.find(x=>x.id===id);
-  if(b){b.status=status;renderAdmBookings();updateBookingBadge();showToast(status==='confirmed'?'Booking confirmed':'Booking cancelled');}
-}
-
-function deleteBooking(id){
-  if(!confirm('Delete this booking?'))return;
-  bookings=bookings.filter(x=>x.id!==id);
-  renderAdmBookings();updateBookingBadge();showToast('Deleted');
-}
-
-function exportBookings(){
-  if(!bookings.length){alert('No bookings to export.');return;}
-  const headers = ['REF','Status','Name','Email','Phone','Room','Guests','Check-in','Check-out','Nights','Requests','Date'];
-  const rows = bookings.map(b=>[
-    b.ref, b.status, b.name, b.email, b.phone,
-    b.roomName, b.guests+' guest'+(parseInt(guests)>1?'s':''), b.ci, b.co, b.nights+' night'+(b.nights>1?'s':''),
-    b.request||'', b.createdAt.slice(0,10)
-  ]);
-  const csv = [headers,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'glory_bookings_'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  showToast('CSV export complete');
 }
 
 /* ══ INIT ══ */
