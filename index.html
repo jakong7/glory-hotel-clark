@@ -668,6 +668,7 @@ const EMAILJS_SERVICE_ID = 'service_booking';
 const EMAILJS_TEMPLATE_ID = 'template_kvx6xxp';
 const EMAILJS_GUEST_TEMPLATE_ID = 'YOUR_GUEST_TEMPLATE_ID';
 const BOOKING_NOTIFY_EMAIL = 'jackhong7@gmail.com';
+let bookings = [];
 
 // Initialize EmailJS
 (function(){
@@ -1043,7 +1044,6 @@ function submitBooking(){
   // Keep max 100 bookings
   bookings.push(booking);
   if(bookings.length>100) bookings=bookings.slice(-100);
-  updateBookingBadge();
 
   // Send email notification
   sendBookingEmail(booking, room);
